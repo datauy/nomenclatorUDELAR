@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  import_version: one
+  object_type: MyString
+  object_id: 1
+
+two:
+  import_version: two
+  object_type: MyString
+  object_id: 1

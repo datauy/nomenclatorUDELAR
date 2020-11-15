@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building: one
+  type: 1
+  detail: MyString
+  name: MyString
+  person: one
+  observations: MyText
+  naming_details: MyText
+  naming_date: 2020-11-12
+
+two:
+  building: two
+  type: 1
+  detail: MyString
+  name: MyString
+  person: two
+  observations: MyText
+  naming_details: MyText
+  naming_date: 2020-11-12
