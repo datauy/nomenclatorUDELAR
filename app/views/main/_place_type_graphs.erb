@@ -1,0 +1,5 @@
+<% @ptype.each do |place, count| %>
+<div class="chart">
+  <%=  radial_bar_chart([ {name: place, data: count} ], {chart: { width: '80%', height: '100%'}}) %>
+</div>
+<% end %>

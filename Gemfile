@@ -26,6 +26,8 @@ gem 'pg'
 gem 'devise'
 gem 'activeadmin'
 gem 'image_processing'
+gem 'apexcharts'
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

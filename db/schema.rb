@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_024106) do
+ActiveRecord::Schema.define(version: 2021_07_21_112811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,18 +99,28 @@ ActiveRecord::Schema.define(version: 2021_06_26_024106) do
   end
 
   create_table "intangibles", force: :cascade do |t|
-    t.bigint "building_id", null: false
     t.text "detail"
     t.string "noun"
     t.string "name"
-    t.bigint "person_id", null: false
     t.text "observations"
     t.text "naming_details"
     t.date "naming_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["building_id"], name: "index_intangibles_on_building_id"
-    t.index ["person_id"], name: "index_intangibles_on_person_id"
+    t.bigint "thing_id"
+    t.index ["thing_id"], name: "index_intangibles_on_thing_id"
+  end
+
+  create_table "intangibles_people", id: false, force: :cascade do |t|
+    t.bigint "person_id", null: false
+    t.bigint "intangible_id", null: false
+    t.index ["intangible_id", "person_id"], name: "index_intangibles_people_on_intangible_id_and_person_id"
+  end
+
+  create_table "intangibles_services", id: false, force: :cascade do |t|
+    t.bigint "service_id", null: false
+    t.bigint "intangible_id", null: false
+    t.index ["service_id", "intangible_id"], name: "index_intangibles_services_on_service_id_and_intangible_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -121,20 +131,26 @@ ActiveRecord::Schema.define(version: 2021_06_26_024106) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "people_places", id: false, force: :cascade do |t|
+    t.bigint "place_id", null: false
+    t.bigint "person_id", null: false
+    t.index ["place_id", "person_id"], name: "index_people_places_on_place_id_and_person_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.bigint "building_id", null: false
     t.integer "type"
     t.string "detail"
     t.string "name"
-    t.bigint "person_id", null: false
     t.text "observations"
     t.text "naming_details"
     t.date "naming_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "ptype"
+    t.bigint "thing_id"
     t.index ["building_id"], name: "index_places_on_building_id"
-    t.index ["person_id"], name: "index_places_on_person_id"
+    t.index ["thing_id"], name: "index_places_on_thing_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -143,11 +159,18 @@ ActiveRecord::Schema.define(version: 2021_06_26_024106) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "things", force: :cascade do |t|
+    t.string "name"
+    t.integer "ttype"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "import_logs", "import_versions"
-  add_foreign_key "intangibles", "buildings"
-  add_foreign_key "intangibles", "people"
+  add_foreign_key "intangibles", "things"
   add_foreign_key "places", "buildings"
-  add_foreign_key "places", "people"
+  add_foreign_key "places", "things"
 end

@@ -1,0 +1,177 @@
+// Place all the styles related to the Main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@font-face {
+   font-family: 'HelveticaNeue';
+   src: url('HelveticaNeue-Regular.ttf');
+}
+@font-face {
+   font-family: 'HelveticaNeue';
+   src: url('HelveticaNeue-Bold.ttf');
+   font-weight: bold;
+}
+html * {
+  box-sizing: border-box;
+}
+body {
+  max-width: 100vw;
+  font-family: 'HelveticaNeue';
+  font-size: 10px;
+  color: #4a4a4a;
+  line-height: normal;
+  text-align: center;
+  .alert, .notice {
+    position: absolute;
+    background: white;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a4a4a;
+    text-align: left;
+    padding: 0 20px;
+  }
+  h3 {
+    color: #005598;
+    margin: 2px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+img {
+  width: 100%;
+}
+select {
+  max-width: 100%;
+}
+button {
+  cursor: pointer;
+}
+.menu {
+  display: none;
+}
+.hidden {
+  display: none;
+}
+.inner {
+  padding: 0 20px;
+}
+.home {
+  .header {
+    color: white;
+    background: #005598;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    .logo-udelar {
+      width: 60%;
+      max-width: 180px;
+      margin: 10px;
+    }
+    .sub-header {
+      margin: 10px 0;
+    }
+    .logo-prg {
+      width: 30%;
+      max-width: 80px;
+      margin-right: 25px;
+    }
+    .logo-data {
+      width: 30%;
+      max-width: 80px;
+    }
+    h1 {
+      color: white;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px auto 20px;
+      line-height: normal;
+    }
+  }
+  .derecho {
+    max-width: 560px
+  }
+  .group {
+    margin: 20px 0;
+    display: inline-block;
+    max-width: 100%;
+    width: 100%;
+  }
+  .apexcharts-canvas {
+    max-width: 100%;
+    .apexcharts-svg {
+      max-width: 100%;
+    }
+  }
+  .search {
+    button {
+      border-radius: 0;
+      background: #005598;
+      padding: 1px 10px;
+    }
+    form {
+      background: #005598;
+      display: inline-flex;
+      width: 100%;
+      justify-content: right;
+      padding: 10px;
+      input {
+        height: 22px;
+        width: 240px;
+      }
+    }
+    #search_results {
+      padding: 10px 20px;
+      height: 200px;
+      overflow-y: scroll;
+      border-bottom: 10px solid #005598;
+      .person-profile {
+        width: 100%;
+        .profile-visible {
+          display: inline-flex;
+          width: 100%;
+          align-items: center;
+          .profile-image {
+          }
+          .main-data {
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            .mini-bio{
+
+            }
+          }
+          button {
+            float: right;
+            height: 25px;
+            display: block;
+            margin: auto 0 auto auto;
+            min-width: 68px;
+          }
+        }
+        .extended-data {
+          width: 100%;
+          float: left;
+        }
+        button {
+
+        }
+      }
+    }
+  }
+  /*SALAS*/
+  .tipos-servicios {
+    text-align: left;
+    #place_type_graphs {
+      .chart {
+        float: left;
+        width: 33.3%;
+      }
+  }
+}
+
+
+}

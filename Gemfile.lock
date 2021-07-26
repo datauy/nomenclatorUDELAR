@@ -71,6 +71,8 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    apexcharts (0.1.10)
+      smart_kv (~> 0.2.8)
     arbre (1.4.0)
       activesupport (>= 3.0.0, < 6.2)
       ruby2_keywords (>= 0.0.2, < 1.0)
@@ -220,6 +222,7 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    smart_kv (0.2.8.1)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -266,12 +269,14 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  apexcharts
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
   devise
   image_processing
   jbuilder (~> 2.7)
+  jquery-rails
   listen (~> 3.2)
   pg
   puma (~> 4.1)

@@ -1,0 +1,101 @@
+<div class="home container">
+  <div class="header">
+      <%= image_tag 'logo-udelar.svg', class: 'logo-udelar' %>
+      <ul class="menu">
+        <li><a href="/sobre-proyecto">Sobre el proyecto</a></li>
+      </ul>
+      <div class="sub-header">
+        <%= image_tag 'logo-prg.svg', class: 'logo-prg' %>
+        <%= image_tag 'logo-data.svg', class: 'logo-data' %>
+      </div>
+      <h1>¿Qué lugar ocupan las mujeres en la UDELAR?</h1>
+  </div>
+  <div class="group main-image">
+    <%= image_tag 'derecho.svg', class: 'derecho' %>
+  </div>
+  <h2>Sólo <%= @total_woman %> de cada 10 de los espacios que llevan nombre (salas, aulas, edifios, etc.), reconocen a mujeres.</h2>
+  <div id="totals" class="group">
+  </div>
+  <script>
+    var lala = <%= raw(@per_type_series) %>
+    console.log(lala);
+    var options = {
+          series: lala,
+          chart: {
+          type: 'bar',
+          height: 350
+        },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: '55%',
+            endingShape: 'rounded'
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          show: true,
+          colors: ['transparent']
+        },
+        xaxis: {
+          categories: ['', '', ''],
+        },
+        yaxis: {
+          title: {
+            text: 'Camntidad nombrada'
+          }
+        },
+        fill: {
+          opacity: 1
+        },
+        tooltip: {
+          y: {
+            formatter: function (val) {
+              return "$ " + val + " thousands"
+            }
+          }
+        }
+        };
+    var chart = new ApexCharts(
+      document.querySelector("#totals"),
+      options
+    );
+    chart.render();
+  </script>
+  <h2>Quiénes son</h2>
+  <div class="search">
+    <%= form_with url: "/", method: :get do |form| %>
+      <%= form.text_field :query %>
+      <%= button_tag( :class => "search-button") do %>
+        <%= image_tag 'search.svg', class: 'icon-search', alt: "Buscar" %>
+      <% end %>
+    <% end %>
+    <div id="search_results" class="inner">
+      <%= render partial: "search_results" %>
+    </div>
+  </div>
+  <h2>Llevan nombres de mujeres</h2>
+  <div class="group inner tipos-servicios">
+    <select name="servicios" id="servicios">
+      <%= options_for_select( @services.map{|s| [s.name, s.id]} ) %>
+    </select>
+    <div id="place_type_graphs">
+      <%= render partial: "place_type_graphs" %>
+    </div>
+  </div>
+  <script>
+    $(document).ready(() => {
+      $('#servicios').change((val) => {
+        console.log($('#servicios').val());
+        $.ajax({
+          type: "get",
+          url: '/',
+          data: { "sid": $('#servicios').val() },
+          cache: false,
+        });
+      });
+    });
+  </script>
+</div>

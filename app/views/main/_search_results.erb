@@ -1,0 +1,27 @@
+<% if @results.present? && @results.size > 0 %>
+  <% @results.each do |person| %>
+  <div class="person-profile">
+    <div class="profile-visible">
+      <div class="profile-image">
+      <% if person.image.present? %>
+        <%= image_tag person.image %>
+      <% else %>
+        <%= image_tag "person-ico.png" %>
+      <% end %>
+      </div>
+      <div class="main-data">
+        <h3><%= person.name %></h3>
+        <div class="mini-bio">
+          <%= person.sex %>
+        </div>
+      </div>
+      <button class='more-data data-<%="#{person.id}"%>'>Más info.</button>
+    </div>
+    <div class='extended-data hidden extended-<%="#{person.id}"%>'>
+      <%= person.bio %>
+    </div>
+  </div>
+  <% end %>
+<% else %>
+  <div class="no-results">No hay resultados para la búsqueda</div>
+<% end %>

@@ -1,0 +1,8 @@
+if (<%= params['sid'].present? %>  == true) {
+  console.log('VA CON SID', <%= @per_type_series %>);
+  $('#place_type_graphs').html('<%= escape_javascript(render partial: "place_type_graphs") %>');
+}
+else {
+  console.log('VA POR SEARCH');
+  $('#search_results').html('<%= escape_javascript(render partial: "search_results") %>');
+}

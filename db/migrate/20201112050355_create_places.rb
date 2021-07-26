@@ -5,7 +5,6 @@ class CreatePlaces < ActiveRecord::Migration[6.0]
       t.integer :type
       t.string :detail
       t.string :name
-      t.references :person, null: false, foreign_key: true
       t.text :observations
       t.text :naming_details
       t.date :naming_date

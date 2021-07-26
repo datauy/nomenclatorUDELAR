@@ -8,7 +8,7 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  database: nomenclatorudelar
+  database: nomenclatorudelar1
   username: ats
   password: test4321
   host:     <%= ENV['ATUSERVICIO_DB_HOST'] %>
