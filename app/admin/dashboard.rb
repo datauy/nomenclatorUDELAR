@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
          panel "Lugares por sexo" do
            ul do
              Place.
-             joins(:person).
+             joins(:people).
              group("people.sex").
              count.
              map do |gender, qtty|

@@ -1,4 +1,4 @@
-<div class="home container">
+<div class="home main-container">
   <div class="header">
       <%= image_tag 'logo-udelar.svg', class: 'logo-udelar' %>
       <ul class="menu">
@@ -13,89 +13,102 @@
   <div class="group main-image">
     <%= image_tag 'derecho.svg', class: 'derecho' %>
   </div>
-  <h2>Sólo <%= @total_woman %> de cada 10 de los espacios que llevan nombre (salas, aulas, edifios, etc.), reconocen a mujeres.</h2>
-  <div id="totals" class="group">
+  <div class="container">
+    <h2>Sólo <%= @total_woman %> de cada 10 de los espacios que llevan nombre (salas, aulas, edifios, etc.), reconocen a mujeres.</h2>
+    <div id="totals" class="group">
+    </div>
+    <h2>Quiénes son</h2>
+    <div class="search">
+      <%= form_with url: "/", method: :get, html: { id: "search", remote: true } do |form| %>
+        <div class="type-select">
+          <div class="select-box">
+            <span></span>
+            <i class="arrow down"></i>
+          </div>
+          <div class="type-options hidden">
+            <label for="type_femenino"><%= form.radio_button :type, 'Femenino', {class: 'search_type', checked: true} %>Mujeres</label>
+            <label for="type_masculino"><%= form.radio_button :type, 'Masculino', class: 'search_type' %>Hombres</label>
+            <label for="type_todo"><%= form.radio_button :type, 'Todo', class: 'search_type' %>Todo</label>
+          </div>
+        </div>
+          <%= form.text_field :query %>
+          <%= button_tag( :class => "search-button") do %>
+            <%= image_tag 'search.svg', class: 'icon-search', alt: "Buscar" %>
+          <% end %>
+      <% end %>
+      <div id="search_results" class="inner">
+      </div>
+    </div>
+    <h2>Llevan nombres de mujeres</h2>
+    <div class="group inner tipos-servicios">
+      <select name="servicios" id="servicios">
+        <%= options_for_select( [["Toda la Universidad",0]] + @services.map{|s| [s.name, s.id]} ) %>
+      </select>
+      <div id="place_type_graphs">
+        <%= render partial: "place_type_graphs" %>
+      </div>
+    </div>
   </div>
   <script>
-    var lala = <%= raw(@per_type_series) %>
-    console.log(lala);
+    $(document).ready(() => {
     var options = {
-          series: lala,
-          chart: {
-          type: 'bar',
-          height: 350
+        series: <%= raw(@per_type_series) %>,
+        chart: {
+        type: 'bar',
+        height: 400
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: '55%',
+          endingShape: 'rounded'
         },
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded'
-          },
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          show: true,
-          colors: ['transparent']
-        },
-        xaxis: {
-          categories: ['', '', ''],
-        },
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        show: true,
+        colors: ['transparent']
+      },
+      grid: {
         yaxis: {
-          title: {
-            text: 'Camntidad nombrada'
-          }
-        },
-        fill: {
-          opacity: 1
-        },
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return "$ " + val + " thousands"
-            }
+          lines: {
+            show: false,
           }
         }
-        };
+      },
+      xaxis: {
+        categories: ['', '', ''],
+      },
+      fill: {
+        opacity: 1
+      },
+      annotations: {
+        xaxis: [
+          {
+            x: 1,
+            borderColor: '#775DD0',
+            image: {
+              href: '/assets/person-ico-1709004dcd62ef7f6a01343906f15fb11c8ae5cc21175fe32f7c435cc2b2e482.png',
+              height: "200",
+              width: "200"
+            },
+            label: {
+              style: {
+                color: '#4b4b4b4b',
+              },
+              text: 'X-axis annotation - 22 Nov'
+            }
+          }
+        ]
+      }
+    };
     var chart = new ApexCharts(
       document.querySelector("#totals"),
       options
     );
     chart.render();
-  </script>
-  <h2>Quiénes son</h2>
-  <div class="search">
-    <%= form_with url: "/", method: :get do |form| %>
-      <%= form.text_field :query %>
-      <%= button_tag( :class => "search-button") do %>
-        <%= image_tag 'search.svg', class: 'icon-search', alt: "Buscar" %>
-      <% end %>
-    <% end %>
-    <div id="search_results" class="inner">
-      <%= render partial: "search_results" %>
-    </div>
-  </div>
-  <h2>Llevan nombres de mujeres</h2>
-  <div class="group inner tipos-servicios">
-    <select name="servicios" id="servicios">
-      <%= options_for_select( @services.map{|s| [s.name, s.id]} ) %>
-    </select>
-    <div id="place_type_graphs">
-      <%= render partial: "place_type_graphs" %>
-    </div>
-  </div>
-  <script>
-    $(document).ready(() => {
-      $('#servicios').change((val) => {
-        console.log($('#servicios').val());
-        $.ajax({
-          type: "get",
-          url: '/',
-          data: { "sid": $('#servicios').val() },
-          cache: false,
-        });
-      });
-    });
+  });
   </script>
 </div>

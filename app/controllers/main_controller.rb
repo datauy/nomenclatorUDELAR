@@ -3,9 +3,22 @@ class MainController < ApplicationController
     respond_to do |format|
       format.js {
         if params[:query].present? && params[:query].size > 2
-          @results = Person.where("name like ?", "%#{params[:query]}%")
-        else
-          @results = []
+          results = Person.where("lower(name) like ?", "%#{params[:query].downcase}%")
+          if params[:type].present?
+            if params[:type] == 'Todo'
+              @results = results + Thing.where("lower(name) like ?", "%#{params[:query].downcase}%")
+            else
+              @results = results.where(sex: "#{params[:type]}")
+            end
+          else
+            @results = results.where(sex: "Femenino")
+          end
+        elsif params[:type].present?
+          if params[:type] == 'Todo'
+            @results = Person.all + Thing.all
+          else
+            @results = Person.where(sex: "#{params[:type]}")
+          end
         end
         if params[:sid].present?
           @ptype = places_with_name
@@ -20,6 +33,7 @@ class MainController < ApplicationController
         intangible_count = Intangible.joins(:people).group('people.sex').count
         total_count = type_count.merge(intangible_count) { |k, o, n| o + n }
         thing_count = Place.where.not(thing_id:nil).count + Intangible.where.not(thing_id:nil).count
+        @type = 'Femenino'
         #Sumo Hobre-mujer Mujer-hombre a cada uno
         total_count[0] = total_count[0] + total_count[2].to_i + total_count[3].to_i
         total_count[1] = total_count[1] + total_count[2].to_i + total_count[3].to_i
@@ -33,8 +47,9 @@ class MainController < ApplicationController
         @total_woman = ( type_count[1] * 10.0 / (type_count.values.reduce( :+ ) + thing_count) ).round(1)
         #@sex_count = Place.joins(:person).group('people.sex').count
         #random persons to list
-        offset = rand(Person.count)
-        @results = Person.offset(offset).limit(10)
+        #female = Person.where(sex: @type).count
+        #offset = rand(female)
+        @results = Person.where(sex: @type).limit(10)#offset(female - offset < 10 ? female - 10 : offset).limit(10)
         #servicios para filtro
         @services = Service.all.order(id: :desc)
         #Contador para ptype de places por servicio
@@ -59,7 +74,7 @@ class MainController < ApplicationController
   end
   #Contador para ptype de places por servicio
   def places_type_by_sex(sexes)
-    if ( params[:sid].present? )
+    if ( params[:sid].present? && params[:sid].to_i > 0 )
       puts "\nSID: #{params[:sid]}\n"
       q = Place.
       joins(building: [:services]).
