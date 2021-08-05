@@ -168,6 +168,29 @@ namespace :import do
       end
     end
   end
+  task :events, [:name, :file] => :environment do |_, args|
+    if args[:name].present? && args[:file].present?
+      file = args[:file]
+      import_name = args[:name]
+    else
+      next
+    end
+    require 'csv'
+    @import = Importer.new(import_name)
+    i = 0
+    CSV.foreach("db/data/#{file}", headers: true) do |row|
+      begin
+        i = i + 1
+        @import.createObj(Event, {
+          edate: row[0],
+          etype: row[1],
+          value: row[2]
+        })
+      rescue ArgumentError => err
+        puts "\n ERROR error: #{err} en línea: #{i} \n"
+      end
+    end
+  end
 end
 def get_date(date_str, i)
   begin

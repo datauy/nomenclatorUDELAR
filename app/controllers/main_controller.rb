@@ -41,7 +41,7 @@ class MainController < ApplicationController
         per_type_series = []
         per_type_series << { name: "Hombres", data: [type_count[0]] }
         per_type_series << { name: "Mujeres", data: [type_count[1]] }
-        per_type_series << { name: "Otres", data: [thing_count] }
+        per_type_series << { name: "Otro", data: [thing_count] }
         @per_type_series = per_type_series.to_json
         # TODO: Ver cómo calcularlo
         @total_woman = ( type_count[1] * 10.0 / (type_count.values.reduce( :+ ) + thing_count) ).round(1)
@@ -54,8 +54,8 @@ class MainController < ApplicationController
         @services = Service.all.order(id: :desc)
         #Contador para ptype de places por servicio
         @ptype = places_with_name
-        puts "\n\nACA VAMOS\n\n"
-        puts @ptype.inspect
+        #Get series for evolution
+        @ev_series = Event.select(:edate, :etype, :value).where(etype: ['Masculino', 'Femenino']).to_json
       }
     end
   end

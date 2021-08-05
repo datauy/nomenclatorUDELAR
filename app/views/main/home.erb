@@ -54,7 +54,7 @@
     </div>
     <h2 class="inner">Aunque no siempre fue así:</h2>
     <div id="evolution-graph">
-
+      <%= render partial: "evolution_graph" %>
     </div>
     <div class="group inner">
       <h2>La desigualdad también es visible en el personal</h2>
@@ -113,25 +113,6 @@
       fill: {
         opacity: 1
       },
-      annotations: {
-        xaxis: [
-          {
-            x: 1,
-            borderColor: '#775DD0',
-            image: {
-              href: '/assets/person-ico-1709004dcd62ef7f6a01343906f15fb11c8ae5cc21175fe32f7c435cc2b2e482.png',
-              height: "200",
-              width: "200"
-            },
-            label: {
-              style: {
-                color: '#4b4b4b4b',
-              },
-              text: 'X-axis annotation - 22 Nov'
-            }
-          }
-        ]
-      }
     };
     var chart = new ApexCharts(
       document.querySelector("#totals"),
