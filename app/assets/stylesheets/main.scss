@@ -51,6 +51,9 @@ button {
   margin: auto;
   max-width: 800px;
 }
+.blue {
+  background: #005598;
+}
 .arrow {
   border: solid #fff;
   border-top-width: medium;
@@ -135,7 +138,7 @@ button {
       max-width: 100%;
     }
   }
-  .search {
+  #search-container {
     .type-select {
       margin-right: auto;
       color: white;
@@ -212,6 +215,9 @@ button {
             display: block;
             margin: auto 0 auto auto;
             min-width: 68px;
+            &.active {
+              background-color: #05aef0;
+            }
           }
         }
         .extended-data {
@@ -244,8 +250,14 @@ button {
         float: left;
         width: 33.3%;
       }
+    }
   }
-}
-
-
+  #percentage-rank,
+  #percentage-totals {
+    min-height: 470px;
+  }
+  .note {
+    font-size: 18px;
+    line-height: 1.44;
+  }
 }

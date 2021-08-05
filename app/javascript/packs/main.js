@@ -21,11 +21,6 @@ $(document).ready(() => {
       search();
     }
   });
-  //Results
-  $('.more-data').click((person) => {
-    $(this).toggleClass('active');
-    $(person.target).parent().next().toggleClass('hidden');
-  });
   //ROOMS
   $('#servicios').change((val) => {
     $.ajax({
@@ -59,4 +54,7 @@ function triggerSearch(e, value) {
     return ret;
   }
   return false
+}
+function selectTab(tab) {
+  console.log("TAB: ", tab);
 }

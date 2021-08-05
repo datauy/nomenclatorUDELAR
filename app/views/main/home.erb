@@ -18,7 +18,7 @@
     <div id="totals" class="group">
     </div>
     <h2>Quiénes son</h2>
-    <div class="search">
+    <div id="search-container">
       <%= form_with url: "/", method: :get, html: { id: "search", remote: true } do |form| %>
         <div class="type-select">
           <div class="select-box">
@@ -40,7 +40,7 @@
       </div>
     </div>
     <h2>Llevan nombres de mujeres</h2>
-    <div class="group inner tipos-servicios">
+    <div id="services" class="group inner tipos-servicios">
       <select name="servicios" id="servicios">
         <%= options_for_select( [["Toda la Universidad",0]] + @services.map{|s| [s.name, s.id]} ) %>
       </select>
@@ -48,6 +48,35 @@
         <%= render partial: "place_type_graphs" %>
       </div>
     </div>
+    <h2 class="inner">Sin embargo, la mayoría de quienes estudian y se reciben, son mujeres.</h2>
+    <div id="percentage-totals" class="group blue">
+
+    </div>
+    <h2 class="inner">Aunque no siempre fue así:</h2>
+    <div id="evolution-graph">
+
+    </div>
+    <div class="group inner">
+      <h2>La desigualdad también es visible en el personal</h2>
+      <div class="tab-selector">
+        <button id="tab-docentes" onclick="selectTab('docentes')" class="active">DOCENTES</button>
+        <button id="tab-funcionaries" onclick="selectTab('funcionaries')" >FUNCIONARIAS/OS</button>
+      </div>
+    </div>
+    <div id="percentage-rank" class="group blue">
+
+    </div>
+    <p class="inner note">
+      Desde UDELAR queremos corregir esta situación a través de Nombre del proyecto, y una descripción muy breve.
+    </p>
+    <p class="inner note">
+      Por un lado, queremos corregir el desequilibrio en los nombres de espacios, y necesitamos tus propuestas.
+    </p>
+    <a href="/" class="btn btn-blue">PROPONÉ NOMBRES</a>
+    <p class="inner note">
+      Además, queremos pensar cómo la Universidad debe mejorar para cambiar estas inequidades.
+    </p>
+    <a href="/" class="btn btn-blue">PROPONÉ IDEAS</a>
   </div>
   <script>
     $(document).ready(() => {
