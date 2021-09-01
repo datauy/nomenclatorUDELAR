@@ -5,13 +5,15 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
+  adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  database: nomenclatorudelar1
-  username: ats
-  password: test4321
+  encoding: utf8
+  database: nomenclator6
+  username: root
+  password: password
   host:     <%= ENV['ATUSERVICIO_DB_HOST'] %>
+  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default

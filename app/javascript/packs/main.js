@@ -1,3 +1,18 @@
+var chart_options = {
+  color: '#005598',
+  gear_size: "50%",
+  icon_relation: [3.5,3]
+}
+var graph_options = {
+  color: "#ee7474",
+  gear_size: "65%",
+  icon_relation: [2,5]
+}
+
+//Docentes y Funcionarios
+window.selectTab = function(tab) {
+  console.log("TAB: ", tab);
+}
 $(document).ready(() => {
   //Set search type by checked
   $('.select-box span').text($('.search_type:checked').val());
@@ -21,16 +36,21 @@ $(document).ready(() => {
       search();
     }
   });
-  //ROOMS
+  //SERVICIOS
   $('#servicios').change((val) => {
     $.ajax({
       type: "get",
       url: '/',
       data: { "sid": $('#servicios').val() },
-      //cache: false,
+      success: function(event) {
+        totalsCharts(charts, chart_options);
+      }
     });
   });
+  totalsCharts(charts, chart_options);
 });
+
+// SEARCH
 function search() {
   $.ajax({
     type: "get",
@@ -55,6 +75,54 @@ function triggerSearch(e, value) {
   }
   return false
 }
-function selectTab(tab) {
-  console.log("TAB: ", tab);
+//Gráficas de Totales
+window.totalsCharts = function(graphs, custom_options = graph_options) {
+  $.each(graphs, function(elemId, percentage) {
+    var options = {
+      chart: {
+        type: 'radialBar',
+        events: {
+          mounted: (chartContext, config) => {
+            try {
+              var ico = chartContext.el.parentNode.previousElementSibling;
+              ico.style.height = Math.round(chartContext.el.offsetHeight/custom_options.icon_relation[0])+"px";
+              ico.style.top = Math.round(chartContext.el.offsetHeight/custom_options.icon_relation[1])+"px";
+            } catch (e) {
+              // Chart is not displayed, so error raised
+              console.log('Error calculating height', e);
+            }
+          },
+          updated: (chartContext, config) => {
+            try {
+              var ico = chartContext.el.parentNode.previousElementSibling;
+              ico.style.height = Math.round(chartContext.el.offsetHeight/custom_options.icon_relation[0])+"px";
+              ico.style.top = Math.round(chartContext.el.offsetHeight/custom_options.icon_relation[1])+"px";
+            } catch (e) {
+              // Chart is not displayed, so error raised
+              console.log('Error calculating height', e);
+            }
+          }
+        }
+      },
+      series: [percentage],
+      colors: [custom_options.color],
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            size: custom_options.gear_size
+          },
+          dataLabels: {
+            name: {
+              show: false
+            },
+            value: {
+              show: false
+            },
+          }
+        }
+      }
+    }
+    var chart = new ApexCharts(document.getElementById(elemId), options);
+    chart.render();
+  });
 }

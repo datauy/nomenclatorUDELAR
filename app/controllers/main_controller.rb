@@ -20,11 +20,12 @@ class MainController < ApplicationController
             @results = Person.where(sex: "#{params[:type]}")
           end
         end
+        @ptype = []
         if params[:sid].present?
           @ptype = places_with_name
-        else
-          @ptype = []
         end
+        @load_graphs = true;
+        get_totals
       }
       format.html{
         #Contador para gráfica de totales
@@ -44,7 +45,7 @@ class MainController < ApplicationController
         per_type_series << { name: "Otro", data: [thing_count] }
         @per_type_series = per_type_series.to_json
         # TODO: Ver cómo calcularlo
-        @total_woman = ( type_count[1] * 10.0 / (type_count.values.reduce( :+ ) + thing_count) ).round(1)
+        @percentage_woman = ( type_count[1] * 10.0 / (type_count.values.reduce( :+ ) + thing_count) ).round(1)
         #@sex_count = Place.joins(:person).group('people.sex').count
         #random persons to list
         #female = Person.where(sex: @type).count
@@ -54,11 +55,30 @@ class MainController < ApplicationController
         @services = Service.all.order(id: :desc)
         #Contador para ptype de places por servicio
         @ptype = places_with_name
+        logger.info { "\n\nPTYPE:\n #{@ptype}\n\n" }
         #Get series for evolution
         @ev_series = Event.select(:edate, :etype, :value).where(etype: ['Masculino', 'Femenino']).to_json
+        #Get totals
+        @load_graphs = false;
+        get_totals
       }
     end
   end
+  #Total number of students per service
+  def get_totals
+    totals = ServiceDatum.select('serv_data_type, woman, man')
+    @total_woman = ServiceDatum.select('serv_data_type, woman')
+    if params[:sid].present? && params[:sid].to_i > 0
+      totals = totals.where(service_id: params[:sid])
+      @total_woman = @total_woman.where(service_id: params[:sid])
+    end
+    totals = totals.group(:serv_data_type).sum('woman + man')
+    @total_woman = @total_woman.group(:serv_data_type).sum('woman')
+    logger.info "\n\nTOTAL WOMAN: n#{@total_woman.inspect}\n\n"
+    @total_woman.merge!(totals){|key, woman, all| (woman || 0)*100/(all != 0 ? all : 1)}
+    logger.info "\n\nTOTAL TOTAL: n#{@total_woman.inspect}\n\n"
+  end
+  #Counts per Place type
   def places_with_name
     ptype_women = places_type_by_sex([1,2,3])
     ptype_total = places_type_by_sex([])
@@ -84,7 +104,7 @@ class MainController < ApplicationController
       else
         res = q.joins(:people).where('people.sex': sexes)
       end
-      res.group(:ptype).count
+      res.group(:serv_data_type).count
     else
       puts "\nSIN SID\n"
       if sexes.blank?
@@ -92,13 +112,14 @@ class MainController < ApplicationController
       else
         res = Place.joins(:people).where('people.sex': sexes)
       end
-      res.group(:ptype).count
+      res.group(:serv_data_type).count
     end
   end
+  #
   def places_types_totals
     Place.joins(:people).
     where('people.sex': sexes).
-    group(:ptype).
+    group(:serv_data_type).
     count
   end
 

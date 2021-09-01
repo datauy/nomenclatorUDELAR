@@ -28,7 +28,7 @@ gem 'activeadmin'
 gem 'image_processing'
 gem 'apexcharts'
 gem 'jquery-rails'
-
+gem 'mysql2'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

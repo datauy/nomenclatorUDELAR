@@ -2,62 +2,173 @@
 
 
 <script>
-/*
-annotations: {
-  xaxis: [
-    {
-      x: 1,
-      borderColor: '#775DD0',
-      image: {
-        href: '/assets/person-ico-1709004dcd62ef7f6a01343906f15fb11c8ae5cc21175fe32f7c435cc2b2e482.png',
-        height: "200",
-        width: "200"
-      },
-      label: {
-        style: {
-          color: '#4b4b4b4b',
-        },
-        text: 'X-axis annotation - 22 Nov'
-      }
-    }
-  ]
-}
-*/
-console.log(<%= raw(@ev_series) %>);
-options = {
+  /*
   annotations: {
     xaxis: [
       {
-        x: new Date('23 Nov 2018').getTime(),
+        x: 1,
         borderColor: '#775DD0',
+        image: {
+          href: '/assets/person-ico-1709004dcd62ef7f6a01343906f15fb11c8ae5cc21175fe32f7c435cc2b2e482.png',
+          height: "200",
+          width: "200"
+        },
         label: {
           style: {
-            color: '#fff',
+            color: '#4b4b4b4b',
           },
-          borderColor: '#775DD0',
-          orientation: 'horizontal',
           text: 'X-axis annotation - 22 Nov'
         }
       }
     ]
   }
-  series: [{
-    data: [{
-      x: new Date('2018-02-12').getTime(),
-      y: 76
-    }, {
-      x: new Date('2018-02-12').getTime(),
-      y: 76
-    }]
-  }],
-  xaxis: {
-    type: 'datetime'
+  */
+  var raw_data = <%= raw(@ev_series) %>;
+  console.log(raw_data);
+  var series_obj = {};
+  raw_data.forEach( obj => {
+    if (!series_obj.hasOwnProperty(obj.etype)) {
+      series_obj[obj.etype] = {
+        name: obj.etype,
+        data: []
+      }
+    }
+    series_obj[obj.etype].data.push({
+      x: new Date(obj.edate).getTime(),
+      y: obj.value
+    });
+  });
+  el = document.querySelector("#evolution-graph");
+/*  options = {
+    chart: {
+      type: 'line',
+      height: 400,
+      id: 'evolution',
+      group: 'evol',
+    },
+    series: Object.values(series_obj),
+    yaxis: {
+      labels: {
+        minWidth: 40
+      }
+    },
+    xaxis: {
+      type: 'datetime',
+      tooltip: {
+        enabled: true
+      },
+      labels: {
+        minWidth: 40
+      }
+    }
   }
-}
-var ev_chart = new ApexCharts(
-  document.querySelector("#evolution-graph"),
-  options
-);
-chart.render();
+  var ev_chart = new ApexCharts( el, options);
+  ev_chart.render();
+
+  options = {
+    chart: {
+      type: 'line',
+      height: 200,
+      id: 'milestones',
+      group: 'evol',
+    },
+    series: [
+      {
+        name: "Ésto es lo que pasó...",
+        data: [{
+          x: new Date('2010-01-01').getTime(),
+          y: 1
+        }]
+      },
+      {
+        name: "Segundo hito, quizás el más importante",
+        data: [{
+          x: new Date('1990-01-01').getTime(),
+          y: 1
+        }]
+      },
+    ],
+    yaxis: {
+      labels: {
+        minWidth: 40
+      }
+    },
+    plotOptions: {
+      line: {
+        horizontal: false,
+        dataLabels: {
+          style: {
+            fontSize: '14px',
+            fontWeight: 'bold',
+          },
+          position: 'bottom',
+          enabled: true,
+          textAnchor: 'start',
+          formatter: function(val, opt) {
+              return opt.w.globals.labels[opt.dataPointIndex]
+          },
+          offsetX: 0,
+        }
+      }
+    },
+    xaxis: {
+      type: 'datetime',
+      tooltip: {
+        enabled: false
+      },
+      labels: {
+        minWidth: 40
+      }
+    }
+  }
+  var ev_chart = new ApexCharts( el, options);
+  ev_chart.render();*/
+  var milestones = {
+    1990: {
+      img: 'https://data.org.uy/wp-content/uploads/2014/10/logo.png',
+      title: 'Punto de inflexión',
+      desc: 'Con esta herramienta podemos hacer magia :)'
+    },
+    2010: {
+      img: 'https://data.org.uy/wp-content/uploads/2014/10/logo.png',
+      title: 'Ahora siiiii',
+      desc: 'Con esta herramienta podemos hacer &#013;&#010;magia :). Esta es una descripción realmente&#013;&#010; larga, espero que a nadie se le ocurra&#013;&#010; hacer esto. Simplemente es inviable.'
+    },
+  };
+  var optionsLine = {
+  series: Object.values(series_obj),
+  chart: {
+    id: 'evolution',
+    group: 'evol',
+    type: 'line',
+  },
+  xaxis: {
+    type: 'datetime',
+  },
+  tooltip: {
+    custom: function({series, seriesIndex, dataPointIndex, w}) {
+      //let data_obj = raw_data[dataPointIndex];
+      let year = raw_data[dataPointIndex].edate.split('-')[0];
+      let header = '<div class="timeline-tooltip">' +
+        '<div class="tooltip-header">' +
+          '<p>Hombres: ' + series[0][dataPointIndex] + '</p>' +
+          '<p>Mujeres: ' + series[1][dataPointIndex] + '</p>' +
+        '</div>';
+      if (milestones.hasOwnProperty(year)) {
+        let milestone = milestones[year];
+        header += '<div class="tooltip-body">' +
+          '<img src="'+ milestone.img +'">'+
+          '<foreignObject class="tooltip-desc">' +
+            '<h3>' + milestone.title + '</h3>' +
+            '<p> ' + milestone.desc + '</p>' +
+          '</foreignObject>'+
+        '</div>';
+      }
+      return header += '</div>'
+    }
+  }
+};
+var chart = new ApexCharts(el, optionsLine)
+chart.render()
 
 </script>

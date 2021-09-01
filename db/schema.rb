@@ -10,12 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_053144) do
+ActiveRecord::Schema.define(version: 2021_08_31_083857) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "active_admin_comments", force: :cascade do |t|
+  create_table "active_admin_comments", charset: "utf8", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
@@ -29,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_053144) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-  create_table "active_storage_attachments", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -39,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_053144) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -51,13 +48,13 @@ ActiveRecord::Schema.define(version: 2021_08_05_053144) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "admin_users", force: :cascade do |t|
+  create_table "admin_users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -69,7 +66,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_053144) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "buildings", force: :cascade do |t|
+  create_table "buildings", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.integer "state"
@@ -77,23 +74,23 @@ ActiveRecord::Schema.define(version: 2021_08_05_053144) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "buildings_services", id: false, force: :cascade do |t|
+  create_table "buildings_services", id: false, charset: "utf8", force: :cascade do |t|
     t.bigint "service_id", null: false
     t.bigint "building_id", null: false
     t.index ["service_id", "building_id"], name: "index_buildings_services_on_service_id_and_building_id"
   end
 
-  create_table "events", force: :cascade do |t|
+  create_table "events", charset: "utf8", force: :cascade do |t|
     t.integer "etype"
     t.string "title"
     t.text "description"
     t.integer "value"
-    t.date "date"
+    t.date "edate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "import_logs", force: :cascade do |t|
+  create_table "import_logs", charset: "utf8", force: :cascade do |t|
     t.bigint "import_version_id", null: false
     t.string "object_type"
     t.integer "object_id"
@@ -102,13 +99,13 @@ ActiveRecord::Schema.define(version: 2021_08_05_053144) do
     t.index ["import_version_id"], name: "index_import_logs_on_import_version_id"
   end
 
-  create_table "import_versions", force: :cascade do |t|
+  create_table "import_versions", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "intangibles", force: :cascade do |t|
+  create_table "intangibles", charset: "utf8", force: :cascade do |t|
     t.text "detail"
     t.string "noun"
     t.string "name"
@@ -121,19 +118,19 @@ ActiveRecord::Schema.define(version: 2021_08_05_053144) do
     t.index ["thing_id"], name: "index_intangibles_on_thing_id"
   end
 
-  create_table "intangibles_people", id: false, force: :cascade do |t|
+  create_table "intangibles_people", id: false, charset: "utf8", force: :cascade do |t|
     t.bigint "person_id", null: false
     t.bigint "intangible_id", null: false
     t.index ["intangible_id", "person_id"], name: "index_intangibles_people_on_intangible_id_and_person_id"
   end
 
-  create_table "intangibles_services", id: false, force: :cascade do |t|
+  create_table "intangibles_services", id: false, charset: "utf8", force: :cascade do |t|
     t.bigint "service_id", null: false
     t.bigint "intangible_id", null: false
     t.index ["service_id", "intangible_id"], name: "index_intangibles_services_on_service_id_and_intangible_id"
   end
 
-  create_table "people", force: :cascade do |t|
+  create_table "people", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.text "bio"
     t.integer "sex"
@@ -141,13 +138,13 @@ ActiveRecord::Schema.define(version: 2021_08_05_053144) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "people_places", id: false, force: :cascade do |t|
+  create_table "people_places", id: false, charset: "utf8", force: :cascade do |t|
     t.bigint "place_id", null: false
     t.bigint "person_id", null: false
     t.index ["place_id", "person_id"], name: "index_people_places_on_place_id_and_person_id"
   end
 
-  create_table "places", force: :cascade do |t|
+  create_table "places", charset: "utf8", force: :cascade do |t|
     t.bigint "building_id", null: false
     t.integer "type"
     t.string "detail"
@@ -159,17 +156,49 @@ ActiveRecord::Schema.define(version: 2021_08_05_053144) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "ptype"
     t.bigint "thing_id"
+    t.bigint "serv_data_type_id", null: false
     t.index ["building_id"], name: "index_places_on_building_id"
+    t.index ["serv_data_type_id"], name: "index_places_on_serv_data_type_id"
     t.index ["thing_id"], name: "index_places_on_thing_id"
   end
 
-  create_table "services", force: :cascade do |t|
+  create_table "serv_data_types", charset: "utf8", force: :cascade do |t|
+    t.string "stype"
+    t.string "name"
+    t.integer "model_type"
+    t.integer "weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "service_data", charset: "utf8", force: :cascade do |t|
+    t.bigint "service_id", null: false
+    t.integer "stype"
+    t.integer "man"
+    t.integer "woman"
+    t.integer "year"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "serv_data_type_id", null: false
+    t.index ["serv_data_type_id"], name: "index_service_data_on_serv_data_type_id"
+    t.index ["service_id"], name: "index_service_data_on_service_id"
+  end
+
+  create_table "service_tags", charset: "utf8", force: :cascade do |t|
+    t.bigint "service_id", null: false
+    t.string "tag"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_service_tags_on_service_id"
+  end
+
+  create_table "services", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "things", force: :cascade do |t|
+  create_table "things", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.integer "ttype"
     t.text "description"
@@ -182,5 +211,9 @@ ActiveRecord::Schema.define(version: 2021_08_05_053144) do
   add_foreign_key "import_logs", "import_versions"
   add_foreign_key "intangibles", "things"
   add_foreign_key "places", "buildings"
+  add_foreign_key "places", "serv_data_types"
   add_foreign_key "places", "things"
+  add_foreign_key "service_data", "serv_data_types"
+  add_foreign_key "service_data", "services"
+  add_foreign_key "service_tags", "services"
 end

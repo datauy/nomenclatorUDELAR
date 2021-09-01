@@ -1,5 +1,20 @@
-<% @ptype.each do |place, count| %>
-<div class="chart">
-  <%=  radial_bar_chart([ {name: place, data: count} ], {chart: { width: '80%', height: '100%'}}) %>
-</div>
+<%
+charts = {};
+@ptype.each do |k,v|
+  logger.info { "\nKKKKKKKKKKKKKKKKK: #{k.inspect}\n" }
+  charts[k.stype] = v
+%>
+  <div class="chart-container">
+    <div class="chart">
+      <%= image_tag k.icon, class: "graph-ico" %>
+      <div class="graph-container">
+        <div id="<%= k.stype %>" ></div>
+      </div>
+    </div>
+    <div class="totals">
+      <%= v %>%
+      <span><%= k.name %></span>
+    </div>
+  </div>
 <% end %>
+<%= javascript_tag "var charts =  #{charts.to_json};" %>
