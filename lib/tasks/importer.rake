@@ -33,14 +33,14 @@ namespace :import do
       import_name = 'initial'
     end
     puts "\n\ncalling\n"
-    #Rake::Task["import:services"].invoke("#{import_name}-servicios", "servicios.csv")
-    #Rake::Task["import:serv_data_types"].invoke("#{import_name}-serv_data_types", "stypes.csv")
-    #Rake::Task["import:service_data"].invoke("#{import_name}-docentes", "servicios-docentes.csv", "docente")
-    #Rake::Task["import:service_data"].invoke("#{import_name}-funcionaries", "servicios-funcionaries.csv", "funcionarie")
-    #Rake::Task["import:service_data"].invoke("#{import_name}-funcionaries-ingreso-posgrados", "servicios-ingreso-posgrados.csv", 4)
-    #Rake::Task["import:service_data"].invoke("#{import_name}-funcionaries-ingreso-estudiantes", "servicios-ingreso-estudiantes.csv", 1)
+    Rake::Task["import:services"].invoke("#{import_name}-servicios", "servicios.csv")
+    Rake::Task["import:serv_data_types"].invoke("#{import_name}-serv_data_types", "stypes.csv")
+    Rake::Task["import:service_data"].invoke("#{import_name}-docentes", "servicios-docentes.csv", "docente")
+    Rake::Task["import:service_data"].invoke("#{import_name}-funcionaries", "servicios-funcionaries.csv", "funcionarie")
+    Rake::Task["import:service_data"].invoke("#{import_name}-funcionaries-ingreso-posgrados", "servicios-ingreso-posgrados.csv", 4)
+    Rake::Task["import:service_data"].invoke("#{import_name}-funcionaries-ingreso-estudiantes", "servicios-ingreso-estudiantes.csv", 1)
     Rake::Task["import:places"].invoke("#{import_name}-places", "PlanillasUnificadas-20210720-Lugares.csv")
-    #Rake::Task["import:intangibles"].invoke("#{import_name}-intangibles", "PlanillasUnificadas-20210720-Intangibles.csv")
+    Rake::Task["import:intangibles"].invoke("#{import_name}-intangibles", "PlanillasUnificadas-20210720-Intangibles.csv")
   end
   ###########################
   task :places, [:name, :file] => :environment do |_, args|
