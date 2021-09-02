@@ -12,6 +12,8 @@ var graph_options = {
 //Docentes y Funcionarios
 window.selectTab = function(tab) {
   console.log("TAB: ", tab);
+  $('.percentage-tabs').toggleClass('active');
+  $('.tab-btn').toggleClass('active');
 }
 $(document).ready(() => {
   //Set search type by checked

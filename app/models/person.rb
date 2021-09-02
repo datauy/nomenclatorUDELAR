@@ -1,6 +1,6 @@
 class Person < ApplicationRecord
   has_one_attached :image
-  has_many :places
+  has_and_belongs_to_many :places
   enum sex: [
     :'Masculino',
     :'Femenino',

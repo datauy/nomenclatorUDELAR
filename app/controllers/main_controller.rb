@@ -46,6 +46,7 @@ class MainController < ApplicationController
         @per_type_series = per_type_series.to_json
         # TODO: Ver cómo calcularlo
         @percentage_woman = ( type_count[1] * 10.0 / (type_count.values.reduce( :+ ) + thing_count) ).round(1)
+        @percentage_things = ( thing_count * 10.0 / (type_count.values.reduce( :+ ) + thing_count) ).round(1)
         #@sex_count = Place.joins(:person).group('people.sex').count
         #random persons to list
         #female = Person.where(sex: @type).count
@@ -74,9 +75,7 @@ class MainController < ApplicationController
     end
     totals = totals.group(:serv_data_type).sum('woman + man')
     @total_woman = @total_woman.group(:serv_data_type).sum('woman')
-    logger.info "\n\nTOTAL WOMAN: n#{@total_woman.inspect}\n\n"
     @total_woman.merge!(totals){|key, woman, all| (woman || 0)*100/(all != 0 ? all : 1)}
-    logger.info "\n\nTOTAL TOTAL: n#{@total_woman.inspect}\n\n"
   end
   #Counts per Place type
   def places_with_name
@@ -102,7 +101,7 @@ class MainController < ApplicationController
       if sexes.blank?
         res = q
       else
-        res = q.joins(:people).where('people.sex': sexes)
+        res = q.includes(:people).where('people.sex': sexes)
       end
       res.group(:serv_data_type).count
     else
@@ -110,14 +109,14 @@ class MainController < ApplicationController
       if sexes.blank?
         res = Place
       else
-        res = Place.joins(:people).where('people.sex': sexes)
+        res = Place.includes(:people).where('people.sex': sexes)
       end
       res.group(:serv_data_type).count
     end
   end
   #
   def places_types_totals
-    Place.joins(:people).
+    Place.includes(:people).
     where('people.sex': sexes).
     group(:serv_data_type).
     count

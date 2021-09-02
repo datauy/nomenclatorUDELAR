@@ -7,9 +7,9 @@ class Service < ApplicationRecord
   def self.search(query)
     textual = Service.find_by(name: query)
     if textual.blank?
-      sid = ServiceTag.select(:id).where(tag: query)
+      sid = ServiceTag.select(:service_id).where(tag: query)
       if sid.present?
-        Service.find( sid.ids[0] )
+        Service.find( sid.first.service_id )
       end
     else
       textual
