@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @font-face {
    font-family: 'OpenSans';
-   src: url('OpenSans-Regular.ttf');
+   src: url('/fonts/OpenSans-Regular.ttf');
 }
 @font-face {
    font-family: 'OpenSans';
-   src: url('OpenSans-Bold.ttf');
+   src: url('/fonts/OpenSans-Bold.ttf');
    font-weight: bold;
 }
 html * {
@@ -19,7 +19,6 @@ body {
   font-size: 10px;
   color: #4a4a4a;
   line-height: normal;
-  text-align: center;
   .alert, .notice {
     position: absolute;
     background: white;
@@ -122,4 +121,7 @@ a {
     font-weight: bold;
 
   }
+}
+a.button, a.button:link, a.button:visited, input[type="submit"], input[type="button"], button {
+  text-shadow: none;
 }

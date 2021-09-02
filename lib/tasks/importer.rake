@@ -281,17 +281,18 @@ namespace :import do
   #
   task :serv_data_types, [] => :environment do |_, args|
     i = 0;
+    @import = Importer.new(import_name)
+
     CSV.foreach("db/data/stypes.csv") do |row|
       i += 1
-      ServDataType.create(
-        {
-          model_type: row[0],
-          stype: row[1],
-          name: row[2],
-          weight: i,
-          icon: {io: File.open('app/assets/images/ico-mujer.svg'), filename: "ico-mujer"}
-        }
-      )
+      @import.createObj(ServDataType,
+      {
+        model_type: row[0],
+        stype: row[1],
+        name: row[2],
+        weight: i,
+        icon: {io: File.open('app/assets/images/ico-mujer.svg'), filename: "ico-mujer"}
+      })
     end
   end
   #

@@ -110,6 +110,9 @@
       border-bottom: 10px solid #005598;
       .person-profile {
         width: 100%;
+        display: grid;
+        margin-bottom: 10px;
+        padding: 10px;
         .profile-visible {
           display: inline-flex;
           width: 100%;
@@ -141,6 +144,7 @@
         .extended-data {
           width: 100%;
           float: left;
+          margin: 10px 0;
         }
         button {
 
@@ -241,6 +245,10 @@
       }
     }
   }
+  //DATA
+  .tab-selector {
+    text-align: center;
+  }
   .timeline-tooltip {
     margin: 10px;
     max-width: 80vw;
@@ -298,6 +306,9 @@
       top: 0;
       width: 100%;
       height: 100%;
+      svg {
+        fill: #005598;
+      }
     }
   }
 }
