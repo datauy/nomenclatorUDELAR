@@ -89,6 +89,7 @@ a {
   font-weight: 600;
   display: block;
   max-width: 400px;
+  text-align: center;
   &.btn-blue {
     margin: 0 auto;
     color: white;
@@ -110,6 +111,46 @@ a {
 }
 .inner-out {
   margin: 0 20px;
+}
+.group {
+  margin: 24px 0;
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+//******* HEADER **********//
+.header {
+  color: white;
+  background: #005598;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  .logo-udelar {
+    width: 60%;
+    max-width: 180px;
+    margin: 10px;
+  }
+  .sub-header {
+    margin: 10px 0;
+  }
+  .logo-prg {
+    width: 30%;
+    max-width: 80px;
+    margin-right: 25px;
+  }
+  .logo-data {
+    width: 30%;
+    max-width: 80px;
+  }
+  h1 {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px auto 20px;
+    line-height: normal;
+  }
 }
 #footer {
   margin-top: 50px;

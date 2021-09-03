@@ -37,7 +37,9 @@
     <h2 class="group inner">
       Sólo <%= @percentage_woman %> de cada 10 de los espacios que llevan nombre (salas, aulas, edifios, etc.), reconocen a mujeres.
     </h2>
-    <div id="totals" class="">
+    <div id="totals">
+      <div class="totals-container">
+      </div>
     </div>
     <h2 class="group inner">
       Quiénes son
@@ -160,7 +162,7 @@
       },
     };
     var chart = new ApexCharts(
-      document.querySelector("#totals"),
+      document.querySelector(".totals-container"),
       options
     );
     chart.render();

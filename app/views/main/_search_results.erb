@@ -26,6 +26,7 @@
     //Results
     $('.more-data').click((person) => {
       $(person.target).toggleClass('active');
+      $(person.target).parent().parent().toggleClass('active');
       $(person.target).parent().next().toggleClass('hidden');
     });
   </script>

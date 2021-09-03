@@ -1,59 +1,29 @@
 .home {
-  .header {
-    color: white;
-    background: #005598;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    .logo-udelar {
-      width: 60%;
-      max-width: 180px;
-      margin: 10px;
-    }
-    .sub-header {
-      margin: 10px 0;
-    }
-    .logo-prg {
-      width: 30%;
-      max-width: 80px;
-      margin-right: 25px;
-    }
-    .logo-data {
-      width: 30%;
-      max-width: 80px;
-    }
-    h1 {
-      color: white;
-      font-size: 26px;
-      font-weight: bold;
-      text-align: center;
-      margin: 30px auto 20px;
-      line-height: normal;
-    }
-  }
   .derecho {
     min-height: 100%;
     width: auto;
     position: relative;
   }
-  .group {
-    margin: 24px 0;
-    display: inline-block;
-    max-width: 100%;
-    width: 100%;
-    overflow: hidden;
-    &.main-image {
-      display: flex;
-      justify-content: center;
-      height: max-content;
-      min-height: 40vh;
-      position: relative;
-    }
+  .main-image {
+    display: flex;
+    justify-content: center;
+    height: max-content;
+    min-height: 40vh;
+    position: relative;
   }
-  .apexcharts-canvas {
-    max-width: 100%;
-    .apexcharts-svg {
-      max-width: 100%;
+  #totals {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    .totals-container {
+      max-width: 800px;
+      .apexcharts-canvas {
+        //max-width: 100%;
+        .apexcharts-svg {
+          max-width: 100%;
+        }
+      }
     }
   }
   #search-container {
@@ -113,11 +83,15 @@
         display: grid;
         margin-bottom: 10px;
         padding: 10px;
+        &.active {
+          background: #CCC;
+        }
         .profile-visible {
           display: inline-flex;
           width: 100%;
           align-items: center;
-          .profile-image {
+          .profile-image img {
+            border-radius: 50%;
           }
           .main-data {
             margin-left: 10px;
@@ -164,8 +138,8 @@
       font-size: 12px;
       font-weight: bold;
       text-align: center;
-      position: absolute;
-      bottom: -10px;
+      position: relative;
+      //bottom: -10px;
     }
     select {
       width: 100%;
@@ -182,12 +156,17 @@
       .chart-container {
         float: left;
         position: relative;
-        width: 33.3%;
+        width: 25%;
         margin-bottom: 10px;
-
-      }
-      .chart {
-        //float: left;
+        height: 25vw;
+        .chart {
+          //float: left;
+          height: 20vw;
+          .graph-chart {
+            display: flex;
+            justify-content: center;
+          }
+        }
       }
     }
   }
@@ -237,6 +216,7 @@
         font-weight: bold;
         width: 50%;
         margin-bottom: 16px;
+        text-align: center;
         span {
           font-size: 14px;
           width: 100%;

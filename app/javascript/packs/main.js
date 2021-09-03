@@ -1,12 +1,14 @@
 var chart_options = {
   color: '#005598',
   gear_size: "50%",
-  icon_relation: [3.5,3]
+  icon_relation: [3.5,3],
+  size: '150%',
 }
 var graph_options = {
   color: "#ee7474",
   gear_size: "65%",
-  icon_relation: [2,5]
+  icon_relation: [2,5],
+  size: '100%',
 }
 
 //Docentes y Funcionarios
@@ -83,6 +85,7 @@ window.totalsCharts = function(graphs, custom_options = graph_options) {
     var options = {
       chart: {
         type: 'radialBar',
+        width: custom_options.size,
         events: {
           mounted: (chartContext, config) => {
             try {

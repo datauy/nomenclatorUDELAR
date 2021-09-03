@@ -26,20 +26,33 @@ class Importer
   end
 end
 namespace :import do
+  task :test, [:name] => :environment do |_, args|
+    Rake::Task["import:serv_data_types"].invoke("test-serv_data_types", "stypes.csv")
+  end
   task :all, [:name] => :environment do |_, args|
     if args[:name].present?
       import_name = args[:name]
     else
       import_name = 'initial'
     end
-    puts "\n\ncalling\n"
+    puts "\nSTARTalling\n"
     Rake::Task["import:services"].invoke("#{import_name}-servicios", "servicios.csv")
+    puts "\n\nCalling data-types\n"
     Rake::Task["import:serv_data_types"].invoke("#{import_name}-serv_data_types", "stypes.csv")
+    puts "\n\nCalling DOCENTES\n"
     Rake::Task["import:service_data"].invoke("#{import_name}-docentes", "servicios-docentes.csv", "docente")
+    Rake::Task["import:service_data"].reenable
+    puts "\n\nCalling FUNCIONARIES\n"
     Rake::Task["import:service_data"].invoke("#{import_name}-funcionaries", "servicios-funcionaries.csv", "funcionarie")
-    Rake::Task["import:service_data"].invoke("#{import_name}-funcionaries-ingreso-posgrados", "servicios-ingreso-posgrados.csv", 4)
-    Rake::Task["import:service_data"].invoke("#{import_name}-funcionaries-ingreso-estudiantes", "servicios-ingreso-estudiantes.csv", 1)
+    Rake::Task["import:service_data"].reenable
+    puts "\n\nCalling POSTGRADOS\n"
+    Rake::Task["import:service_data"].invoke("#{import_name}-servicios-ingreso-posgrados", "servicios-ingreso-posgrados.csv", 4)
+    Rake::Task["import:service_data"].reenable
+    puts "\n\nCalling INGRESOS\n"
+    Rake::Task["import:service_data"].invoke("#{import_name}-servicios-ingreso-estudiantes", "servicios-ingreso-estudiantes.csv", 1)
+    puts "\n\nCalling LUGARES\n"
     Rake::Task["import:places"].invoke("#{import_name}-places", "PlanillasUnificadas-20210720-Lugares.csv")
+    puts "\n\nCalling INTANGIBLES\n"
     Rake::Task["import:intangibles"].invoke("#{import_name}-intangibles", "PlanillasUnificadas-20210720-Intangibles.csv")
   end
   ###########################
@@ -225,12 +238,14 @@ namespace :import do
     end
   end
   task :service_data, [:name, :file, :type] => :environment do |_, args|
+    puts "SERVICE DATA\n"
     if args[:name].present? && args[:file].present? && args[:type].present?
       file = args[:file]
       import_name = args[:name]
       stype = args[:type]
       stypes = ServDataType.where({model_type: stype}).order(:weight)
     else
+      puts "NO ENCONTRADO\n"
       next
     end
     puts "\n\nSTYPE: #{stype}\n"
@@ -279,20 +294,28 @@ namespace :import do
     end
   end
   #
-  task :serv_data_types, [] => :environment do |_, args|
+  task :serv_data_types, [:name] => :environment do |_, args|
     i = 0;
+    if args[:name].present?
+      import_name = args[:name]
+    else
+      next
+    end
     @import = Importer.new(import_name)
-
     CSV.foreach("db/data/stypes.csv") do |row|
       i += 1
-      @import.createObj(ServDataType,
-      {
+      stype = @import.createObj(ServDataType, {
         model_type: row[0],
         stype: row[1],
         name: row[2],
         weight: i,
-        icon: {io: File.open('app/assets/images/ico-mujer.svg'), filename: "ico-mujer"}
       })
+      stype.icon = {io: File.open('app/assets/images/ico-mujer.svg'), filename: "ico-mujer"}
+      stype.save
+      #if ServDataType.find_by(stype_data).nil?
+      #  stype_data['icon'] = {io: File.open('app/assets/images/ico-mujer.svg'), filename: "ico-mujer"}
+      #  ServDataType.create stype_data
+      #end
     end
   end
   #
