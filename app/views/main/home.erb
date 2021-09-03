@@ -65,15 +65,17 @@
       <div id="search_results" class="inner">
       </div>
     </div>
-    <h2 class="group inner">
-      Llevan nombres de mujeres
-    </h2>
     <div id="services" class="group inner tipos-servicios">
-      <select name="servicios" id="servicios">
-        <%= options_for_select( [["Toda la Universidad",0]] + @services.map{|s| [s.name, s.id]}, selected: 0 ) %>
-      </select>
-      <div id="place_type_graphs">
-        <%= render partial: "place_type_graphs" %>
+      <div class="services-container">
+        <h2 class="group inner">
+          Llevan nombres de mujeres
+        </h2>
+        <select name="servicios" id="servicios">
+          <%= options_for_select( [["Toda la Universidad",0]] + @services.map{|s| [s.name, s.id]}, selected: 0 ) %>
+        </select>
+        <div id="place_type_graphs">
+          <%= render partial: "place_type_graphs" %>
+        </div>
       </div>
     </div>
     <h2 class="inner">Sin embargo, la mayoría de quienes estudian y se reciben, son mujeres.</h2>
