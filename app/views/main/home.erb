@@ -78,7 +78,7 @@
     </div>
     <h2 class="inner">Sin embargo, la mayoría de quienes estudian y se reciben, son mujeres.</h2>
     <div id="percentage-estudiante" class="group blue">
-      <%= render partial: "data_qtty_graphs", locals: {stype: "estudiante"} %>
+      <%= render partial: "data_qtty_graphs", locals: {model_type: "estudiante"} %>
     </div>
     <h2 class="inner">Aunque no siempre fue así:</h2>
     <div id="evolution-graph">
@@ -97,10 +97,10 @@
     </div>
     <div class="group blue">
       <div id="percentage-docente" class="percentage-tabs active">
-        <%= render partial: "data_qtty_graphs", locals: {stype: "docente"} %>
+        <%= render partial: "data_qtty_graphs", locals: {model_type: "docente"} %>
       </div>
       <div id="percentage-funcionarie" class="percentage-tabs">
-        <%= render partial: "data_qtty_graphs", locals: {stype: "funcionarie"} %>
+        <%= render partial: "data_qtty_graphs", locals: {model_type: "funcionarie"} %>
       </div>
     </div>
     <h2 class="inner">

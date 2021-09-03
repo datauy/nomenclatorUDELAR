@@ -1,9 +1,3 @@
-var chart_options = {
-  color: '#005598',
-  gear_size: "50%",
-  icon_relation: [3.5,3],
-  size: '150%',
-}
 var graph_options = {
   color: "#ee7474",
   gear_size: "65%",
@@ -46,12 +40,8 @@ $(document).ready(() => {
       type: "get",
       url: '/',
       data: { "sid": $('#servicios').val() },
-      success: function(event) {
-        totalsCharts(charts, chart_options);
-      }
     });
   });
-  totalsCharts(charts, chart_options);
 });
 
 // SEARCH

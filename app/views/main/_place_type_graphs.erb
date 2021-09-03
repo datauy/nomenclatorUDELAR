@@ -16,4 +16,9 @@ charts = {};
     </div>
   </div>
 <% end %>
-<%= javascript_tag "var charts =  #{charts.to_json};" %>
+<%= javascript_tag "totalsCharts(#{charts.to_json}, { color: '#005598',
+    gear_size: '50%',
+    icon_relation: [3.5,3],
+    size: '150%',
+  });"
+%>

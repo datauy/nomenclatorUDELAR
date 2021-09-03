@@ -67,15 +67,28 @@ class MainController < ApplicationController
   end
   #Total number of students per service
   def get_totals
+    @total_woman = {}
+    @models = {}
     totals = ServiceDatum.select('serv_data_type, woman, man')
-    @total_woman = ServiceDatum.select('serv_data_type, woman')
+    total_woman = ServiceDatum.select('serv_data_type, woman')
     if params[:sid].present? && params[:sid].to_i > 0
       totals = totals.where(service_id: params[:sid])
-      @total_woman = @total_woman.where(service_id: params[:sid])
+      total_woman = total_woman.where(service_id: params[:sid])
     end
     totals = totals.group(:serv_data_type).sum('woman + man')
-    @total_woman = @total_woman.group(:serv_data_type).sum('woman')
-    @total_woman.merge!(totals){|key, woman, all| (woman || 0)*100/(all != 0 ? all : 1)}
+    total_woman = total_woman.group(:serv_data_type).sum('woman')
+    total_woman.merge!(totals){|key, woman, all| (woman || 0)*100/(all != 0 ? all : 1)}
+    total_woman.each { |k,v|
+      @total_woman[k.stype] = v
+    }
+    ServDataType.order(:weight).all.each { |k|
+      if @models[k.model_type].present?
+        @models[k.model_type][k.stype] = k
+      else
+        @models[k.model_type] = { k.stype => k }
+      end
+    }
+    logger.info { "\n\nMODELOS #{@models.inspect}\n\n" }
   end
   #Counts per Place type
   def places_with_name
