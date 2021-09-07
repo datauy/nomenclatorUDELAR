@@ -67,12 +67,14 @@
     </div>
     <div id="services" class="group inner tipos-servicios">
       <div class="services-container">
-        <h2 class="group inner">
+        <h2 class="group inner service-select">
           Llevan nombres de mujeres
         </h2>
-        <select name="servicios" id="servicios">
-          <%= options_for_select( [["Toda la Universidad",0]] + @services.map{|s| [s.name, s.id]}, selected: 0 ) %>
-        </select>
+        <div id="servicios">
+          <select name="servicios">
+            <%= options_for_select( [["Toda la Universidad",0]] + @services.map{|s| [s.name, s.id]}, selected: 0 ) %>
+          </select>
+        </div>
         <div id="place_type_graphs">
           <%= render partial: "place_type_graphs" %>
         </div>

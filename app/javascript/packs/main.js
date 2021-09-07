@@ -4,7 +4,6 @@ var graph_options = {
   icon_relation: [2,5],
   size: '100%',
 }
-
 //Docentes y Funcionarios
 window.selectTab = function(tab) {
   console.log("TAB: ", tab);
@@ -41,6 +40,14 @@ $(document).ready(() => {
       url: '/',
       data: { "sid": $('#servicios').val() },
     });
+  });
+  $(window).scroll(function() {
+    var y = $(this).scrollTop();
+    if (y > $('.service-select').offset().top) {
+      $('#servicios').addClass('active');
+    } else {
+      $('#servicios').removeClass('active');
+    }
   });
 });
 
