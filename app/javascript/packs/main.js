@@ -44,9 +44,9 @@ $(document).ready(() => {
   $(window).scroll(function() {
     var y = $(this).scrollTop();
     if (y > $('.service-select').offset().top) {
-      $('#servicios').addClass('active');
+      $('#container-servicios').addClass('active');
     } else {
-      $('#servicios').removeClass('active');
+      $('#container-servicios').removeClass('active');
     }
   });
 });

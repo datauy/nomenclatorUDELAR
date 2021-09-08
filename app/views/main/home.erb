@@ -70,10 +70,11 @@
         <h2 class="group inner service-select">
           Llevan nombres de mujeres
         </h2>
-        <div id="servicios">
-          <select name="servicios">
+        <div id="container-servicios">
+          <select name="servicios" id="servicios">
             <%= options_for_select( [["Toda la Universidad",0]] + @services.map{|s| [s.name, s.id]}, selected: 0 ) %>
           </select>
+          <div class="select-arrows"></div>
         </div>
         <div id="place_type_graphs">
           <%= render partial: "place_type_graphs" %>

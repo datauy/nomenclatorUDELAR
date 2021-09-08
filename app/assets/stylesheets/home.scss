@@ -131,6 +131,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    position: relative;
+    z-index: 500;
     .services-container {
       //max-width: 800px;
       .graph-ico {
@@ -144,7 +146,8 @@
         position: relative;
         //bottom: -10px;
       }
-      #servicios {
+      #container-servicios {
+        position: relative;
         select {
           width: 100%;
           height: 36px;
@@ -152,13 +155,22 @@
           font-weight: bold;
           padding: 8px 14px 10px 10px;
           border-radius: 3px;
-          border: solid 1px #979797;
-          background-image: linear-gradient(to bottom, #f2f2f2, #d4d4d4);
-          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), inset 0 2px 0 0 #FFF;
+          border: solid 1px var(--select-border);
+          background: linear-gradient(to bottom, #f2f2f2, #d4d4d4);
+          box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), inset 0 2px 0 0 #FFF;
+          appearance: none;
+          &::after {
+            content: "";
+            width: 0.8em;
+            height: 0.5em;
+            background-color: var(--select-arrow);
+            clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+            display: block;
+          }
         }
         &.active {
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), inset 0 2px 0 0 #FFF;
-          background-image: linear-gradient(to bottom, #f2f2f2, #d4d4d4);
+          background: #FFF;
           position: fixed;
           height: 75px;
           top: 0;
@@ -167,12 +179,45 @@
           display: block;
           left: 0;
           z-index: 1;
-          width: 80%;
+          width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
+          padding: 0 20px;
           select {
-            width: 80%;
+            //width: 80%;
+          }
+          .select-arrows {
+            right: 34px;
+            top: 20px;
+          }
+        }
+        .select-arrows {
+          height: inherit;
+          width: 8px;
+          right: 14px;
+          position: absolute;
+          height: 36px;
+          top: 0;
+          &::before {
+            content: "";
+            width: 8px;
+            height: 5px;
+            background-color: var(--greyish-brown);
+            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+            display: block;
+            position: absolute;
+            top: 10px;
+          }
+          &::after {
+            content: "";
+            width: 8px;
+            height: 5px;
+            background-color: var(--greyish-brown);
+            clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+            display: block;
+            position: absolute;
+            bottom: 10px;
           }
         }
       }

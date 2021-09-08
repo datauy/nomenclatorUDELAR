@@ -1,6 +1,13 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+:root {
+  --select-border: #979797;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+  --greyish-brown: #4a4a4a;
+}
+
 @font-face {
    font-family: 'OpenSans';
    src: url('/fonts/OpenSans-Regular.ttf');

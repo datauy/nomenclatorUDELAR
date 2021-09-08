@@ -3,9 +3,13 @@
   .container {
     width: 80%;
   }
-  .home #services .services-container select.active {
-    width: 80%;
-    left: 10%;
+  .home #services .services-container #container-servicios.active {
+    select {
+      width: 80%;
+    }
+    .select-arrows {
+      right: calc(10% + 34px);
+    }
   }
   .home #services .services-container #place_type_graphs .chart-container {
     width: 20%;
