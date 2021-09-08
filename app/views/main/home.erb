@@ -1,15 +1,5 @@
 <div class="home main-container">
-  <div class="header">
-      <%= image_tag 'logo-udelar.svg', class: 'logo-udelar' %>
-      <ul class="menu">
-        <li><a href="/sobre-proyecto">Sobre el proyecto</a></li>
-      </ul>
-      <div class="sub-header">
-        <%= image_tag 'logo-prg.svg', class: 'logo-prg' %>
-        <%= image_tag 'logo-data.svg', class: 'logo-data' %>
-      </div>
-      <h1>¿Qué lugar ocupan las mujeres en la UDELAR?</h1>
-  </div>
+  <%= render partial: "layouts/header" %>
   <div class="container">
     <div class="group main-image">
       <div class="derecho">
@@ -174,34 +164,4 @@
   });
   </script>
 </div>
-<div id="footer" class="blue inner">
-  <div class="group">
-    <h2>Sobre el proyecto </h2>
-    <p>
-      Nomenclátor UDELAR es un proyecto de DATA Uruguay y el Prorectorado de Gestión de UDELAR para visibilizar la brecha de género en el reconocimeinto dentro de la Universidad, apuntando a cambiar esa realidad.
-      <a href="/faq">Más información ></a>
-    </p>
-    <a href="#" class="btn btn-transparent">¿Problemas, dudas? Escribí a soporte<i class="arrow-down"></i></a>
-    <a href="#" class="btn btn-transparent">¿Problemas, dudas? Escribí a soporte<i class="arrow-down"></i></a>
-  </div>
-  <div class="group">
-    <h2>Datos abiertos y software libre </h2>
-    <p>
-      Los datos utilizados en esta aplicación se encuentran disponibles para su reutilización como datos abiertos y el código del software es libre bajo licencia GPLv3.
-      <a href="/faq">Más información ></a>
-    </p>
-    <a href="#" class="btn btn-transparent">Datos abiertos en Catálogo Nacional<i class="arrow-down"></i></a>
-    <a href="#" class="btn btn-transparent">Código de la aplicación en GitHub<i class="arrow-down"></i></a>
-  </div>
-  <div class="group">
-    <h2>¿Quiénes somos?</h2>
-    <p>
-      DATA Uruguay es una ONG que crea herramientas de tecnología cívica para promover el conocimiento y ejercicio de derechos y hace activismo a través de Datos Abiertos y Gobierno Abierto.
-      <a href="/faq">Más información ></a>
-    </p>
-    <p>
-      El Prorrectorado de Gestión ejecuta las políticas, estrategias, proyectos y normas aprobadas por el Consejo Directivo Central, en el marco de las directivas que dicte el Rector y bajo su supervisión.
-      <a href="/faq">Más información ></a>
-    </p>
-  </div>
-</footer>
+<%= render partial: "layouts/footer" %>

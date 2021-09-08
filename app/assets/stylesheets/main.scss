@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 :root {
+  --blue: #005598;
   --select-border: #979797;
-  --select-focus: blue;
-  --select-arrow: var(--select-border);
   --greyish-brown: #4a4a4a;
+  --select-arrow: var(--greyish-brown);
+  --vidrio: #FFFFFF;
 }
 
 @font-face {
@@ -17,6 +18,15 @@
    src: url('/fonts/OpenSans-Bold.ttf');
    font-weight: bold;
 }
+@font-face {
+   font-family: 'AvenirNext';
+   src: url('/fonts/AvenirNextLTPro-Regular.otf');
+}
+@font-face {
+   font-family: 'AvenirNext';
+   src: url('/fonts/AvenirNextLTPro-Bold.otf');
+   font-weight: bold;
+}
 html * {
   box-sizing: border-box;
 }
@@ -24,7 +34,7 @@ body {
   max-width: 100vw;
   font-family: 'OpenSans';
   font-size: 10px;
-  color: #4a4a4a;
+  color: var(--greyish-brown);
   line-height: normal;
   .alert, .notice {
     position: absolute;
@@ -33,12 +43,12 @@ body {
   h2 {
     font-size: 24px;
     font-weight: bold;
-    color: #4a4a4a;
+    color: var(--greyish-brown);
     text-align: left;
     margin-bottom: 1em;
   }
   h3 {
-    color: #005598;
+    color: var(--blue);
     margin: 2px;
     font-size: 12px;
     font-weight: bold;
@@ -61,10 +71,10 @@ a {
   margin: auto;
 }
 .blue {
-  background: #005598;
+  background: var(--blue);
 }
 .arrow {
-  border: solid #fff;
+  border: solid var(--vidrio);
   border-top-width: medium;
   border-right-width: medium;
   border-bottom-width: medium;
@@ -103,7 +113,7 @@ a {
     width: 80%;
     padding: 10px 10.5px 12px 11.5px;
     border-radius: 3px;
-    background-color: #005598;
+    background-color: var(--blue);
   }
 
 }
@@ -129,7 +139,7 @@ a {
 //******* HEADER **********//
 .header {
   color: white;
-  background: #005598;
+  background: var(--blue);
   padding: 20px;
   text-align: center;
   margin-bottom: 20px;
@@ -161,13 +171,58 @@ a {
 }
 #footer {
   margin-top: 50px;
-  color: #fff;
+  color: var(--vidrio);
   font-size: 12px;
   h2 {
-    color: #FFF;
+    color: var(--vidrio);
     font-size: 16px;
     font-weight: bold;
-
+    font-family: 'AvenirNext';
+    margin: 10px 0 2px 0;
+  }
+  a {
+    color: var(--vidrio);
+  }
+  .btn {
+    width: 100%;
+    height: 32px;
+    margin: 12px auto 0 auto;
+    padding: 8px 16px 8px 15px;
+    border-radius: 4px;
+    border: solid 1px var(--vidrio);
+    position: relative;
+  }
+  .group {
+    margin: 18px 0 0 0;
+  }
+  img.icon {
+    width: 15px;
+    height: 15px;
+    margin: 1px 0 0 10px;
+    object-fit: contain;
+    position: absolute;
+    right: 15px;
+  }
+  .logos {
+    img {
+      width: 100px;
+      margin: 6px 177px 12px 2px;
+      object-fit: contain;
+    }
+  }
+  .supporters {
+    width: 100px;
+    margin: 6px 16px 6px 0;
+  }
+  .proyects {
+    width: 65px;
+    margin: 6px 16px 6px 0;
+  }
+  img.social-icon {
+    width: 20px;
+    height: 20px;
+    margin: 6px 3px 0 0;
+    object-fit: contain;
   }
 }
 a.button, a.button:link, a.button:visited, input[type="submit"], input[type="button"], button {
