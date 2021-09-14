@@ -1,5 +1,4 @@
 @media (min-width: 800px) {
-
   .container {
     width: 80%;
   }
@@ -15,6 +14,18 @@
     width: 20%;
     .chart {
       height: 16vw;
+    }
+  }
+  #footer {
+    .group.column {
+      float: left;
+      width: calc(33% - 44px);
+      &.center {
+        margin: 0 67px;
+      }
+    }
+    .slides .slide {
+      max-width: 12.5vw;
     }
   }
 }

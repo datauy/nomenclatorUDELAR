@@ -1,0 +1,37 @@
+[
+  {
+    "name": "A Tu Nombre",
+    "link": "https://atunombre.uy",
+    "icon": "a-tu-nombre-w.svg"
+  },
+  {
+    "name": "A Tu Servicio",
+    "link": "https://atuservicio.msp.gub.uy",
+    "icon": "a-tu-servicio-w.svg"
+  },
+  {
+    "name": "Dónde Reciclo",
+    "link": "https://dondereciclo.uy",
+    "icon": "donde-reciclo-w.svg"
+  },
+  {
+    "name": "Elijo Estudiar",
+    "link": "https://elijoestudiar.uy",
+    "icon": "elijo-estudiar-w.svg"
+  },
+  {
+    "name": "Ocho Horas",
+    "link": "http://ochohoras.uy",
+    "icon": "ocho-horas-w.svg"
+  },
+  {
+    "name": "Que Sabés",
+    "link": "https://quesabes.uy",
+    "icon": "que-sabes-w.svg"
+  },
+  {
+    "name": "Uruguay Leaks",
+    "link": "https://uruguayleaks.uy",
+    "icon": "uruguay-leaks-w.svg"
+  }
+]
