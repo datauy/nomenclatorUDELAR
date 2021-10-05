@@ -9,10 +9,10 @@ ActiveAdmin.register Place do
   #
   # or
   #
-  # permit_params do
-  #   permitted = [:building_id, :type, :detail, :name, :person_id, :observations, :naming_details, :naming_date, :ptype]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  permit_params do
+    permitted = [:building_id, :type, :detail, :name, :person_id, :observations, :naming_details, :naming_date, :ptype]
+    permitted << :other if params[:action] == 'create' && current_user.admin?
+    permitted
+  end
   
 end
