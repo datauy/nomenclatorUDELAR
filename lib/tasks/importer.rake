@@ -27,7 +27,9 @@ class Importer
 end
 namespace :import do
   task :test, [:name] => :environment do |_, args|
-    Rake::Task["import:serv_data_types"].invoke("test-serv_data_types", "stypes.csv")
+    Rake::Task["import:services"].invoke("test-serv_data2", "servicios-aux.csv")
+    #Rake::Task["import:service_data"].invoke("test-serv_data", "servicios-egresos-2019.csv", 3)
+    Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_activos-2019.csv", 2)
   end
   task :all, [:name] => :environment do |_, args|
     if args[:name].present?

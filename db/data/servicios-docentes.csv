@@ -1,14 +1,14 @@
 Servicio,Sexo,1,2,3,4,5
-CENUR Este,Mujer, 16, 23, 10, -, -
+CENUR Este,Mujer, 16, 23, 10, 0, 0
 CENUR Este,Varón, 6, 11, 9, 2, 4
-CENUR Litoral Norte,Mujer, 54, 59, 36, 3, -
+CENUR Litoral Norte,Mujer, 54, 59, 36, 3, 0
 CENUR Litoral Norte,Varón, 34, 45, 31, 11, 3
-CENUR NorEste,Mujer, 5, 17, 19, 1, -
+CENUR NorEste,Mujer, 5, 17, 19, 1, 0
 CENUR NorEste,Varón, 6, 14, 15, 4, 3
 CENUR NorOeste,Mujer, 7, 19, 9, 2, 1
 CENUR NorOeste,Varón, 6, 16, 11, 4, 6
 Escuela de Nutrición,Mujer, 10, 35, 28, 9, 8
-Escuela de Nutrición,Varón, 3, 5, 7, -, -
+Escuela de Nutrición,Varón, 3, 5, 7, 0, 0
 Facultad Arquitectura Diseño y Urbanismo,Mujer, 190, 88, 88, 18, 7
 Facultad Arquitectura Diseño y Urbanismo,Varón, 138, 117, 128, 21, 26
 Facultad de Agronomía,Mujer, 90, 80, 41, 20, 8
@@ -39,12 +39,12 @@ Facultad de Química,Mujer, 137, 101, 52, 22, 15
 Facultad de Química,Varón, 54, 50, 23, 19, 15
 Facultad de Veterinaria,Mujer, 86, 66, 27, 5, 8
 Facultad de Veterinaria,Varón, 50, 57, 29, 9, 10
-Instituto de Higiene,Mujer, 9, 3, -, -, -
-Instituto de Higiene,Varón, 4, 1, 1, -, -
-ISEF,Mujer, 47, 66, 19, 1, -
+Instituto de Higiene,Mujer, 9, 3, 0, 0, 0
+Instituto de Higiene,Varón, 4, 1, 1, 0, 0
+ISEF,Mujer, 47, 66, 19, 1, 0
 ISEF,Varón, 53, 97, 9, 2, 1
-MUSICA,Mujer, 6, 6, 10, -, 4
-MUSICA,Varón, 10, 13, 25, 3, -
+MUSICA,Mujer, 6, 6, 10, 0, 4
+MUSICA,Varón, 10, 13, 25, 3, 0
 Facultad de Ciencias,Mujer, 100, 87, 52, 15, 2
 Facultad de Ciencias,Varón, 92, 78, 54, 27, 30
 Hospital de Clínicas,Mujer, 127, 154, 78, 39, 15
