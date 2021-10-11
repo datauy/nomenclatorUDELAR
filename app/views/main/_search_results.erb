@@ -6,7 +6,11 @@
       <% if person.image.present? %>
         <%= image_tag person.image %>
       <% else %>
-        <%= image_tag "person-ico.png" %>
+        <% case person.sex
+        when 'Masculino' %><%= image_tag "hombre.svg", alt:"hombre" %>
+        <% when 'Femenino' %><%= image_tag "mujer.svg", alt:"mujer" %>
+        <% when 'Cosa' %><%= image_tag "cosas.svg", alt:"cosa" %>
+        <% end %>
       <% end %>
       </div>
       <div class="main-data">

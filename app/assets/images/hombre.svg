@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>hombre</title>
+    <defs>
+        <pattern id="pattern-1" width="29.90664" height="29.90664" x="-29.90664" y="-29.90664" patternUnits="userSpaceOnUse">
+            <use xlink:href="#image-2" transform="scale(0.498444,0.498444)"></use>
+        </pattern>
+        <image id="image-2" width="60" height="60" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGN5fIAKQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAPKADAAQAAAABAAAAPAAAAACoF8tmAAACS0lEQVRoBe1ZUUrDQBDdWVQ8gx+CeIF+9CDqJXqCSsGf/AiFnqCX0B7Ej16gCH70DKKQdaaSkLRNZ99aNqgTaJNmZt+beUm2Oxlye7Z5mJ++LV9vggv8oSE5dyFuwbk1ufBCjhaXg6vFiEafe4Ynn8rBy7m0t4fl5DaUYcbJXbct7V88cEWexo+D6XPbkvYrF2+dcBEK/7F8n4YQxkjIRDQ7G5xPCipKZFzlm5v3pCJOSVbGikA8Vg7v5QvdcvNurrDcTmUZntBgm/7e0x16e/fB62WikGe2GXzKsWAIVuzYvnj992x8eIKKSUImOcGK8RWfvni9/PXEBqn5IViI7zF5OWEaaoCxdgQL8dX4ESzPs9ZmUaGBxtgRLMRX40awvAb21+x8S7v1sZJCsBBfLT4Ei2/p8KIBxtoRLMRX40ewOGFaaICxdgQL8dX4ESwvVQ8/9CsNVLMLhmBpfpW9L14vJZ5UPVUgqXvBQMrFvng3s7SsgaXqSU6Wx6LraOHqg7f+W5ISLyXpqjxMFSs3Lz967S1XId5mdS4X707CEkiOVy3bCffJuy8WO2cKmAKmgClgCpgCpoApgCrw75aWOwnnWsRvX5lcvHXCubt4VcK5ea17WCmP7q17qChm3UNFoC4zv4SHupbWPexSMuY80sVDfDVuBMu6h5qav91u3cOfXEGki4f4ajEhWNY91NTssvOi3LqHXeLIeeseHlKnwyaNPLRrad3DXIX49kXLxVu/AGgGYN3Dphp2bAqYAqaAKWAKmAKmgCkQp8AXYb8j7/+qREMAAAAASUVORK5CYII="></image>
+    </defs>
+    <g id="hombre" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="55" height="55"></rect>
+        <rect id="Rectangle-Copy-10" fill="url(#pattern-1)" x="0" y="0" width="55" height="55"></rect>
+    </g>
+</svg>

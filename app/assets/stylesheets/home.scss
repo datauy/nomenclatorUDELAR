@@ -17,15 +17,15 @@
     flex-direction: column;
     width: 100%;
     margin: auto;
+    max-width: 800px;
     .totals-container {
-      max-width: 800px;
       .apexcharts-canvas {
         //max-width: 100%;
         .apexcharts-svg {
-          max-width: 100%;
+          //max-width: 100%;
           .apexcharts-text tspan {
-            font-size: 12px;
-            text-transform: uppercase;
+            //font-size: 12px;
+            //text-transform: uppercase;
 
           }
         }
@@ -311,29 +311,29 @@
           width: 100%;
           display: flex;
           justify-content: center;
-          .graph-chart {
-            max-width: 30vh;
-          }
+
         }
       }
       .totals {
-        font-family: "Urbanist";
         margin-bottom: 16px;
         text-align: center;
         width: 50%;
         .percent {
-          font-size: 40px;
+          font-size: calc(.6*5.5vw + 4em);
           color: var(--blue);
+          font-family: "Urbanist";
         }
         .label-name {
           display: flex;
           justify-content: center;
           span {
-            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
             background: var(--blue);
             color: var(--vidrio);
             text-transform: uppercase;
-            padding: 5px;
+            padding: 4px 6px;
+            font-size: calc(.6*1.5vw + 1em);
           }
         }
         .no-data-container {
@@ -379,7 +379,6 @@
       width: auto;
       height: 50%;
       margin: auto;
-      margin-bottom: 25%;
     }
   }
   .diagoline {

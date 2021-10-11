@@ -2,7 +2,7 @@ var graph_options = {
   color: "#c69aff",
   gear_size: "65%",
   icon_relation: [2,5],
-  size: '100%',
+  size: '140%',
 }
 //Docentes y Funcionarios
 window.selectTab = function(tab) {
@@ -109,13 +109,7 @@ window.totalsCharts = function(graphs, custom_options = graph_options) {
       series: [percentage],
       colors: [custom_options.color],
       fill: {
-        type: "pattern",
-        pattern: {
-          style: "horizontalLines",
-          width: 2,
-          strokeWidth: 5,
-          //height: 10,
-        }
+        colors: ['#005598']
       },
       plotOptions: {
         radialBar: {
@@ -129,6 +123,9 @@ window.totalsCharts = function(graphs, custom_options = graph_options) {
             value: {
               show: false
             },
+          },
+          track: {
+            background: '#C69AFF',
           }
         }
       }

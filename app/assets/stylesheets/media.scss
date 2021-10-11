@@ -19,10 +19,6 @@
         }
       }
     }
-    .graph-ico img {
-      margin-bottom: 16%;
-    }
-
   }
   #footer {
     padding: 30px 10%;
@@ -35,6 +31,15 @@
     }
   }
 }
+@media (min-width: 1024px) {
+  .home {
+    #percentage-estudiante li,
+    #percentage-funcionarie li,
+    #percentage-docente li {
+      width: 49%;
+    }
+  }
+}
 @media (min-width: 1200px) {
   .home #services .services-container #place_type_graphs .chart-container {
     width: 16.5%;
@@ -42,9 +47,5 @@
       height: 16vw;
     }
   }
-  .home {
-    .graph-ico img {
-      margin-bottom: 14%;
-    }
-  }
+
 }
