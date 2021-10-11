@@ -2,21 +2,30 @@
   .container {
     width: 80%;
   }
-  .home #services .services-container #container-servicios.active {
-    select {
-      width: 80%;
+  .home {
+    #services .services-container {
+      #container-servicios.active {
+        select {
+          width: 80%;
+        }
+        .select-arrows {
+          right: calc(10% + 34px);
+        }
+      }
+      .services-container #place_type_graphs .chart-container {
+        width: 20%;
+        .chart {
+          height: 16vw;
+        }
+      }
     }
-    .select-arrows {
-      right: calc(10% + 34px);
+    .graph-ico img {
+      margin-bottom: 16%;
     }
-  }
-  .home #services .services-container #place_type_graphs .chart-container {
-    width: 20%;
-    .chart {
-      height: 16vw;
-    }
+
   }
   #footer {
+    padding: 30px 10%;
     .group.column {
       float: left;
       width: calc(33% - 44px);
@@ -31,6 +40,11 @@
     width: 16.5%;
     .chart {
       height: 16vw;
+    }
+  }
+  .home {
+    .graph-ico img {
+      margin-bottom: 14%;
     }
   }
 }

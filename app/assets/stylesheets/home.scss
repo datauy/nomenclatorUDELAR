@@ -14,6 +14,7 @@
   #totals {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
     margin: auto;
     .totals-container {
@@ -22,14 +23,31 @@
         //max-width: 100%;
         .apexcharts-svg {
           max-width: 100%;
+          .apexcharts-text tspan {
+            font-size: 12px;
+            text-transform: uppercase;
+
+          }
         }
+      }
+    }
+    .total-labels {
+      display: inline-flex;
+      span {
+        margin: auto;
+        font-size: 12px;
+        background: #333;
+        color: var(--vidrio);
+        padding: 2px 8px;
+        min-width: 72px;
+        text-align: center;
       }
     }
   }
   #search-container {
     .type-select {
-      margin-right: auto;
-      color: white;
+      margin-right: 10px;
+      color: var(--blue);
       font-weight: bold;
       display: flex;
       align-items: center;
@@ -40,7 +58,7 @@
         position: absolute;
         display: block;
         top: 38px;
-        background: var(--blue);
+        background: var(--pink);
         left: -10px;
         padding: 10px;
         label {
@@ -60,17 +78,28 @@
       border-radius: 0;
       background: var(--blue);
       padding: 1px 10px;
+      width: 72px;
+      padding: 6px 14px 7px;
+      border-radius: 25px;
+      height: 25px;
       border: none;
     }
     form {
-      background: var(--blue);
+      background: var(--pink);
       display: inline-flex;
       width: 100%;
-      justify-content: right;
+      justify-content: center;
       padding: 10px;
       #query {
-        height: 22px;
+        height: 34px;
         width: 240px;
+        border-radius: 34px;
+
+      }
+      button {
+        background: var(--pink);
+        width: 50px;
+        height: 34px;
       }
     }
     #search_results {
@@ -273,25 +302,39 @@
       display: inline-flex;
       width: 100%;
       align-items: center;
-      .graph {
+      &.odd {
+        flex-direction: row-reverse;
+      }
+      .graph-container {
         width: 50%;
-        display: flex;
-        justify-content: center;
-        .graph-chart {
-          max-width: 30vh;
+        .graph {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          .graph-chart {
+            max-width: 30vh;
+          }
         }
       }
       .totals {
-        font-size: 48px;
-        color: var(--vidrio);
-        font-weight: bold;
-        width: 50%;
+        font-family: "Urbanist";
         margin-bottom: 16px;
         text-align: center;
-        span {
-          font-size: 14px;
-          width: 100%;
-          display: block;
+        width: 50%;
+        .percent {
+          font-size: 40px;
+          color: var(--blue);
+        }
+        .label-name {
+          display: flex;
+          justify-content: center;
+          span {
+            font-size: 14px;
+            background: var(--blue);
+            color: var(--vidrio);
+            text-transform: uppercase;
+            padding: 5px;
+          }
         }
         .no-data-container {
           font-size: 24px;
@@ -326,9 +369,18 @@
     line-height: 1.44;
   }
   .graph-ico {
-    left: 0;
     position: absolute;
-    width: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    img {
+      position: relative;
+      width: auto;
+      height: 50%;
+      margin: auto;
+      margin-bottom: 25%;
+    }
   }
   .diagoline {
     width: calc( 50% + 20px);

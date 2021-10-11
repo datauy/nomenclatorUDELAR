@@ -7,6 +7,9 @@
   --greyish-brown: #4a4a4a;
   --select-arrow: var(--greyish-brown);
   --vidrio: #FFFFFF;
+  --pink: #d8baff;
+  --green: #79ce77;
+  --violet: #c69aff;
 }
 
 @font-face {
@@ -27,6 +30,10 @@
    src: url('/fonts/AvenirNextLTPro-Bold.otf');
    font-weight: bold;
 }
+@font-face {
+   font-family: 'Urbanist';
+   src: url('/fonts/Urbanist-VariableFont_wght.ttf');
+}
 html * {
   box-sizing: border-box;
 }
@@ -42,8 +49,7 @@ body {
   }
   h2 {
     font-size: 24px;
-    font-weight: bold;
-    color: var(--greyish-brown);
+    color: var(--blue);
     text-align: left;
     margin-bottom: 1em;
   }
@@ -73,6 +79,12 @@ a {
 .blue {
   background: var(--blue);
 }
+.pink {
+  background: var(--pink);
+}
+.green {
+  background: var(--green);
+}
 .arrow {
   border-top-width: medium;
   border-right-width: medium;
@@ -85,6 +97,11 @@ a {
   position: relative;
   &.white {
     border: solid var(--vidrio);
+    left: calc(50% - 8px);
+  }
+  &.blue {
+    background: none;
+    border: solid var(--blue);
     left: calc(50% - 8px);
   }
   &.black {

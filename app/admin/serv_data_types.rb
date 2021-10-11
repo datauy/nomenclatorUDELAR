@@ -10,9 +10,20 @@ ActiveAdmin.register ServDataType do
   # or
   #
   permit_params do
-    permitted = [:stype, :name, :model_type, :weight]
+    permitted = [:stype, :name, :model_type, :weight, :icon]
     permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
   end
 
+  form do |f|
+    f.input :stype
+    f.input :model_type
+    f.input :name
+    f.input :weight
+    f.input :icon, as: :file
+    if f.object.icon.attached?
+      f.li "<img src=#{url_for(f.object.icon)}></img>"
+    end
+    f.actions
+  end
 end

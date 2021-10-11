@@ -5,7 +5,9 @@ charts = {};
 %>
   <div class="chart-container">
     <div class="chart">
-      <%= image_tag k.icon, class: "graph-ico" %>
+      <div class="graph-ico">
+        <%= image_tag k.icon, class: "graph-ico" %>
+      </div>
       <div class="graph-container">
         <div id="<%= k.stype %>" class="graph-chart"></div>
       </div>
@@ -16,7 +18,7 @@ charts = {};
     </div>
   </div>
 <% end %>
-<%= javascript_tag "totalsCharts(#{charts.to_json}, { color: '#005598',
+<%= javascript_tag "totalsCharts(#{charts.to_json}, { color: '#79ce77',
     gear_size: '50%',
     icon_relation: [3.5,3],
     size: '150%',

@@ -1,5 +1,5 @@
 var graph_options = {
-  color: "#ee7474",
+  color: "#c69aff",
   gear_size: "65%",
   icon_relation: [2,5],
   size: '100%',
@@ -83,7 +83,7 @@ window.totalsCharts = function(graphs, custom_options = graph_options) {
       chart: {
         type: 'radialBar',
         width: custom_options.size,
-        events: {
+        /*events: {
           mounted: (chartContext, config) => {
             try {
               var ico = chartContext.el.parentNode.previousElementSibling;
@@ -104,10 +104,19 @@ window.totalsCharts = function(graphs, custom_options = graph_options) {
               console.log('Error calculating height', e);
             }
           }
-        }
+        }*/
       },
       series: [percentage],
       colors: [custom_options.color],
+      fill: {
+        type: "pattern",
+        pattern: {
+          style: "horizontalLines",
+          width: 2,
+          strokeWidth: 5,
+          //height: 10,
+        }
+      },
       plotOptions: {
         radialBar: {
           hollow: {

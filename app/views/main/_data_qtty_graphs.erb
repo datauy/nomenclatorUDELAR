@@ -1,12 +1,18 @@
 <ul>
   <%
   graphs = {}
+  i = 0
   @models[model_type].each do |stype, k|
+    i += 1
   %>
-  <li>
-    <%= image_tag k.icon, class: "graph-ico" %>
-    <div class="graph">
-      <div id="<%= k.stype %>" class="graph-chart">
+  <li class="<%= i%2 == 0 ? 'odd' : 'even' %>">
+    <div class="graph-container">
+      <div class="graph">
+        <div class="graph-ico">
+          <%= image_tag k.icon %>
+        </div>
+        <div id="<%= k.stype %>" class="graph-chart">
+        </div>
       </div>
     </div>
     <div class="totals">
@@ -14,17 +20,19 @@
       if @total_woman[stype].present?
         graphs[k.stype] = @total_woman[stype]
       %>
+      <div class="percent">
         <%= @total_woman[stype] %>%
+      </div>
       <%
       else
         graphs[k.stype] = 0
       %>
         <div class="no-data-container">NO HAY DATOS <i class="no-data"></i></div>
       <% end %>
-      <span><%= k.name %></span>
+      <div class="label-name">
+        <span><%= k.name %></span>
+      </div>
     </div>
-    <div class="diagoline left" ></div>
-    <div class="diagoline right" ></div>
   </li>
   <% end %>
   <%= javascript_tag "totalsCharts(#{graphs.to_json});" %>
