@@ -123,7 +123,7 @@
             border-radius: 50%;
           }
           .main-data {
-            margin-left: 10px;
+            margin: 0 20px;
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -138,7 +138,7 @@
             height: 25px;
             display: block;
             margin: auto 0 auto auto;
-            min-width: 68px;
+            min-width: 72px;
             &.active {
               background-color: #05aef0;
             }

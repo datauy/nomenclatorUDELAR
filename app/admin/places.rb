@@ -11,7 +11,7 @@ ActiveAdmin.register Place do
   #
   permit_params do
     permitted = [:building_id, :type, :detail, :name, :person_id, :observations, :naming_details, :naming_date, :ptype]
-    permitted << :other if params[:action] == 'create' && current_user.admin?
+    permitted << :other if params[:action] == 'create' && current_admin_user
     permitted
   end
   

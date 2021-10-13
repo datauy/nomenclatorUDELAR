@@ -11,7 +11,7 @@ ActiveAdmin.register ServiceDatum do
   #
   permit_params do
     permitted = [:service_id, :stype, :man, :woman]
-    permitted << :other if params[:action] == 'create' && current_user.admin?
+    permitted << :other if params[:action] == 'create' && current_admin_user
     permitted
   end
 

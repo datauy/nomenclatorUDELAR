@@ -10,9 +10,18 @@ ActiveAdmin.register Person do
   # or
   #
   permit_params do
-    permitted = [:name, :bio, :sex]
-    permitted << :other if params[:action] == 'create' && current_user.admin?
+    permitted = [:name, :bio, :sex, :image]
+    permitted << :other if params[:action] == 'create' && current_admin_user
     permitted
   end
-
+  form do |f|
+    f.input :name
+    f.input :bio, as: :ckeditor
+    f.input :sex
+    f.input :image, as: :file
+    if f.object.image.attached?
+      f.li image_tag(url_for(f.object.image)).html_safe
+    end
+    f.actions
+  end
 end

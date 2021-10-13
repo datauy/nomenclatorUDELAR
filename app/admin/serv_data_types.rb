@@ -11,7 +11,7 @@ ActiveAdmin.register ServDataType do
   #
   permit_params do
     permitted = [:stype, :name, :model_type, :weight, :icon]
-    permitted << :other if params[:action] == 'create' && current_user.admin?
+    permitted << :other if params[:action] == 'create' && current_admin_user
     permitted
   end
 
@@ -22,7 +22,7 @@ ActiveAdmin.register ServDataType do
     f.input :weight
     f.input :icon, as: :file
     if f.object.icon.attached?
-      f.li "<img src=#{url_for(f.object.icon)}></img>"
+      f.li "<img src=#{url_for(f.object.icon)}></img>".html_safe
     end
     f.actions
   end
