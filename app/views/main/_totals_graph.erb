@@ -27,10 +27,19 @@ $(document).ready(() => {
         horizontal: false,
         columnWidth: '94%',
         endingShape: 'rounded',
+        distributed: true,
       },
     },
     dataLabels: {
       enabled: false
+    },
+    stroke: {
+      show: true,
+      curve: 'smooth',
+      lineCap: 'butt',
+      colors: colors,
+      width: 5,
+      dashArray: 0,
     },
     grid: {
       yaxis: {
@@ -43,7 +52,11 @@ $(document).ready(() => {
       }
     },
     yaxis: { show: false },
-    xaxis: { labels: {show: false} },
+    xaxis: {
+      type: 'category',
+      labels: {show: false},
+      categories: ['', '', ''],
+    },
   };
   console.log(options);
   var chart = new ApexCharts(

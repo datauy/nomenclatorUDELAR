@@ -40,9 +40,9 @@ class MainController < ApplicationController
         total_count[1] = total_count[1] + total_count[2].to_i + total_count[3].to_i
         #Arrange series
         per_type_series = []
-        per_type_series << { name: "Cantidad", data: [ {x: "Hombres", y: type_count[0]}, {x: "Mujeres", y: type_count[1]}, {x: "Cosas", y:thing_count} ], type: 'column' }
-        #per_type_series << { name: "Mujeres", data: [0,type_count[1],0], type: 'column' }
-        #per_type_series << { name: "Otro", data: [0,thing_count,0], type: 'column' }
+        per_type_series << { name: "Cantidad", data: [ {x: "Hombres", y: type_count[0]}, {x: "Mujeres", y: type_count[1]}, {x: "Cosas", y: thing_count} ], type: 'column' }
+        #per_type_series << { name: "Mujeres", data: [type_count[1]], type: 'column' }
+        #per_type_series << { name: "Otro", data: [thing_count], type: 'column' }
         @per_type_series = per_type_series.to_json
         logger.info { "\n\nPTYPE:\n #{@per_type_series}\n\n" }
         # TODO: Ver cómo calcularlo

@@ -15,3 +15,13 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+.formtastic img,
+.index_as_table img {
+  width: 60px;
+}
+.rounded-image-wrapper {
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
