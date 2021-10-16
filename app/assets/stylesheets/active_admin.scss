@@ -17,11 +17,12 @@
 //   .status_tag { background: #6090DB; }
 .formtastic img,
 .index_as_table img {
-  width: 60px;
-  border-radius: 30px;
+  height: 55px;
+  width: auto;
 }
 .rounded-image-wrapper {
-  width: 60px;
-  height: 60px;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
   overflow: hidden;
 }

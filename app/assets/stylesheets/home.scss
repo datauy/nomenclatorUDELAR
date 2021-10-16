@@ -121,8 +121,12 @@
           align-items: center;
           .profile-image {
             width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            overflow: hidden;
             img {
-              border-radius: 50%;
+              width: auto;
+              height: 100%;
             }
           }
           .main-data {
