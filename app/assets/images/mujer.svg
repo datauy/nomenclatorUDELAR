@@ -1,14 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>mujer</title>
-    <defs>
-        <pattern id="pattern-1" width="28.8" height="28.8" x="-28.8" y="-28.8" patternUnits="userSpaceOnUse">
-            <use xlink:href="#image-2" transform="scale(0.48,0.48)"></use>
-        </pattern>
-        <image id="image-2" width="60" height="60" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGN5fIAKQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAPKADAAQAAAABAAAAPAAAAACoF8tmAAAC7UlEQVRoBe2ZPWgUYRCGZzeiGA1YiCKSgKCFhY2CnGhjaSc2IiL+ERsbIYgKFoKgRiKY+i4EIijYiSB2dskdXKOgCGopNoIYjah3yTh7uMfe3fe3uzff18w2l935Zt/3efcnyU0EDlt9HvdgG54gwESE8ODQpWjaoa30Eg7dyOYKX+G6+kd4gwh707VxBMcrk9GzdJ/jk0s3tpltfILLWdhkPV3pmbdPcb2tt0ydS9cI3HyMW9cQbvUbpwB2Ly/Dlf7jw9rn1DUCt1bgNl3OLSoQgr5Zr+J2Va3sMU5dLfDiPO6jW3dSax5hjOp3tfWCBW5dLXDUglm6uiMW3+foKh+wrMlV5tZVAi9V8QRdvaM2p3Rb028pCmZImw/dAeAPL3AD+Z9xZSDow40qnnJdr1vnS3cA+OtnmCKIXTpjquNrANPN5ziqqrke86XbA9x8hDsI9oaryXQd9Yy3v8C1dD/vp0/dHuD2b7hHZjfnNZysp2f5anMBJ4r0+tTtAi/W8CCZPlPE8H/gja0/cD9vv2/dDjAiRvS6naVb0/q3tQmI+k/W5/CIaU22FkK3A9yowWkyW8maKfozribBYffOMZ0nhG78egE3EWzy7A5lo8di/1INzttOFko3/vUXrpPJnTaDueoId97P4ZipJ5RuTK/XsyZjBWvbvq3CMWNvIN3kWftpNFa0OAI/LK1BdOM4hov0an5nMedcpnN9p29EHlYuwEtTUyhdkyepSQKSgCQgCUgCkoAkIAmUScDpH36OKZ6LaQ5dKzDXFM8GzKVr/WaCa4pnA+bSNQJzTvFMwJy6RmDOKZ4JmFNXC8w9xdMBc+tqgbmneDpgbl0lsI8pngrYh+4AsK8pXj+wL90BYF9TvH5gX7o9wD6neFlgn7o9wD6neFlgn7pdYN9TvBTYt24HOMQULwEOodsBDjHFS4BD6Mr0MEm+9CbTQ0WEMj1UhFLkkGVqKdPDIqFKjyQgCUgCkoAkIAlIApKAIoF/D8FYFyBPzAEAAAAASUVORK5CYII="></image>
-    </defs>
-    <g id="mujer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#FFFFFF" x="0" y="0" width="55" height="55"></rect>
-        <rect id="Rectangle-Copy-11" fill="url(#pattern-1)" x="0" y="0" width="55" height="55"></rect>
-    </g>
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="28" cy="28" r="27" fill="white" stroke="#C69AFF" stroke-width="2"/>
+<path d="M28.1495 13.625C27.8608 13.125 27.1392 13.125 26.8505 13.625L14.2931 35.375C14.0044 35.875 14.3653 36.5 14.9426 36.5H40.0574C40.6347 36.5 40.9956 35.875 40.7069 35.375L28.1495 13.625Z" fill="#C69AFF" stroke="#C69AFF" stroke-width="0.5"/>
 </svg>

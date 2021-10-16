@@ -22,7 +22,7 @@
       <button class='more-data data-<%="#{person.id}"%>'>Más info.</button>
     </div>
     <div class='extended-data hidden extended-<%="#{person.id}"%>'>
-      <%= person.bio %>
+      <%= person.bio.html_safe %>
     </div>
   </div>
   <% end %>

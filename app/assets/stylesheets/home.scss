@@ -47,7 +47,7 @@
   #search-container {
     .type-select {
       margin-right: 10px;
-      color: var(--blue);
+      color: var(--vidrio);
       font-weight: bold;
       display: flex;
       align-items: center;
@@ -58,7 +58,7 @@
         position: absolute;
         display: block;
         top: 38px;
-        background: var(--pink);
+        background: var(--blue);
         left: -10px;
         padding: 10px;
         label {
@@ -85,7 +85,7 @@
       border: none;
     }
     form {
-      background: var(--pink);
+      background: var(--blue);
       display: inline-flex;
       width: 100%;
       justify-content: center;
@@ -97,7 +97,7 @@
 
       }
       button {
-        background: var(--pink);
+        background: var(--blue);
         width: 50px;
         height: 34px;
       }
@@ -113,14 +113,17 @@
         margin-bottom: 10px;
         padding: 10px;
         &.active {
-          background: #CCC;
+          background: #F3F3F3;
         }
         .profile-visible {
           display: inline-flex;
           width: 100%;
           align-items: center;
-          .profile-image img {
-            border-radius: 50%;
+          .profile-image {
+            width: 55px;
+            img {
+              border-radius: 50%;
+            }
           }
           .main-data {
             margin: 0 20px;

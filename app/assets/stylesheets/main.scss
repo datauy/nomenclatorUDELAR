@@ -102,7 +102,7 @@ a {
   position: relative;
   &.white {
     border: solid var(--vidrio);
-    left: calc(50% - 8px);
+    left: 8px;
   }
   &.blue {
     background: none;

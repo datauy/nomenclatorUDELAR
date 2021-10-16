@@ -1,14 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>cosas</title>
-    <defs>
-        <pattern id="pattern-1" width="28.8" height="28.8" x="-28.8" y="-28.8" patternUnits="userSpaceOnUse">
-            <use xlink:href="#image-2" transform="scale(0.48,0.48)"></use>
-        </pattern>
-        <image id="image-2" width="60" height="60" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGN5fIAKQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAPKADAAQAAAABAAAAPAAAAACoF8tmAAADDklEQVRoBe1ZTWsTURR9bxSLrQUXWhGxIOhCoS4URNCNS3UhCNMQtfiFbkQQRFToIiDYVCrYX6F056LF32EyUXEv6kIRm8m0zcz1JgtJkzdv7iR35s3iDRQm9553c855M5OkRzZrs6sC4JLgOKRcm5hZucwxqjMjaFw7Fra33uLptBTy9fjJlcVRZztsYjtMuIzrjqrsDMP2ezw9jX/7QUC16ZWu4PlIhzPS6gwXt+reAzTweO9byChaAs/d1VtLe15IwfClvA9AVPrFYO1oC+Sj/nqa14UUHGyGL1DEXqUQgHmolQ8oe4Ri4QRvfHJnAOBeHHfc5UlfhAtx/aR64QSHbbkMQuzQEZcCbjU/up2HWeqjUIL9Wukq7u6FJBW4yxKP5SScql8YwfD14ZiAaElFUlVDY8759dmyqqerFUZwEPx4jJfyER3ZgR6IRfh2f3ygrikUQjA0bhzELxbPNTyVLdzlw/6v30+VzZhiIQT74WYV78s9MRy1ZRmJJy3PndaCeprGBfueewafunM9nFKd4m2wGyLxirrIqGC8JKUI8WMIn7pUwiocri/hLp9X9fprRgUH9dJ1vHfP9pMa5nXUNa6SqCcRMMybU9bA97kJ3OEqBUvDwKmg7t1OwhoT7P/ceIb336Ekgmn6EYiX8PnOpG6NMcFSips6YkP2plpb6xd1a40Jxt1d1xEbtuc48q9urYPfStd0gFQ9KVapeAlwF5/NDSqegPuD/wZ6M3bi3QcC1kKsA9YB64B1wDpgHbAOWAfYHSD98M4ixTOVWib+eADIJsXjTBrTzEoUnFWKx36tEgdqBWeZ4hH5scO0grNM8diVEAfGCs46xSPyY4fFCs46xWNXQhyoFJxHikfkxw4bEJxXiseuhDhwQHBeKR6RHztsm+A8Uzx2JcSB2wTnmeIR+bHD/gvOO8VjV0Ic2BVsIsUj8mOHdQWbSPHYlRAHOqZSPCI/dphjKsVjV0Ic6JhK8Yj82GGOqRSPXQlxoGMsxTOUWhJ9sTDrgHXAOmAdsA5YB6wD1oHUDvwDMhVyhFFumVQAAAAASUVORK5CYII="></image>
-    </defs>
-    <g id="cosas" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#FFFFFF" x="0" y="0" width="55" height="55"></rect>
-        <rect id="Rectangle-Copy-12" fill="url(#pattern-1)" x="0" y="0" width="55" height="55"></rect>
-    </g>
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="28" cy="28" r="27" fill="white" stroke="#F5D255" stroke-width="2"/>
+<rect x="15" y="14" width="27" height="27" rx="3" fill="#F5D255"/>
 </svg>
