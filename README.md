@@ -1,24 +1,12 @@
-# README
+# Nomenclator UDELAR
+Versión 1.0.0
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bienvenides,  
+Esta herramienta fue co-creada en por el Prorrectorado de Gestión de UdelaR y DATA Uruguay.  
 
-Things you may want to cover:
+## Datos Abiertos
 
-* Ruby version
+## Instalación
+[Instalación Debian 10] (https://github.com/datauy/nomenclatorUDELAR/wiki/Instalaci%C3%B3n-Debian-10).
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+El documento aún está en construcción, por lo que cualquier sugerencia o duda es bienvenida :), gracias!
