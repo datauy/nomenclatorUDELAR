@@ -1,101 +1,120 @@
-<div class="home container">
-  <div class="header">
-      <%= image_tag 'logo-udelar.svg', class: 'logo-udelar' %>
-      <ul class="menu">
-        <li><a href="/sobre-proyecto">Sobre el proyecto</a></li>
-      </ul>
-      <div class="sub-header">
-        <%= image_tag 'logo-prg.svg', class: 'logo-prg' %>
-        <%= image_tag 'logo-data.svg', class: 'logo-data' %>
+<div class="home main-container">
+  <%= render partial: "layouts/header" %>
+  <div class="container">
+    <div class="group main-image">
+      <div class="derecho">
+        <%= render partial: 'derecho.svg' %>
       </div>
-      <h1>¿Qué lugar ocupan las mujeres en la UDELAR?</h1>
-  </div>
-  <div class="group main-image">
-    <%= image_tag 'derecho.svg', class: 'derecho' %>
-  </div>
-  <h2>Sólo <%= @total_woman %> de cada 10 de los espacios que llevan nombre (salas, aulas, edifios, etc.), reconocen a mujeres.</h2>
-  <div id="totals" class="group">
-  </div>
-  <script>
-    var lala = <%= raw(@per_type_series) %>
-    console.log(lala);
-    var options = {
-          series: lala,
-          chart: {
-          type: 'bar',
-          height: 350
-        },
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded'
-          },
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          show: true,
-          colors: ['transparent']
-        },
-        xaxis: {
-          categories: ['', '', ''],
-        },
-        yaxis: {
-          title: {
-            text: 'Camntidad nombrada'
+    </div>
+    <script>
+      $(document).ready(() => {
+        var women = Math.round(<%= @percentage_woman %>);
+        var things = Math.round(<%= @percentage_woman %>);
+        //VISUALIZATION home
+        console.log('Arranca');
+        for (var i = 1; i < 11; i++) {
+          type = '_hombre';
+          if (i <= women) {
+            type = '_mujer';
           }
-        },
-        fill: {
-          opacity: 1
-        },
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return "$ " + val + " thousands"
-            }
+          else if (i > (10 - things)) {
+            type = '_cosa';
           }
+          $("#"+i+type)[0].style.opacity = 1;
         }
-        };
-    var chart = new ApexCharts(
-      document.querySelector("#totals"),
-      options
-    );
-    chart.render();
-  </script>
-  <h2>Quiénes son</h2>
-  <div class="search">
-    <%= form_with url: "/", method: :get do |form| %>
-      <%= form.text_field :query %>
-      <%= button_tag( :class => "search-button") do %>
-        <%= image_tag 'search.svg', class: 'icon-search', alt: "Buscar" %>
-      <% end %>
-    <% end %>
-    <div id="search_results" class="inner">
-      <%= render partial: "search_results" %>
-    </div>
-  </div>
-  <h2>Llevan nombres de mujeres</h2>
-  <div class="group inner tipos-servicios">
-    <select name="servicios" id="servicios">
-      <%= options_for_select( @services.map{|s| [s.name, s.id]} ) %>
-    </select>
-    <div id="place_type_graphs">
-      <%= render partial: "place_type_graphs" %>
-    </div>
-  </div>
-  <script>
-    $(document).ready(() => {
-      $('#servicios').change((val) => {
-        console.log($('#servicios').val());
-        $.ajax({
-          type: "get",
-          url: '/',
-          data: { "sid": $('#servicios').val() },
-          cache: false,
-        });
       });
-    });
-  </script>
+    </script>
+    <h2 class="group inner">
+      Sólo <span class="pink"><%= @percentage_woman %> de cada 10</span> de los <b class="green">espacios</b> que llevan nombre (salas, aulas, edifios, etc.), reconocen a <b class="pink">mujeres</b>.
+    </h2>
+    <div id="totals">
+      <%= render partial: 'totals_graph' %>
+    </div>
+    <h2 class="group inner">
+      Quiénes son
+    </h2>
+    <div id="search-container">
+      <%= form_with url: "/", method: :get, html: { id: "search", remote: true } do |form| %>
+        <div class="type-select">
+          <div class="select-box">
+            <span></span>
+            <i class="arrow down white"></i>
+          </div>
+          <div class="type-options hidden">
+            <label for="type_femenino"><%= form.radio_button :type, 'Femenino', {class: 'search_type', checked: true} %>Mujeres</label>
+            <label for="type_masculino"><%= form.radio_button :type, 'Masculino', class: 'search_type' %>Hombres</label>
+            <label for="type_todo"><%= form.radio_button :type, 'Todo', class: 'search_type' %>Todo</label>
+          </div>
+        </div>
+          <%= form.text_field :query, placeholder: 'Buscar nombres' %>
+          <%= button_tag( :class => "search-button") do %>
+            <%= image_tag 'lupa.svg', class: 'icon-search', alt: "Buscar" %>
+          <% end %>
+      <% end %>
+      <div id="search_results" class="inner">
+      </div>
+    </div>
+    <div id="services" class="group inner tipos-servicios">
+      <div class="services-container">
+        <h2 class="group inner service-select">
+          Llevan nombres de mujeres
+        </h2>
+        <div id="container-servicios">
+          <select name="servicios" id="servicios">
+            <%= options_for_select( [["Toda la Universidad",0]] + @services.map{|s| [s.name, s.id]}, selected: 0 ) %>
+          </select>
+          <div class="select-arrows"></div>
+        </div>
+        <div id="place_type_graphs">
+          <%= render partial: "place_type_graphs" %>
+        </div>
+      </div>
+    </div>
+    <h2 class="inner">Sin embargo, la <b>mayoría</b> de quienes <b>estudian y se reciben</b>, <b>son</b> <b class="pink">mujeres</b>.</h2>
+    <div id="percentage-estudiante" class="group">
+      <%= render partial: "data_qtty_graphs", locals: {model_type: "estudiante"} %>
+    </div>
+    <h2 class="inner">Aunque no siempre fue así:</h2>
+    <div id="evolution-graph">
+    </div>
+    <div id="annotation-graph">
+    </div>
+    <div class="group inner">
+      <h2>La desigualdad también es visible en el personal</h2>
+      <div class="tab-selector">
+        <button id="tab-docentes" onclick="selectTab('docente')" class="tab-btn active btn-left">
+          DOCENTES
+        </button><button id="tab-funcionaries" onclick="selectTab('funcionarie')" class="tab-btn btn-right">
+          FUNCIONARIAS/OS
+        </button>
+      </div>
+    </div>
+    <div class="group">
+      <div id="percentage-docente" class="percentage-tabs active">
+        <%= render partial: "data_qtty_graphs", locals: {model_type: "docente"} %>
+      </div>
+      <div id="percentage-funcionarie" class="percentage-tabs">
+        <%= render partial: "data_qtty_graphs", locals: {model_type: "funcionarie"} %>
+      </div>
+    </div>
+    <h2 class="inner">
+      Para promover que más mujeres puedan trabajar y estudiar se impulsan iniciativas como las salas de lactancia.
+    </h2>
+    <div class="map-container group">
+      <%= render partial: "map" %>
+    </div>
+    <p class="inner note">
+      Desde UDELAR queremos corregir esta situación a través de Nombre del proyecto, y una descripción muy breve.
+    </p>
+    <p class="inner note">
+      Por un lado, queremos corregir el desequilibrio en los nombres de espacios, y necesitamos tus propuestas.
+    </p>
+    <a href="/" class=" inner btn btn-blue">PROPONÉ NOMBRES</a>
+    <p class="inner group note">
+      Además, queremos pensar cómo la Universidad debe mejorar para cambiar estas inequidades.
+    </p>
+    <a href="/" class="inner-out btn btn-blue">PROPONÉ IDEAS</a>
+  </div>
+  <%= render partial: "evolution_graph" %>
 </div>
+<%= render partial: "layouts/footer" %>

@@ -11,7 +11,7 @@ ActiveAdmin.register ImportLog do
   #
   # permit_params do
   #   permitted = [:import_version_id, :object_type, :object_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
+  #   permitted << :other if params[:action] == 'create' && current_admin_user
   #   permitted
   # end
   

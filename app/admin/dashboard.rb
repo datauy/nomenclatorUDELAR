@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
          panel "Lugares por sexo" do
            ul do
              Place.
-             joins(:person).
+             joins(:people).
              group("people.sex").
              count.
              map do |gender, qtty|
@@ -25,7 +25,7 @@ ActiveAdmin.register_page "Dashboard" do
        end
        column do
          panel "La persona del día: " do
-           para Person.order('RANDOM()').pluck(:bio).first
+           para Person.order('RAND()').pluck(:name, :bio).first
          end
        end
      end

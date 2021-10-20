@@ -1,11 +1,51 @@
 @media (min-width: 800px) {
-  
-  //SALAS
-  #place_type_graphs {
-    .chart {
-      float: left;
-      width: 11%;
-      height: 180px;
+  .container {
+    width: 80%;
+  }
+  .home {
+    #services .services-container {
+      #container-servicios.active {
+        select {
+          width: 80%;
+        }
+        .select-arrows {
+          right: calc(10% + 34px);
+        }
+      }
+      .services-container #place_type_graphs .chart-container {
+        width: 20%;
+        .chart {
+          height: 16vw;
+        }
+      }
     }
   }
+  #footer {
+    padding: 30px 10%;
+    .group.column {
+      float: left;
+      width: calc(33% - 44px);
+      &.center {
+        margin: 18px 67px;
+      }
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .home {
+    #percentage-estudiante li,
+    #percentage-funcionarie li,
+    #percentage-docente li {
+      width: 49%;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .home #services .services-container #place_type_graphs .chart-container {
+    width: 16.5%;
+    .chart {
+      height: 16vw;
+    }
+  }
+
 }

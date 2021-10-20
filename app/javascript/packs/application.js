@@ -18,3 +18,5 @@ require("jquery")
 import ApexCharts from 'apexcharts'
 window.ApexCharts = ApexCharts
 require("packs/main")
+require('leaflet')
+//window.Leaflet = Leaflet

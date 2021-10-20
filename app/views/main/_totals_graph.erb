@@ -1,1 +1,148 @@
-<%= column_chart(per_type_series, {theme: 'palette4', chart:{id: 'main'} }) %>
+<div class="totals-container"></div>
+<div class="total-labels">
+  <span>HOMBRES</span>
+  <span>MUJERES</span>
+  <span>COSAS</span>
+</div>
+<script>
+$(document).ready(() => {
+  var colors = ['#8dd58d', '#cea9ff', '#f6d86e'];
+  var options = {
+    series: <%= raw(@per_type_series) %>,
+    chart: {
+      type: 'bar',
+      height: 360,
+      redrawOnParentResize: true,
+    },
+    colors: ["transparent"],
+    fill: {
+      type: 'image',
+      opactity: 1,
+      image: {
+        src: ["<%= asset_path('fondos.svg') %>"],
+      }
+    },
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        columnWidth: '94%',
+        endingShape: 'rounded',
+        distributed: true,
+      },
+    },
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      show: true,
+      curve: 'smooth',
+      lineCap: 'butt',
+      colors: colors,
+      width: 5,
+      dashArray: 0,
+    },
+    grid: {
+      yaxis: {
+        lines: {
+          show: false,
+        }
+      },
+      xaxis: {
+
+      }
+    },
+    yaxis: { show: false },
+    xaxis: {
+      type: 'category',
+      labels: {show: false},
+      categories: ['', '', ''],
+    },
+  };
+  console.log(options);
+  var chart = new ApexCharts(
+    document.querySelector(".totals-container"),
+    options
+  );
+  chart.render();
+});
+</script>
+<div id="test" ></div>
+<script>
+const series = [
+  {
+    data: [4,5,6],
+    name: "Complete",
+    type: "column"
+  },
+  {
+    data: [1,2,3],
+    name: "Pending",
+    type: "column"
+  },
+];
+
+const options = {
+  series: <%= raw(@per_type_series) %>,
+  chart: {
+    background: "#222",
+    height: 400,
+    redrawOnParentResize: true,
+    toolbar: {
+      show: true
+    },
+    zoom: {
+      enabled: true
+    },
+    type: "line"
+  },
+  colors: ["red", "blue", "green"],
+  dataLabels: {
+    enabled: true,
+    enabledOnSeries: [2]
+  },
+  noData: {
+    align: "center",
+    text: "No data available at the moment",
+    verticalAlign: "middle"
+  },
+  plotOptions: {
+    bar: {
+      borderRadius: 8,
+      horizontal: false
+    }
+  },
+  stroke: {
+    width: [0, 0, 4]
+  },
+  title: {
+    text: "Completion Count and Percentage"
+  },
+  theme: {
+    mode: "dark"
+  },
+  xaxis: {
+    categories: ["Label 1", "Label 2", "Label 3"],
+    type: "category"
+  },
+  yaxis: [
+    {
+      title: {
+        text: "Counts"
+      }
+    },
+    {
+      max: 100,
+      min: 0,
+      opposite: true,
+      title: {
+        text: "(%) Complete"
+      }
+    }
+  ]
+};
+var test_chart = new ApexCharts(
+  document.querySelector("#test"),
+  options
+);
+//test_chart.render();
+</script>

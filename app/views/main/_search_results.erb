@@ -6,7 +6,11 @@
       <% if person.image.present? %>
         <%= image_tag person.image %>
       <% else %>
-        <%= image_tag "person-ico.png" %>
+        <% case person.sex
+        when 'Masculino' %><%= image_tag "hombre.svg", alt:"hombre" %>
+        <% when 'Femenino' %><%= image_tag "mujer.svg", alt:"mujer" %>
+        <% when 'Cosa' %><%= image_tag "cosas.svg", alt:"cosa" %>
+        <% end %>
       <% end %>
       </div>
       <div class="main-data">
@@ -18,10 +22,18 @@
       <button class='more-data data-<%="#{person.id}"%>'>Más info.</button>
     </div>
     <div class='extended-data hidden extended-<%="#{person.id}"%>'>
-      <%= person.bio %>
+      <%= person.bio.html_safe %>
     </div>
   </div>
   <% end %>
+  <script>
+    //Results
+    $('.more-data').click((person) => {
+      $(person.target).toggleClass('active');
+      $(person.target).parent().parent().toggleClass('active');
+      $(person.target).parent().next().toggleClass('hidden');
+    });
+  </script>
 <% else %>
   <div class="no-results">No hay resultados para la búsqueda</div>
 <% end %>

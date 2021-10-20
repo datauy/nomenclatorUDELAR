@@ -1,6 +1,9 @@
 if (<%= params['sid'].present? %>  == true) {
   console.log('VA CON SID', <%= @per_type_series %>);
   $('#place_type_graphs').html('<%= escape_javascript(render partial: "place_type_graphs") %>');
+  $('#percentage-estudiante').html('<%= escape_javascript(render partial: "data_qtty_graphs", locals: {model_type: "estudiante"}) %>');
+  $('#percentage-docente').html('<%= escape_javascript(render partial: "data_qtty_graphs", locals: {model_type: "docente"}) %>');
+  $('#percentage-funcionarie').html('<%= escape_javascript(render partial: "data_qtty_graphs", locals: {model_type: "funcionarie"}) %>');
 }
 else {
   console.log('VA POR SEARCH');

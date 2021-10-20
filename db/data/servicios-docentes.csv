@@ -1,0 +1,53 @@
+Servicio,Sexo,1,2,3,4,5
+CENUR Este,Mujer, 16, 23, 10, 0, 0
+CENUR Este,Varón, 6, 11, 9, 2, 4
+CENUR Litoral Norte,Mujer, 54, 59, 36, 3, 0
+CENUR Litoral Norte,Varón, 34, 45, 31, 11, 3
+CENUR NorEste,Mujer, 5, 17, 19, 1, 0
+CENUR NorEste,Varón, 6, 14, 15, 4, 3
+CENUR NorOeste,Mujer, 7, 19, 9, 2, 1
+CENUR NorOeste,Varón, 6, 16, 11, 4, 6
+Escuela de Nutrición,Mujer, 10, 35, 28, 9, 8
+Escuela de Nutrición,Varón, 3, 5, 7, 0, 0
+Facultad Arquitectura Diseño y Urbanismo,Mujer, 190, 88, 88, 18, 7
+Facultad Arquitectura Diseño y Urbanismo,Varón, 138, 117, 128, 21, 26
+Facultad de Agronomía,Mujer, 90, 80, 41, 20, 8
+Facultad de Agronomía,Varón, 87, 63, 41, 17, 22
+IENBA,Mujer, 30, 26, 25, 3, 4
+IENBA,Varón, 18, 23, 34, 2, 11
+Facultad de Ciencias Económicas y de Administración,Mujer, 227, 87, 78, 20, 18
+Facultad de Ciencias Económicas y de Administración,Varón, 215, 106, 77, 34, 25
+Facultad de Ciencias Sociales,Mujer, 41, 100, 46, 17, 14
+Facultad de Ciencias Sociales,Varón, 30, 59, 39, 14, 28
+Facultad de Derecho,Mujer, 138, 94, 119, 14, 12
+Facultad de Derecho,Varón, 101, 53, 130, 31, 28
+Facultad de Enfermería,Mujer, 18, 132, 60, 21, 7
+Facultad de Enfermería,Varón, 15, 28, 13, 2, 5
+Facultad de Humanidades y Cs. de la Educ,Mujer, 56, 54, 59, 12, 12
+Facultad de Humanidades y Cs. de la Educ,Varón, 45, 37, 43, 9, 18
+Facultad de Información y Comunicación,Mujer, 31, 46, 29, 8, 6
+Facultad de Información y Comunicación,Varón, 18, 30, 33, 7, 6
+Facultad de Ingeniería,Mujer, 63, 71, 71, 16, 8
+Facultad de Ingeniería,Varón, 166, 192, 209, 57, 54
+Facultad de Medicina,Mujer, 191, 429, 177, 58, 16
+Facultad de Medicina,Varón, 89, 166, 96, 60, 39
+Facultad de Odontología,Mujer, 45, 143, 49, 8, 13
+Facultad de Odontología,Varón, 7, 81, 37, 4, 16
+Facultad de Psicología,Mujer, 64, 81, 56, 11, 11
+Facultad de Psicología,Varón, 29, 34, 20, 10, 9
+Facultad de Química,Mujer, 137, 101, 52, 22, 15
+Facultad de Química,Varón, 54, 50, 23, 19, 15
+Facultad de Veterinaria,Mujer, 86, 66, 27, 5, 8
+Facultad de Veterinaria,Varón, 50, 57, 29, 9, 10
+Instituto de Higiene,Mujer, 9, 3, 0, 0, 0
+Instituto de Higiene,Varón, 4, 1, 1, 0, 0
+ISEF,Mujer, 47, 66, 19, 1, 0
+ISEF,Varón, 53, 97, 9, 2, 1
+MUSICA,Mujer, 6, 6, 10, 0, 4
+MUSICA,Varón, 10, 13, 25, 3, 0
+Facultad de Ciencias,Mujer, 100, 87, 52, 15, 2
+Facultad de Ciencias,Varón, 92, 78, 54, 27, 30
+Hospital de Clínicas,Mujer, 127, 154, 78, 39, 15
+Hospital de Clínicas,Varón, 67, 108, 77, 49, 30
+Oficinas Centrales,Mujer, 29, 109, 52, 11, 11
+Oficinas Centrales,Varón, 30, 58, 46, 13, 7

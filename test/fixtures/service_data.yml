@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service: one
+  stype: 1
+  man: 1
+  woman: MyString
+
+two:
+  service: two
+  stype: 1
+  man: 1
+  woman: MyString

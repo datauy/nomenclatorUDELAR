@@ -1,0 +1,182 @@
+<div id="footer" class="blue inner">
+  <button onclick="toggleFooter()" class='footer-toggle-btn'>
+    Ampliar info. <i class="arrow arrow-right black"></i>
+  </button>
+  <button onclick="toggleFooter()" class='footer-toggle-btn footer-toggle'>
+    Ocultar info. <i class="arrow down black"></i>
+  </button>
+  <div class="group column">
+    <h2>Sobre el proyecto </h2>
+    <p>
+      Nomenclátor UDELAR es un proyecto de DATA Uruguay y el Prorectorado de Gestión de UDELAR para visibilizar la brecha de género en el reconocimeinto dentro de la Universidad, apuntando a cambiar esa realidad.
+      <br>
+      <a href="/sobre-el-proyecto">Más información ></a>
+    </p>
+    <a href="#" class="btn btn-transparent">
+      ¿Problemas, dudas? Escribí a soporte
+      <%= image_tag 'iconos-soporte.svg', class: 'icon github' %>
+    </a>
+    <a href="#" class="btn btn-transparent footer-toggle">
+      Base de conocimiento DATA Uruguay
+      <%= image_tag 'iconos-base-de-conocimiento.svg', class: 'icon github' %>
+    </a>
+    <div class="group footer-toggle">
+      <h2>Datos abiertos y software libre </h2>
+      <p>
+        Los datos utilizados en esta aplicación se encuentran disponibles para su reutilización como datos abiertos y el código del software es libre bajo licencia GPLv3.
+      </p>
+      <a href="#" class="btn btn-transparent">
+        Datos abiertos en Catálogo Nacional
+        <%= image_tag 'iconos-datos.svg', class: 'icon github' %>
+      </a>
+      <a href="#" class="btn btn-transparent">
+        Código de la aplicación en GitHub
+        <%= image_tag 'github-fill.svg', class: 'icon github' %>
+      </a>
+    </div>
+  </div>
+  <div class="group column center">
+    <h2>¿Quiénes somos?</h2>
+    <div>
+      <div class="logos">
+        <%= image_tag 'logo-data.svg', class: 'data-logo' %>
+      </div>
+      <div id='data-description' class="footer-toggle">
+        DATA Uruguay es una ONG que crea herramientas de tecnología cívica para promover el conocimiento y ejercicio de derechos y hace activismo a través de Datos Abiertos y Gobierno Abierto.
+        <div class="social-links">
+          <a href="#">
+            <%= image_tag 'external-link.svg', class: 'social-icon' %>
+          </a>
+          <a href="#">
+            <%= image_tag 'twitter-fill.svg', class: 'social-icon' %>
+          </a>
+          <a href="#">
+            <%= image_tag 'facebook-fill.svg', class: 'social-icon' %>
+          </a>
+          <a href="#">
+            <%= image_tag 'linkedin.svg', class: 'social-icon' %>
+          </a>
+          <a href="#">
+            <%= image_tag 'instagram.svg', class: 'social-icon' %>
+          </a>
+          <a href="#">
+            <%= image_tag 'github-fill.svg', class: 'social-icon' %>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="margin-top-low">
+      <div class="logos">
+        <%= image_tag 'logo-prg.svg', class: 'prg-logo' %>
+      </div>
+      <div id='partner-description' class="footer-toggle">
+        El Prorrectorado de Gestión ejecuta las políticas, estrategias, proyectos y normas aprobadas por el Consejo Directivo Central, en el marco de las directivas que dicte el Rector y bajo su supervisión.
+        <div class="social-links">
+          <a href="#">
+            <%= image_tag 'external-link.svg', class: 'social-icon' %>
+          </a>
+          <a href="#">
+            <%= image_tag 'twitter-fill.svg', class: 'social-icon' %>
+          </a>
+          <a href="#">
+            <%= image_tag 'facebook-fill.svg', class: 'social-icon' %>
+          </a>
+          <a href="#">
+            <%= image_tag 'linkedin.svg', class: 'social-icon' %>
+          </a>
+          <a href="#">
+            <%= image_tag 'instagram.svg', class: 'social-icon' %>
+          </a>
+          <a href="#">
+            <%= image_tag 'github-fill.svg', class: 'social-icon' %>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="group column">
+    <h2>Con el apoyo de:</h2>
+    <%= image_tag 'ILDA.svg', class: 'supporters' %>
+    <%= image_tag 'logo_mira_mama.svg', class: 'supporters' %>
+  </div>
+  <div class="group slider-container">
+    <h2>Conocé otros proyectos de DATA:</h2>
+    <div id="data-projects" class="slides"></div>
+    <div id="slider-controls"></div>
+  </div>
+  <script>
+    function toggleFooter(){
+      console.log("TOGGLE FOOTER");
+      $('#footer').toggleClass('expanded');
+    }
+    function goToSlide(clicked) {
+      var pos = clicked.target.xdata;
+      current_slides = $('.slide').length;
+      for (var i = pos; i < current_slides; i++) {
+        $('.slides').append( $('#slide-'+i) );
+      }
+      for (var i = 0; i < pos; i++) {
+        $('.slides').append( $('#slide-'+i) );
+      }
+      $('#slider-controls a').removeClass('active');
+      clicked.target.className = 'active';
+    }
+    $.getJSON("data-projects.json", function(data){
+        var container = document.getElementById('data-projects');
+        var controls = document.getElementById('slider-controls');
+        i=0;
+        data.forEach(function(project){
+          var a = document.createElement('a');
+          a.target = '_blank';
+          a.id = 'slide-'+i;
+          a.href = project.link;
+          a.alt = project.name;
+          a.className = 'slide';
+          var element = document.createElement("img");
+          element.setAttribute("src", "/images/"+project.icon);
+          a.appendChild(element);
+          container.appendChild(a);
+          var b = document.createElement('a');
+          b.xdata = i;
+          b.id = 'control-slide-'+i;
+          b.onclick=goToSlide;
+          controls.appendChild(b);
+          if ( i == 0 ) {
+            b.className = 'active';
+          }
+          i++;
+        });
+    });
+    var animationSpeed = 500;
+    var pause = 3000;
+    setInterval(function() {
+      $('.slides > a:first').not('.hovered')
+        .fadeOut(animationSpeed, (e) => {
+          $('.slides > a:last').show();
+        })
+        .next()
+        .fadeIn(animationSpeed)
+        .end()
+        .appendTo('.slides');
+      //bottom controls
+      var slide = $('.slides > a:first');
+      $('#slider-controls a').removeClass('active');
+      $('#control-'+slide[0].id).addClass('active');
+    }, pause);
+    //Pause on hover
+    $('.slider-container').hover(
+      function(){
+        $('.slides a').addClass('hovered');
+      },
+      function(){
+        $('.slides a').removeClass('hovered');
+      }
+  );
+  </script>
+  <div class="group">
+    <%= image_tag 'cc.svg', class: 'social-icon' %>
+    <%= image_tag 'cc-by.svg', class: 'social-icon' %>
+    <p>El contenido original de este sitio, está bajo licencia Creative Commons Atribución 4.0 Internacional. Por otras atribuciones ver sobre el proyecto.</p>
+  </div>
+
+</footer>

@@ -1,0 +1,426 @@
+.home {
+  .derecho {
+    min-height: 100%;
+    width: auto;
+    position: relative;
+  }
+  .main-image {
+    display: flex;
+    justify-content: center;
+    height: max-content;
+    min-height: 40vh;
+    position: relative;
+  }
+  #totals {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    max-width: 800px;
+    .totals-container {
+      .apexcharts-canvas {
+        //max-width: 100%;
+        .apexcharts-svg {
+          //max-width: 100%;
+          .apexcharts-text tspan {
+            //font-size: 12px;
+            //text-transform: uppercase;
+
+          }
+        }
+      }
+    }
+    .total-labels {
+      display: inline-flex;
+      span {
+        margin: auto;
+        font-size: 12px;
+        background: #333;
+        color: var(--vidrio);
+        padding: 2px 8px;
+        min-width: 72px;
+        text-align: center;
+      }
+    }
+  }
+  #search-container {
+    .type-select {
+      margin-right: 10px;
+      color: var(--vidrio);
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      width: 86px;
+      cursor: pointer;
+      position: relative;
+      .type-options {
+        position: absolute;
+        display: block;
+        top: 38px;
+        background: var(--blue);
+        left: -10px;
+        padding: 10px;
+        label {
+          width: 100%;
+          display: inline-flex;
+          align-items: center;
+          input {
+            margin-right: 5px;
+          }
+        }
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+    button {
+      border-radius: 0;
+      background: var(--blue);
+      padding: 1px 10px;
+      width: 72px;
+      padding: 6px 14px 7px;
+      border-radius: 25px;
+      height: 25px;
+      border: none;
+    }
+    form {
+      background: var(--blue);
+      display: inline-flex;
+      width: 100%;
+      justify-content: center;
+      padding: 10px;
+      #query {
+        height: 34px;
+        width: 240px;
+        border-radius: 34px;
+
+      }
+      button {
+        background: var(--blue);
+        width: 50px;
+        height: 34px;
+      }
+    }
+    #search_results {
+      padding: 10px 20px;
+      height: 400px;
+      overflow-y: scroll;
+      border-bottom: 10px solid var(--blue);
+      .person-profile {
+        width: 100%;
+        display: grid;
+        margin-bottom: 10px;
+        padding: 10px;
+        &.active {
+          background: #F3F3F3;
+        }
+        .profile-visible {
+          display: inline-flex;
+          width: 100%;
+          align-items: center;
+          .profile-image {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+              width: auto;
+              height: 100%;
+            }
+          }
+          .main-data {
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            text-align: left;
+            .mini-bio{
+
+            }
+          }
+          button {
+            float: right;
+            height: 25px;
+            display: block;
+            margin: auto 0 auto auto;
+            min-width: 72px;
+            &.active {
+              background-color: #05aef0;
+            }
+          }
+        }
+        .extended-data {
+          width: 100%;
+          float: left;
+          margin: 10px 0;
+        }
+        button {
+
+        }
+      }
+    }
+  }
+  /*SALAS*/
+  #services {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 500;
+    .services-container {
+      //max-width: 800px;
+      .graph-ico {
+        width: 100%;
+      }
+      .totals {
+        width: 100%;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        //bottom: -10px;
+      }
+      #container-servicios {
+        position: relative;
+        select {
+          width: 100%;
+          height: 36px;
+          font-size: 14px;
+          font-weight: bold;
+          padding: 8px 14px 10px 10px;
+          border-radius: 3px;
+          border: solid 1px var(--select-border);
+          background: linear-gradient(to bottom, #f2f2f2, #d4d4d4);
+          box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), inset 0 2px 0 0 var(--vidrio);
+          appearance: none;
+          &::after {
+            content: "";
+            width: 0.8em;
+            height: 0.5em;
+            background-color: var(--select-arrow);
+            clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+            display: block;
+          }
+        }
+        &.active {
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), inset 0 2px 0 0 var(--vidrio);
+          background: var(--vidrio);
+          position: fixed;
+          height: 75px;
+          top: 0;
+          align-self: center;
+          margin: auto;
+          display: block;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 20px;
+          select {
+            //width: 80%;
+          }
+          .select-arrows {
+            right: 34px;
+            top: 20px;
+          }
+        }
+        .select-arrows {
+          height: inherit;
+          width: 8px;
+          right: 14px;
+          position: absolute;
+          height: 36px;
+          top: 0;
+          &::before {
+            content: "";
+            width: 8px;
+            height: 5px;
+            background-color: var(--greyish-brown);
+            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+            display: block;
+            position: absolute;
+            top: 10px;
+          }
+          &::after {
+            content: "";
+            width: 8px;
+            height: 5px;
+            background-color: var(--greyish-brown);
+            clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+            display: block;
+            position: absolute;
+            bottom: 10px;
+          }
+        }
+      }
+      #place_type_graphs {
+        .chart-container {
+          float: left;
+          position: relative;
+          width: 25%;
+          margin-bottom: 10px;
+          height: 25vw;
+          max-height: 240px;
+          .chart {
+            max-height: 220px;
+            height: 20vw;
+            .graph-chart {
+              display: flex;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
+  //RADIO GRAPHS
+  .tab-btn {
+    padding: 8px 12px;
+    color: var(--blue);
+    background: var(--vidrio);
+    border: solid 1px var(--blue);
+    letter-spacing: 0.91px;
+    margin: 0;
+    text-shadow: none;
+    width: 140px;
+    &.btn-left {
+      border-radius: 3px 0 0 3px;
+    }
+    &.btn-right {
+      border-radius: 0px 3px 3px 0;
+    }
+    &.active {
+      color: var(--vidrio);
+      background-color: var(--blue);
+    }
+    &:hover {
+      background: #05aef0;
+    }
+  }
+  #percentage-estudiante,
+  #percentage-funcionarie,
+  #percentage-docente {
+    li {
+      position: relative;
+      display: inline-flex;
+      width: 100%;
+      align-items: center;
+      &.odd {
+        flex-direction: row-reverse;
+      }
+      .graph-container {
+        width: 50%;
+        .graph {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+
+        }
+      }
+      .totals {
+        margin-bottom: 16px;
+        text-align: center;
+        width: 50%;
+        .percent {
+          font-size: calc(.6*5.5vw + 4em);
+          color: var(--blue);
+          font-family: "Urbanist";
+        }
+        .label-name {
+          display: flex;
+          justify-content: center;
+          span {
+            font-weight: 500;
+            letter-spacing: 1px;
+            background: var(--blue);
+            color: var(--vidrio);
+            text-transform: uppercase;
+            padding: 4px 6px;
+            font-size: calc(.6*1.5vw + 1em);
+          }
+        }
+        .no-data-container {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+  //DATA
+  .tab-selector {
+    text-align: center;
+  }
+  .timeline-tooltip {
+    margin: 10px;
+    max-width: 80vw;
+    .tooltip-header span {
+      width: 100%;
+    }
+    .tooltip-body {
+      display: block;
+      img {
+        float: left;
+        width: 30%;
+      }
+      .tooltip-desc {
+        float: left;
+        width: 70%;
+      }
+    }
+  }
+  .note {
+    font-size: 18px;
+    line-height: 1.44;
+  }
+  .graph-ico {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    img {
+      position: relative;
+      width: auto;
+      height: 50%;
+      margin: auto;
+    }
+  }
+  .diagoline {
+    width: calc( 50% + 20px);
+    position: absolute;
+    height: 40px;
+    border-bottom: 2px solid white;
+    bottom: 0;
+
+    &.left {
+      -webkit-transform: translateY(-10px) translateX(-12px) rotate(10deg);
+    }
+    &.right {
+      right: 0;
+      -webkit-transform: translateY(-10px) translateX(12px) rotate(-10deg);
+    }
+  }
+  .percentage-tabs {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+  .map-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    #map{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      svg {
+        fill: var(--blue);
+      }
+    }
+  }
+}
