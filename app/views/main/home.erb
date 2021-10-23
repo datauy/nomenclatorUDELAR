@@ -27,7 +27,7 @@
     <h2 class="group inner">
       Sólo <span class="pink"><%= @percentage_woman %> de cada 10</span> de los <b class="green">espacios</b> que llevan nombre (salas, aulas, edifios, etc.), reconocen a <b class="pink">mujeres*</b>.
     </h2>
-    <p>
+    <p class="inner note">
       *Según datos parciales de relevamiento realizado para este proyecto en 2021, enviado a todos los servicios de Udelar. Releva espacios físicos o intangibles (colecciones, bibliotecas, cursos, etc.) nombrados en reconocimeinto a personas o cosas (instituciones, conceptos, principios, fechas, etc.). Esta cifra se actualizará con nuevos datos recibidos y nuevos nombramientos.
     </p>
     <div id="totals">
@@ -71,7 +71,7 @@
         <div id="place_type_graphs">
           <%= render partial: "place_type_graphs" %>
         </div>
-        <p>
+        <p class="inner note">
           Porcentajes de mujeres en los nombramientos, clasificando espacios según funciones utilizadas en la Base de Datos de la Planta Física de la Udelar de la Unidad Plan Director de la Dirección General de Arquitectura.
         </p>
       </div>
@@ -79,13 +79,13 @@
     <h2 class="inner">En contraste con esta subrepresentación, la <b>mayoría</b> de quienes <b>estudian y se reciben</b>, <b>son</b> <b class="pink">mujeres</b>.</h2>
     <div id="percentage-estudiante" class="group">
       <%= render partial: "data_qtty_graphs", locals: {model_type: "estudiante"} %>
+      <p class="inner note">
+        <b>Al ingreso:</b> ingresos de estudiantes a servicio.<br>
+        <b>Estudiantes:</b> total estudiantes activas/os<br>
+        <b>Grado:</b> egresos de estudiantes.<br>
+        <b>Posgrado:</b> ingreso de alumnas/os de posgrado.<br>
+      </p>
     </div>
-    <p>
-      <b>Al ingreso:</b> ingresos de estudiantes a servicio.<br>
-      <b>Estudiantes:</b> total estudiantes activas/os<br>
-      <b>Grado:</b> egresos de estudiantes.<br>
-      <b>Posgrado:</b> ingreso de alumnas/os de posgrado.<br>
-    </p>
     <h2 class="inner">Aunque no siempre fue así:</h2>
     <div id="evolution-graph">
     </div>
@@ -103,13 +103,13 @@
     </div>
     <div class="group">
       <div id="percentage-docente" class="percentage-tabs active">
-        <p>
+        <p class="inner note">
           Entre docentes, el porcentaje de mujeres disminuye en los grados superiores.
         </p>
         <%= render partial: "data_qtty_graphs", locals: {model_type: "docente"} %>
       </div>
       <div id="percentage-funcionarie" class="percentage-tabs">
-        <p>
+        <p class="inner note">
           Entre el funcionariado, la presencia de muejeres parece responder más a roles de género.
         </p>
         <%= render partial: "data_qtty_graphs", locals: {model_type: "funcionarie"} %>
