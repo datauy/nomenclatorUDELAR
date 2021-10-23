@@ -29,8 +29,9 @@ namespace :import do
   task :test, [:name] => :environment do |_, args|
     Rake::Task["import:services"].invoke("test-serv_data2", "servicios-aux.csv")
     ServiceTag.create(service_id: 6, tag: "Facultad de Arquitectura, Diseño y Urbanismo")
-    Rake::Task["import:service_data"].invoke("test-serv_data", "servicios-egresos-2019.csv", 3)
-    Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_activos-2019.csv", 2)
+    Rake::Task["import:service_data"].invoke("test-serv_data", "servicios-ingreso-estudiantes.csv", 1)
+    Rake::Task["import:service_data"].reenable
+    Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_actives-2020.csv", 2)
   end
   task :all, [:name] => :environment do |_, args|
     if args[:name].present?
@@ -58,7 +59,7 @@ namespace :import do
     Rake::Task["import:service_data"].invoke("test-serv_data", "servicios-egresos-2019.csv", 3)
     Rake::Task["import:service_data"].reenable
     puts "\n\nCalling ACTIVOS\n"
-    Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_activos-2019.csv", 2)
+    Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_actives-2020.csv", 2)
     puts "\n\nCalling LUGARES\n"
     Rake::Task["import:places"].invoke("#{import_name}-places", "PlanillasUnificadas-20210720-Lugares.csv")
     puts "\n\nCalling INTANGIBLES\n"
@@ -292,8 +293,8 @@ namespace :import do
           @import.createObj(ServiceDatum, {
             service: service,
             serv_data_type_id: stype,
-            man: row[1],
-            woman: row[2],
+            man: row[1].tr('.',''),
+            woman: row[2].tr('.',''),
             year: 2021
             })
         end
