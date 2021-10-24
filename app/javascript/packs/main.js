@@ -6,49 +6,52 @@ var graph_options = {
 }
 //Docentes y Funcionarios
 window.selectTab = function(tab) {
-  console.log("TAB: ", tab);
   $('.percentage-tabs').toggleClass('active');
   $('.tab-btn').toggleClass('active');
 }
-$(document).ready(() => {
-  //Set search type by checked
-  $('.select-box span').text($('.search_type:checked').val());
-  //Run search
-  search();
-  //SEARCH
-  //Dropdown
-  $('.type-select').click(() => {
-    $('.type-options').toggleClass('hidden');
-    $('.type-select i').toggleClass('up');
-  });
-  //Type select
-  $('.search_type').change((radio) => {
+document.addEventListener('turbolinks:load', () => {
+    console.log("READY MAIN");
+    //Set search type by checked
+    $('.select-box span').text($('.search_type:checked').val());
+    //Run search
     search();
-    $('.type-select').click();
-    $('.select-box span').text(radio.target.value);
-  });
-  //Search
-  $('#query').keyup(function(e) {
-    if ( triggerSearch(e, $(this).val()) ) {
-      search();
-    }
-  });
-  //SERVICIOS
-  $('#servicios').change((val) => {
-    $.ajax({
-      type: "get",
-      url: '/',
-      data: { "sid": $('#servicios').val() },
+    //SEARCH
+    //Dropdown
+    $('.type-select').click(() => {
+      $('.type-options').toggleClass('hidden');
+      $('.type-select i').toggleClass('up');
     });
-  });
-  $(window).scroll(function() {
-    var y = $(this).scrollTop();
-    if (y > $('.service-select').offset().top) {
-      $('#container-servicios').addClass('active');
-    } else {
-      $('#container-servicios').removeClass('active');
+    //Type select
+    $('.search_type').change((radio) => {
+      search();
+      $('.type-select').click();
+      $('.select-box span').text(radio.target.value);
+    });
+    //Search
+    $('#query').keyup(function(e) {
+      if ( triggerSearch(e, $(this).val()) ) {
+        search();
+      }
+    });
+    //SERVICIOS
+    $('#servicios').change((val) => {
+      $.ajax({
+        type: "get",
+        url: '/',
+        data: { "sid": $('#servicios').val() },
+      });
+    });
+    if ( $( "#container-servicios" ).length ){
+      $(window).scroll(function() {
+        var y = $(this).scrollTop();
+        if (y > $('.service-select').offset().top) {
+          $('#container-servicios').addClass('active');
+        } else {
+          $('#container-servicios').removeClass('active');
+        }
+      });
     }
-  });
+    createMap();
 });
 
 // SEARCH
@@ -124,13 +127,42 @@ window.totalsCharts = function(graphs, custom_options = graph_options) {
               show: false
             },
           },
-          track: {
+          /*track: {
             background: '#C69AFF',
-          }
+          }*/
         }
       }
     }
     var chart = new ApexCharts(document.getElementById(elemId), options);
     chart.render();
   });
+}
+
+function createMap(){
+  //const iconDiv = iconSVG + '<img src="'+shadowUrl+'"></img>' ;
+  var iconDefault = L.icon({
+    className: "salas-marker",
+    iconUrl: '/images/pin.png',
+    shadowUrl: '/images/marker-shadow.png',
+    iconSize: [28, 38],
+    iconAnchor: [14, 38],
+    popupAnchor: [1, -34],
+    tooltipAnchor: [16, -28],
+    shadowSize: [41, 10],
+    shadowAnchor: [14, 6]
+  });
+  L.Marker.prototype.options.icon = iconDefault;
+  $.getJSON("salas_de_lactancia_merged.geojson", function (salas) {
+    this.animating = true;
+    this.map = new L.Map("map", {minZoom:4}).setView([-11.336196, -63.605775], 4);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    }).addTo(this.map);
+    L.geoJSON(salas).addTo(this.map);
+    var mapBounds = [];
+    salas.features.forEach((feature) => {
+      mapBounds.push(feature.geometry.coordinates.slice(0,2).reverse())
+    })
+    this.map.flyToBounds(mapBounds);
+  } );
 }

@@ -145,7 +145,8 @@
             height: 25px;
             display: block;
             margin: auto 0 auto auto;
-            min-width: 72px;
+            min-width: 80px;
+            font-size: 12px;
             &.active {
               background-color: #05aef0;
             }
@@ -179,8 +180,8 @@
         font-size: 12px;
         font-weight: bold;
         text-align: center;
-        position: relative;
-        //bottom: -10px;
+        position: absolute;
+        bottom: 0;
       }
       #container-servicios {
         position: relative;
@@ -258,13 +259,18 @@
         }
       }
       #place_type_graphs {
+        width: 100%;
+        display: inline-flex;
+        flex-wrap: wrap;
         .chart-container {
           float: left;
           position: relative;
           width: 25%;
+          min-width: 25%;
           margin-bottom: 10px;
           height: 25vw;
           max-height: 240px;
+          margin: auto;
           .chart {
             max-height: 220px;
             height: 20vw;
@@ -287,6 +293,7 @@
     margin: 0;
     text-shadow: none;
     width: 140px;
+    font-size: 10px;
     &.btn-left {
       border-radius: 3px 0 0 3px;
     }

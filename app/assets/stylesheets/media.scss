@@ -2,6 +2,14 @@
   .container {
     width: 80%;
   }
+  .header {
+    .about-menu {
+      right: 10%;
+    }
+    .arrow-back {
+      left: 10%;
+    }
+  }
   .home {
     #services .services-container {
       #container-servicios.active {

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+  <svg baseProfile="tiny" height="auto" version="1.2" viewBox="5 6 16 12" width="50px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Layer_1">
+      <path fill="#FFFFFF" d="M17,11H9.414l2.293-2.293c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L5.586,12l4.707,4.707   C10.488,16.902,10.744,17,11,17s0.512-0.098,0.707-0.293c0.391-0.391,0.391-1.023,0-1.414L9.414,13H17c0.552,0,1-0.448,1-1   S17.552,11,17,11z"/>
+    </g>
+  </svg>

@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'main', 'data-turbolinks-track': 'load' %>
 <div class="home main-container">
   <%= render partial: "layouts/header" %>
   <div class="container">
@@ -119,7 +120,7 @@
       Para promover que más mujeres puedan trabajar y estudiar se impulsan iniciativas como las salas de lactancia.
     </h2>
     <div class="map-container group">
-      <%= render partial: "map" %>
+      <div id="map"></div>
     </div>
     <p class="inner note">
       Desde Udelar queremos corregir esta situación a través de Nombre del proyecto, y una descripción muy breve.

@@ -45,7 +45,7 @@ html * {
 body {
   max-width: 100vw;
   font-family: 'OpenSans';
-  font-size: 10px;
+  font-size: 14px;
   color: var(--greyish-brown);
   line-height: normal;
   .alert, .notice {
@@ -66,7 +66,7 @@ body {
   }
 }
 img {
-  width: 100%;
+  height: 100%;
 }
 select {
   max-width: 100%;
@@ -80,6 +80,9 @@ a {
 }
 .container {
   margin: auto;
+  &.static-page {
+    padding: 20px;
+  }
 }
 .blue {
   background: var(--blue);
@@ -168,6 +171,15 @@ a {
   width: 100%;
   overflow: hidden;
 }
+.arrow-back {
+  position: absolute;
+  left: 20px;
+  display: block;
+  img {
+    width: 38px;
+  }
+}
+
 //******* HEADER **********//
 .header {
   color: white;
@@ -175,6 +187,37 @@ a {
   padding: 20px;
   text-align: center;
   margin-bottom: 20px;
+  a, a:link, a:visited {
+    color: var(--vidrio);
+  }
+  .about-menu {
+    position: absolute;
+    right: 20px;
+    &:hover {
+      a span {
+        display: block;
+      }
+    }
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      border: solid 1px;
+      border-radius: 6px;
+      width: inherit;
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      background: var(--blue);
+      span {
+        display: none;
+        margin-right: 10px;
+      }
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
   .logo-udelar {
     width: 60%;
     max-width: 180px;

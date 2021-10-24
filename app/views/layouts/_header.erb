@@ -1,11 +1,18 @@
 <div class="header">
-    <%= image_tag 'logo-udelar.svg', class: 'logo-udelar' %>
-    <ul class="menu">
-      <li><a href="/sobre-proyecto">Sobre el proyecto</a></li>
-    </ul>
-    <div class="sub-header">
-      <%= image_tag 'logo-prg.svg', class: 'logo-prg' %>
-      <%= image_tag 'logo-data.svg', class: 'logo-data' %>
-    </div>
-    <h1>¿Qué lugar ocupan las mujeres en la UDELAR?</h1>
+  <%= defined?(is_home) && is_home === false ? link_to( image_tag("arrow-back.svg"), request.referer.present? ? request.referer : root_path, {"data-turbolinks": "false", class: "arrow-back"}) : '' %>
+  <div class="about-menu">
+    <a href="/sobre-el-proyecto" data-turbolinks="false" >
+      <span>Sobre el proyecto</span>
+      <%= image_tag 'iconos-soporte.svg', class: 'soporte' %>
+    </a>
+  </div>
+  <%= image_tag 'logo-udelar.svg', class: 'logo-udelar' %>
+  <ul class="menu">
+    <li><a href="/sobre-proyecto">Sobre el proyecto</a></li>
+  </ul>
+  <div class="sub-header">
+    <%= image_tag 'logo-prg.svg', class: 'logo-prg' %>
+    <%= image_tag 'logo-data.svg', class: 'logo-data' %>
+  </div>
+  <h1>¿Qué lugar ocupan las mujeres en la UDELAR?</h1>
 </div>
