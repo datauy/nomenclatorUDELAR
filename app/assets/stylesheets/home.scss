@@ -171,7 +171,7 @@
     position: relative;
     z-index: 500;
     .services-container {
-      //max-width: 800px;
+      width: 100%;
       .graph-ico {
         width: 100%;
       }
@@ -180,8 +180,7 @@
         font-size: 12px;
         font-weight: bold;
         text-align: center;
-        position: absolute;
-        bottom: 0;
+        position: relative;
       }
       #container-servicios {
         position: relative;
@@ -265,15 +264,12 @@
         .chart-container {
           float: left;
           position: relative;
-          width: 25%;
-          min-width: 25%;
+          width: 33%;
+          max-width: 200px;
           margin-bottom: 10px;
-          height: 25vw;
-          max-height: 240px;
-          margin: auto;
+          margin: 0 auto;
           .chart {
-            max-height: 220px;
-            height: 20vw;
+            max-height: 32vw;
             .graph-chart {
               display: flex;
               justify-content: center;
