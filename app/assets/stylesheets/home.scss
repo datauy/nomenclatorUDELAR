@@ -261,15 +261,15 @@
         width: 100%;
         display: inline-flex;
         flex-wrap: wrap;
+        margin-bottom: 40px;
         .chart-container {
-          float: left;
-          position: relative;
           width: 33%;
           max-width: 200px;
           margin-bottom: 10px;
           margin: 0 auto;
           .chart {
-            max-height: 32vw;
+            max-height: 240px;
+            height: 32vw;
             .graph-chart {
               display: flex;
               justify-content: center;
