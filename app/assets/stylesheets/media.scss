@@ -2,6 +2,14 @@
   .container {
     width: 80%;
   }
+  .header {
+    .about-menu {
+      right: 10%;
+    }
+    .arrow-back {
+      left: 10%;
+    }
+  }
   .home {
     #services .services-container {
       #container-servicios.active {
@@ -19,6 +27,23 @@
         }
       }
     }
+    .map-container {
+      width: 125%;
+      margin-left: -12.5%;
+      max-width: 125%;
+    }
+    #search-container {
+      form {
+        width: 125%;
+        margin-left: -12.5%;
+      }
+      #search_results {
+        padding: 10px 12.5%;
+        width: 125%;
+        margin-left: -12.5%;
+      }
+    }
+
   }
   #footer {
     padding: 30px 10%;
@@ -38,14 +63,10 @@
     #percentage-docente li {
       width: 49%;
     }
-  }
-}
-@media (min-width: 1200px) {
-  .home #services .services-container #place_type_graphs .chart-container {
-    width: 16.5%;
-    .chart {
-      height: 16vw;
+    .derecho {
+      .container-derecho {
+        width: 1000px;
+      }
     }
   }
-
 }

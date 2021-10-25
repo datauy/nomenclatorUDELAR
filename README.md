@@ -1,8 +1,8 @@
 # Nomenclator UDELAR
-Versión 1.0.0
+Versión 1.0.1
 
 Bienvenides,  
-Esta herramienta fue co-creada en por el Prorrectorado de Gestión de UdelaR y DATA Uruguay.  
+Esta herramienta fue co-creada en por el Prorrectorado de Gestión de UdelaR y DATA Uruguay.  Ver implementación de desarrollo: [Nomenclator UdelaR] (https://nomenclator_udelar.dev.data.org.uy)
 
 ## Datos Abiertos
 

@@ -33,18 +33,20 @@ class MainController < ApplicationController
         type_count = Place.joins(:people).group('people.sex').count
         intangible_count = Intangible.joins(:people).group('people.sex').count
         total_count = type_count.merge(intangible_count) { |k, o, n| o + n }
+        logger.info { "\n\nTYPE COUNT:\n #{intangible_count}\n\n" }
+        logger.info { "\n\nINTANGIBLE COUNT:\n #{type_count}\n\n" }
+        logger.info { "\n\nTOTAL COUNT:\n #{total_count}\n\n" }
         thing_count = Place.where.not(thing_id:nil).count + Intangible.where.not(thing_id:nil).count
         @type = 'Femenino'
         #Sumo Hobre-mujer Mujer-hombre a cada uno
-        total_count[0] = total_count[0] + total_count[2].to_i + total_count[3].to_i
-        total_count[1] = total_count[1] + total_count[2].to_i + total_count[3].to_i
+        hombres = total_count[0] + total_count[2].to_i + total_count[3].to_i
+        mujeres = total_count[1] + total_count[2].to_i + total_count[3].to_i
         #Arrange series
         per_type_series = []
-        per_type_series << { name: "Cantidad", data: [ {x: "Hombres", y: type_count[0]}, {x: "Mujeres", y: type_count[1]}, {x: "Cosas", y: thing_count} ], type: 'column' }
+        per_type_series << { name: "Cantidad", data: [ {x: "Hombres", y: hombres}, {x: "Mujeres", y: mujeres}, {x: "Cosas", y: thing_count} ], type: 'column' }
         #per_type_series << { name: "Mujeres", data: [type_count[1]], type: 'column' }
         #per_type_series << { name: "Otro", data: [thing_count], type: 'column' }
         @per_type_series = per_type_series.to_json
-        logger.info { "\n\nPTYPE:\n #{@per_type_series}\n\n" }
         # TODO: Ver cómo calcularlo
         @percentage_woman = ( type_count[1] * 10.0 / (type_count.values.reduce( :+ ) + thing_count) ).round(1)
         @percentage_things = ( thing_count * 10.0 / (type_count.values.reduce( :+ ) + thing_count) ).round(1)
@@ -54,7 +56,7 @@ class MainController < ApplicationController
         #offset = rand(female)
         @results = Person.where(sex: @type).limit(10)#offset(female - offset < 10 ? female - 10 : offset).limit(10)
         #servicios para filtro
-        @services = Service.all.order(id: :desc)
+        @services = Service.all.order(:sweight)
         #Contador para ptype de places por servicio
         @ptype = places_with_name
         #Get series for evolution
@@ -107,25 +109,24 @@ class MainController < ApplicationController
   #Contador para ptype de places por servicio
   def places_type_by_sex(sexes)
     if ( params[:sid].present? && params[:sid].to_i > 0 )
-      puts "\nSID: #{params[:sid]}\n"
       q = Place.
-      joins(building: [:services]).
+      joins(building:[:services]).
       where("buildings_services.service_id": [params[:sid]])
       if sexes.blank?
-        res = q
+        res = q.joins(:serv_data_type)
       else
-        res = q.includes(:people).where('people.sex': sexes)
+        res = q.includes(:people, :serv_data_type).where('people.sex': sexes)
       end
-      res.group(:serv_data_type).count
     else
-      puts "\nSIN SID\n"
       if sexes.blank?
-        res = Place
+        res = Place.joins(:serv_data_type)
       else
-        res = Place.includes(:people).where('people.sex': sexes)
+        res = Place.includes(:people, :serv_data_type).where('people.sex': sexes)
       end
-      res.group(:serv_data_type).count
     end
+    res.group(:serv_data_type).
+    order(:weight).
+    count
   end
   #
   def places_types_totals

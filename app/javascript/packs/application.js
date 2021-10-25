@@ -17,6 +17,5 @@ require("jquery")
 // const imagePath = (name) => images(name, true)
 import ApexCharts from 'apexcharts'
 window.ApexCharts = ApexCharts
-require("packs/main")
 require('leaflet')
 //window.Leaflet = Leaflet

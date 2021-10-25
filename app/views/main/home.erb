@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'main', 'data-turbolinks-track': 'load' %>
 <div class="home main-container">
   <%= render partial: "layouts/header" %>
   <div class="container">
@@ -25,8 +26,11 @@
       });
     </script>
     <h2 class="group inner">
-      Sólo <span class="pink"><%= @percentage_woman %> de cada 10</span> de los <b class="green">espacios</b> que llevan nombre (salas, aulas, edifios, etc.), reconocen a <b class="pink">mujeres</b>.
+      Sólo <span class="pink"><%= @percentage_woman %> de cada 10</span> de los <b class="green">espacios</b> que llevan nombre (salas, aulas, edifios, etc.), reconocen a <b class="pink">mujeres*</b>.
     </h2>
+    <p class="inner note">
+      *Según datos parciales de relevamiento realizado para este proyecto en 2021, enviado a todos los servicios de Udelar. Releva espacios físicos o intangibles (colecciones, bibliotecas, cursos, etc.) nombrados en reconocimeinto a personas o cosas (instituciones, conceptos, principios, fechas, etc.). Esta cifra se actualizará con nuevos datos recibidos y nuevos nombramientos.
+    </p>
     <div id="totals">
       <%= render partial: 'totals_graph' %>
     </div>
@@ -41,8 +45,8 @@
             <i class="arrow down white"></i>
           </div>
           <div class="type-options hidden">
-            <label for="type_femenino"><%= form.radio_button :type, 'Femenino', {class: 'search_type', checked: true} %>Mujeres</label>
-            <label for="type_masculino"><%= form.radio_button :type, 'Masculino', class: 'search_type' %>Hombres</label>
+            <label for="type_femenino"><%= form.radio_button :type, 'Femenino', {class: 'search_type', checked: true} %>Femenino</label>
+            <label for="type_masculino"><%= form.radio_button :type, 'Masculino', class: 'search_type' %>Masculino</label>
             <label for="type_todo"><%= form.radio_button :type, 'Todo', class: 'search_type' %>Todo</label>
           </div>
         </div>
@@ -57,7 +61,7 @@
     <div id="services" class="group inner tipos-servicios">
       <div class="services-container">
         <h2 class="group inner service-select">
-          Llevan nombres de mujeres
+          ¿Qué tipos de espacios llevan nombres de mujeres?
         </h2>
         <div id="container-servicios">
           <select name="servicios" id="servicios">
@@ -68,19 +72,28 @@
         <div id="place_type_graphs">
           <%= render partial: "place_type_graphs" %>
         </div>
+        <p class="inner note">
+          Porcentajes de mujeres en los nombramientos, clasificando espacios según funciones utilizadas en la Base de Datos de la Planta Física de la Udelar de la Unidad Plan Director de la Dirección General de Arquitectura.
+        </p>
       </div>
     </div>
-    <h2 class="inner">Sin embargo, la <b>mayoría</b> de quienes <b>estudian y se reciben</b>, <b>son</b> <b class="pink">mujeres</b>.</h2>
+    <h2 class="inner">En contraste con esta subrepresentación, la <b>mayoría</b> de quienes <b>estudian y se reciben</b>, <b>son</b> <b class="pink">mujeres</b>.</h2>
     <div id="percentage-estudiante" class="group">
       <%= render partial: "data_qtty_graphs", locals: {model_type: "estudiante"} %>
+      <p class="inner note">
+        <b>Al ingreso:</b> ingresos de estudiantes a servicio.<br>
+        <b>Estudiantes:</b> total estudiantes activas/os<br>
+        <b>Grado:</b> egresos de estudiantes.<br>
+        <b>Posgrado:</b> ingreso de alumnas/os de posgrado.<br>
+      </p>
     </div>
-    <h2 class="inner">Aunque no siempre fue así:</h2>
+    <!--<h2 class="inner">Aunque no siempre fue así:</h2>
     <div id="evolution-graph">
     </div>
     <div id="annotation-graph">
-    </div>
+    </div>-->
     <div class="group inner">
-      <h2>La desigualdad también es visible en el personal</h2>
+      <h2>La desigualdad también es visible en el personal:</h2>
       <div class="tab-selector">
         <button id="tab-docentes" onclick="selectTab('docente')" class="tab-btn active btn-left">
           DOCENTES
@@ -91,30 +104,31 @@
     </div>
     <div class="group">
       <div id="percentage-docente" class="percentage-tabs active">
+        <p class="inner note">
+          Entre docentes, el porcentaje de mujeres disminuye en los grados superiores.
+        </p>
         <%= render partial: "data_qtty_graphs", locals: {model_type: "docente"} %>
       </div>
       <div id="percentage-funcionarie" class="percentage-tabs">
+        <p class="inner note">
+          Entre el funcionariado, la presencia de muejeres parece responder más a roles de género.
+        </p>
         <%= render partial: "data_qtty_graphs", locals: {model_type: "funcionarie"} %>
       </div>
     </div>
     <h2 class="inner">
-      Para promover que más mujeres puedan trabajar y estudiar se impulsan iniciativas como las salas de lactancia.
+      Para garantizar derechos y promover que más mujeres  puedan estudiar y trabajar en Udelar, se impulsan iniciativas como las salas de lactancia y espacios de recreación y cuidados.
     </h2>
     <div class="map-container group">
-      <%= render partial: "map" %>
+      <div id="map"></div>
     </div>
     <p class="inner note">
-      Desde UDELAR queremos corregir esta situación a través de Nombre del proyecto, y una descripción muy breve.
+      Desde Udelar queremos avanzar en el reconocimiento de las mujeres en el ámbito universitario. A Tu Nombre Udelar se propone como plataforma para la visualización y reflexión.
     </p>
     <p class="inner note">
-      Por un lado, queremos corregir el desequilibrio en los nombres de espacios, y necesitamos tus propuestas.
+      Proyectamos avanzar en la generación de herramientas que nos permitan transitar por este camino con un fuerte enfoque participativo.<br>
+      <a href="mailto:prgestion@udelar.edu.uy">Compartí tus ideas y comentarios.</a>
     </p>
-    <a href="/" class=" inner btn btn-blue">PROPONÉ NOMBRES</a>
-    <p class="inner group note">
-      Además, queremos pensar cómo la Universidad debe mejorar para cambiar estas inequidades.
-    </p>
-    <a href="/" class="inner-out btn btn-blue">PROPONÉ IDEAS</a>
   </div>
-  <%= render partial: "evolution_graph" %>
 </div>
 <%= render partial: "layouts/footer" %>

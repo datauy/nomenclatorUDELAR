@@ -6,11 +6,9 @@ charts = {};
   <div class="chart-container">
     <div class="chart">
       <div class="graph-ico">
-        <%= image_tag k.icon, class: "graph-ico" %>
+        <%= image_tag k.icon %>
       </div>
-      <div class="graph-container">
-        <div id="<%= k.stype %>" class="graph-chart"></div>
-      </div>
+      <div id="<%= k.stype %>" class="graph-chart"></div>
     </div>
     <div class="totals">
       <%= v %>%

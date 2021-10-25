@@ -10,7 +10,7 @@ ActiveAdmin.register Service do
   # or
   #
   permit_params do
-    permitted = [:name]
+    permitted = [:name, :sweight]
     permitted << :other if params[:action] == 'create' && current_admin_user
     permitted
   end

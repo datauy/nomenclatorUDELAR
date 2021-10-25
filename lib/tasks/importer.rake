@@ -3,9 +3,11 @@ class Importer
     @classname = nil
     @oid = nil
     @version = ImportVersion.find_or_create_by({name: name})
+    @is_new = false
   end
   def addLog()
-    raise "Importer classname is null" if @classname.blank? || @oid.blank?
+    raise "Importer classname is null" if @classname.blank?
+    raise "Importer Object is null" if @oid.blank?
     ImportLog.create({
       import_version: @version,
       object_type: @classname,
@@ -13,24 +15,35 @@ class Importer
     })
   end
   def createObj(classname, data)
+    @is_new = false
     @classname = classname
-    @oid = nil
     obj = classname.find_by data
     if obj.nil?
-      obj = classname.create data
-      obj.save
+      begin
+        puts "\nIMPORTER OBJ: #{data.inspect}\n\n"
+        obj = classname.create data
+        obj.save
+        @oid = obj.id
+        self.addLog
+        @is_new = true
+      rescue ArgumentError => err
+        puts "\n Error: #{err} en:\n #{data.inspect}\n\n"
+      end
+    else
       @oid = obj.id
-      self.addLog
     end
     return obj
   end
 end
 namespace :import do
   task :test, [:name] => :environment do |_, args|
-    Rake::Task["import:services"].invoke("test-serv_data2", "servicios-aux.csv")
-    ServiceTag.create(service_id: 6, tag: "Facultad de Arquitectura, Diseño y Urbanismo")
-    Rake::Task["import:service_data"].invoke("test-serv_data", "servicios-egresos-2019.csv", 3)
-    Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_activos-2019.csv", 2)
+    #Rake::Task["import:services"].invoke("test-serv_data2", "servicios-aux.csv")
+    #ServiceTag.create(service_id: 6, tag: "Facultad de Arquitectura, Diseño y Urbanismo")
+    #Rake::Task["import:service_data"].invoke("test-serv_data", "servicios-ingreso-estudiantes.csv", 1)
+    #Rake::Task["import:service_data"].reenable
+    #Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_actives-2020.csv", 2)
+    Rake::Task["import:places"].invoke("test-places10", "Places-UDELAR2.csv")
+    Rake::Task["import:intangibles"].invoke("test-intangibles10", "Intangibles-UDELAR2.csv")
   end
   task :all, [:name] => :environment do |_, args|
     if args[:name].present?
@@ -58,15 +71,15 @@ namespace :import do
     Rake::Task["import:service_data"].invoke("test-serv_data", "servicios-egresos-2019.csv", 3)
     Rake::Task["import:service_data"].reenable
     puts "\n\nCalling ACTIVOS\n"
-    Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_activos-2019.csv", 2)
+    Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_actives-2020.csv", 2)
     puts "\n\nCalling LUGARES\n"
-    Rake::Task["import:places"].invoke("#{import_name}-places", "PlanillasUnificadas-20210720-Lugares.csv")
+    Rake::Task["import:places"].invoke("#{import_name}-places", "Places-UDELAR2.csv")
     puts "\n\nCalling INTANGIBLES\n"
-    Rake::Task["import:intangibles"].invoke("#{import_name}-intangibles", "PlanillasUnificadas-20210720-Intangibles.csv")
+    Rake::Task["import:intangibles"].invoke("#{import_name}-intangibles", "Intangibles-UDELAR2.csv")
   end
   ###########################
   task :places, [:name, :file] => :environment do |_, args|
-    file = args[:file].present? ? args[:file] : 'PuntosProgramas.csv'
+    file = args[:file].present? ? args[:file] : 'Places-UDELAR.csv'
     if args[:name].present?
       import_name = args[:name]
     else
@@ -87,6 +100,7 @@ namespace :import do
     CSV.foreach("db/data/#{file}", headers: true) do |row|
       begin
         i = i + 1
+        puts "LINE: #{i}\n"
         uservice = Service.search(row[0])
         if uservice.blank?
           puts "\nServicio no encontrado: #{row[0]}\n\n"
@@ -144,16 +158,21 @@ namespace :import do
         if ptype.nil?
           ptype = ServDataType.where({model_type: 3, name: 'Otro'}).first
         end
-        place = import.createObj(Place, {
+        place_data = {
           building_id: building.id,
           name: row[5],
           detail: row[4],
           serv_data_type: ptype,
           naming_details: row[8],
           naming_date: naming_date
-          })
+        }
+
+        place = import.createObj(Place, place_data)
         if people
-          place.people << person
+          if !place.person_ids.include?(person.id)
+            puts "IS NEW UPDATE\n"
+            place.people << person
+          end
         else
           place.thing_id = thing.id
           place.save
@@ -167,7 +186,8 @@ namespace :import do
     prefix = [
       'Taller ',
       'Colección ',
-      'Campeonato '
+      'Campeonato ',
+      'Documentos donados por ',
     ]
     if args[:name].present? && args[:file].present?
       file = args[:file]
@@ -181,6 +201,7 @@ namespace :import do
     CSV.foreach("db/data/#{file}", headers: true) do |row|
       begin
         i = i + 1
+        puts "LINE: #{i}\n"
         uservice = Service.search(row[0])
         if uservice.blank?
           puts "\nServicio no encontrado: #{row[0]}\n\n"
@@ -210,10 +231,13 @@ namespace :import do
           naming_details: row[7],
           naming_date: naming_date
           })
-
-        intan.services << uservice
+        if !intan.service_ids.include? uservice.id
+          intan.services << uservice
+        end
         if add_person
-          intan.people << @person
+          if !intan.person_ids.include?(@person.id)
+            intan.people << @person
+          end
         else
           intan.thing_id = @thing.id
           intan.save
@@ -292,8 +316,8 @@ namespace :import do
           @import.createObj(ServiceDatum, {
             service: service,
             serv_data_type_id: stype,
-            man: row[1],
-            woman: row[2],
+            man: row[1].tr('.',''),
+            woman: row[2].tr('.',''),
             year: 2021
             })
         end
