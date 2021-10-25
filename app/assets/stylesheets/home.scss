@@ -83,13 +83,16 @@
       border-radius: 25px;
       height: 25px;
       border: none;
+      box-shadow: none;
     }
     form {
       background: var(--blue);
       display: inline-flex;
-      width: 100%;
+      width: 125%;
       justify-content: center;
       padding: 10px;
+      margin-left: -12.5%;
+
       #query {
         height: 34px;
         width: 240px;
@@ -147,6 +150,7 @@
             margin: auto 0 auto auto;
             min-width: 80px;
             font-size: 12px;
+            font-weight: normal;
             &.active {
               background-color: #05aef0;
             }

@@ -16,9 +16,12 @@ ActiveAdmin.register Person do
   end
   index do
     selectable_column
+    id_column
     column :name
     column :bio
     column :sex
+    column :places
+    column :intangibles
     column :image do |l|
       "<div class='rounded-image-wrapper'>#{image_tag url_for(l.image) if l.image.attached?}</div>".html_safe
     end

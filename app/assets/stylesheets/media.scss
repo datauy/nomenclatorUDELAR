@@ -27,6 +27,23 @@
         }
       }
     }
+    .map-container {
+      width: 125%;
+      margin-left: -12.5%;
+      max-width: 125%;
+    }
+    #search-container {
+      form {
+        width: 125%;
+        margin-left: -12.5%;
+      }
+      #search_results {
+        padding: 10px 12.5%;
+        width: 125%;
+        margin-left: -12.5%;
+      }
+    }
+
   }
   #footer {
     padding: 30px 10%;
@@ -45,6 +62,9 @@
     #percentage-funcionarie li,
     #percentage-docente li {
       width: 49%;
+    }
+    .derecho svg {
+      width: 1000px !important;
     }
   }
 }

@@ -14,5 +14,17 @@ ActiveAdmin.register Intangible do
     permitted << :other if params[:action] == 'create' && current_admin_user
     permitted
   end
+  form do |f|
+    f.inputs do
+      f.input :detail
+      f.input :noun
+      f.input :name
+      f.input :observations, as: :ckeditor
+      f.input :naming_date
+      f.input :naming_details, as: :ckeditor
+      f.input :people, :collection => Person.order(:name).all.map{|s| [s.name, s.id]}
+    end
+    f.actions
+  end
 
 end
