@@ -63,8 +63,10 @@
     #percentage-docente li {
       width: 49%;
     }
-    .derecho svg {
-      width: 1000px !important;
+    .derecho {
+      .container-derecho {
+        width: 1000px;
+      }
     }
   }
 }

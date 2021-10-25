@@ -3,6 +3,9 @@
     min-height: 100%;
     width: auto;
     position: relative;
+    .container-derecho {
+      width: 800px;
+    }
   }
   .main-image {
     display: flex;
@@ -88,10 +91,9 @@
     form {
       background: var(--blue);
       display: inline-flex;
-      width: 125%;
+      width: 100%;
       justify-content: center;
       padding: 10px;
-      margin-left: -12.5%;
 
       #query {
         height: 34px;

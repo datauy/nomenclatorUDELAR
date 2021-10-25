@@ -10,7 +10,7 @@ ActiveAdmin.register Intangible do
   # or
   #
   permit_params do
-    permitted = [:detail, :noun, :name, :observations, :naming_details, :naming_date, :thing_id]
+    permitted = [:detail, :noun, :name, :observations, :naming_details, :naming_date, :thing_id, person_ids:[]]
     permitted << :other if params[:action] == 'create' && current_admin_user
     permitted
   end
