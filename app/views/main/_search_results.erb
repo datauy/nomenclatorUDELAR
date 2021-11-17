@@ -16,7 +16,13 @@
       <div class="main-data">
         <h3><%= person.name %></h3>
         <div class="mini-bio">
-          <%= person.sex %>
+          <span><%= person.sex %></span>
+          <% person.places.each do |pl| %>
+            <span><%= "#{pl.building.name}, #{pl.name}" %></span>
+          <% end %>
+          <% person.intangibles.each do |int| %>
+            <span><%= "#{int.name}" %></span>
+          <% end %>
         </div>
       </div>
       <button class='more-data data-<%="#{person.id}"%>'>Más info.</button>
