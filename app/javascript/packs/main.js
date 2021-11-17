@@ -140,7 +140,7 @@ window.totalsCharts = function(graphs, custom_options = graph_options) {
 
 function createMap(){
   //const iconDiv = iconSVG + '<img src="'+shadowUrl+'"></img>' ;
-  var iconDefault = L.icon({
+  var icon_options = {
     className: "salas-marker",
     iconUrl: '/images/pin.png',
     shadowUrl: '/images/marker-shadow.png',
@@ -150,15 +150,29 @@ function createMap(){
     tooltipAnchor: [16, -28],
     shadowSize: [41, 10],
     shadowAnchor: [14, 6]
-  });
+  };
+  var iconDefault = L.icon(icon_options);
   L.Marker.prototype.options.icon = iconDefault;
-  $.getJSON("salas_de_lactancia_merged.geojson", function (salas) {
-    this.animating = true;
+  icon_options.iconUrl = '/images/pin_cuidados.png';
+  var iconCuidados = L.icon(icon_options);
+  $.getJSON("Sedes_con_salas_de_lactancia_y_o_espacios_de_cuidados.geojson", function (salas) {
     this.map = new L.Map("map", {minZoom:4}).setView([-11.336196, -63.605775], 4);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
     }).addTo(this.map);
-    L.geoJSON(salas).addTo(this.map);
+    for (var i = 0; i < salas.features.length; i++) {
+      var marker;
+      if ( salas.features[i].properties.Type == 'cuidados' ) {
+        marker = L.marker(salas.features[i].geometry.coordinates.reverse(), {icon: iconCuidados});
+      }
+      else {
+        marker = L.geoJSON(salas.features[i]);
+      }
+      marker.bindPopup(salas.features[i].properties.Name).addTo(this.map);
+    }
+
+    this.animating = true;
+    //L.geoJSON(salas).addTo(this.map);
     var mapBounds = [];
     salas.features.forEach((feature) => {
       mapBounds.push(feature.geometry.coordinates.slice(0,2).reverse())
