@@ -142,7 +142,12 @@
             justify-content: center;
             text-align: left;
             .mini-bio{
-
+              margin-top: 4px;
+              span {
+                display: block;
+                font-size: 10px;
+                margin: 2px;
+              }
             }
           }
           button {

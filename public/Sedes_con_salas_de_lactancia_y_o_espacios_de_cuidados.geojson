@@ -1,0 +1,772 @@
+{
+  "type": "FeatureCollection",
+  "name": "Sedes con salas de lactancia y/o espacios de cuidados",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FAGRO Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Gral. Eugenio Garzón 780<br>Superficie (m2): 11<br>Equipamiento de sala: Contenedor en el predio central, la sala cuenta con un baño de 2.9 m². Además cuenta con aire acondicionado, pileta con mesada, heladera,campana de extracción, aparatos eléctricos necesarios para la extracción y conservación, dos sillones, mesa de living, reproductor de audio y papelera.<br>En el plan general de ordenamiento del Edificio Central, está planificado incorporar una sala de lactancia pegado a la escalera norte, en planta alta, donde actualmente se encuentra la cátedra de Edafología (perteneciente al departamento de suelos). Esto en un escenario a largo plazo.",
+        "descripci__n": "",
+        "Direcci__n": "Gral. Eugenio Garzón 780",
+        "Superficie__m2_": "11.0",
+        "Equipamiento_de_sala": "Contenedor en el predio central, la sala cuenta con un baño de 2.9 m². Además cuenta con aire acondicionado, pileta con mesada, heladera,campana de extracción, aparatos eléctricos necesarios para la extracción y conservación, dos sillones, mesa de living, reproductor de audio y papelera.\nEn el plan general de ordenamiento del Edificio Central, está planificado incorporar una sala de lactancia pegado a la escalera norte, en planta alta, donde actualmente se encuentra la cátedra de Edafología (perteneciente al departamento de suelos). Esto en un escenario a largo plazo."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.2215304,
+          -34.8368379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FAGRO Estación Experimental Mario Alberto Cassinoni ",
+        "Type": "cuidados",
+        "description": "descripción: Guardería. Edificio independiente con baños.<br>Dirección: General José Gervasio Artigas (Ruta 3) km 363<br>Superficie (m2): 83<br>Equipamiento de sala: ",
+        "descripci__n": "Guardería. Edificio independiente con baños.",
+        "Direcci__n": "General José Gervasio Artigas (Ruta 3) km 363",
+        "Superficie__m2_": "83.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.0529273,
+          -32.3804054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FADU Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Br. Gral. Artigas 1031/ Cassinoni 1008 a 1032/1034bis/1046<br>Superficie (m2): 22<br>Equipamiento de sala: - Dispensador de jabón líquido.<br>- Butaca.<br>- Freezer.<br>- Dispensador de toallas de papel.<br>- Papelera metálica con tapa y apertura con pedal. <br>- Secamanos automático. <br>- Extractor eléctrico de leche materna. <br>- Equipo esterilizador. eléctrico a vapor. <br>- Frascos esterilizados. <br>- Bolso térmico. <br>- Gel pack. <br>- Cambiador de niños.<br>- Estufa",
+        "descripci__n": "",
+        "Direcci__n": "Br. Gral. Artigas 1031/ Cassinoni 1008 a 1032/1034bis/1046",
+        "Superficie__m2_": "22.0",
+        "Equipamiento_de_sala": "- Dispensador de jabón líquido.\n- Butaca.\n- Freezer.\n- Dispensador de toallas de papel.\n- Papelera metálica con tapa y apertura con pedal. \n- Secamanos automático. \n- Extractor eléctrico de leche materna. \n- Equipo esterilizador. eléctrico a vapor. \n- Frascos esterilizados. \n- Bolso térmico. \n- Gel pack. \n- Cambiador de niños.\n- Estufa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1636884,
+          -34.9097873
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FADU Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: Como espacio de cuidado en febrero de 2020 fadu organizo actividades en el salón 20C<br>como \"ESPACIO DE RECREACIÓN Y CUIDADOS PARA NIÑAS Y NIÑOS\". Dicho espacio fue<br>acondicionado temporalmente por, pero no se cuenta con equipamiento permanente.<br>Dirección: Br. Gral. Artigas 1031/ Cassinoni 1008 a 1032/1034bis/1046<br>Superficie (m2): <br>Equipamiento de sala: ",
+        "descripci__n": "Como espacio de cuidado en febrero de 2020 fadu organizo actividades en el salón 20C\ncomo \"ESPACIO DE RECREACIÓN Y CUIDADOS PARA NIÑAS Y NIÑOS\". Dicho espacio fue\nacondicionado temporalmente por, pero no se cuenta con equipamiento permanente.",
+        "Direcci__n": "Br. Gral. Artigas 1031/ Cassinoni 1008 a 1032/1034bis/1046",
+        "Superficie__m2_": "",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1636338,
+          -34.9100588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FADU Casa Centenario",
+        "Type": "lactancia",
+        "description": "descripción: Se asignó un espacio provisorio de sala de lactancia en el local P03 Tisaneria ya que se necesitó de forma urgente. La misma no se definió en la planta física como sala de lactancia ya que es provisoria, cuenta con una butaca, un frezzer y un locker. <br>Dirección: Av. Domingo Sarmiento 2340 <br>Superficie (m2): <br>Equipamiento de sala: ",
+        "descripci__n": "Se asignó un espacio provisorio de sala de lactancia en el local P03 Tisaneria ya que se necesitó de forma urgente. La misma no se definió en la planta física como sala de lactancia ya que es provisoria, cuenta con una butaca, un frezzer y un locker. ",
+        "Direcci__n": "Av. Domingo Sarmiento 2340 ",
+        "Superficie__m2_": "",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.163413,
+          -34.9148991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FARTES Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Guayabo 1773 - 18 de Julio 1772 <br><br>Superficie (m2): 10<br>Equipamiento de sala: Equipamiento incluido: mesa, dos butacas, cambiador de bebes, perchero, aire acondicionado,<br>frigobar, calefón, mesada con pileta, mueble aéreo y bajo mesada, accesorios (papelera,<br>dispensador de jabón líquido y de toallas de papel), equipamiento para oficina.",
+        "descripci__n": "",
+        "Direcci__n": "Guayabo 1773 - 18 de Julio 1772 \n",
+        "Superficie__m2_": "10.0",
+        "Equipamiento_de_sala": "Equipamiento incluido: mesa, dos butacas, cambiador de bebes, perchero, aire acondicionado,\nfrigobar, calefón, mesada con pileta, mueble aéreo y bajo mesada, accesorios (papelera,\ndispensador de jabón líquido y de toallas de papel), equipamiento para oficina."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1778006,
+          -34.9028033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FCIEN Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: Espacio de Recreación y cuidados Verano en Ciencias. Dirigido a personas de entre 3 y 12 años. Desde el 30 de Enero al 28 de Febrero de 2020 funcionó un espacio recreativo para hijos de estudiantes, docentes y funcionarios. Funcionó en las instalaciones de ISEF. Espera realizarse nuevamente el próximo verano.<br>Dirección: Iguá 4225<br><br>Superficie (m2): <br>Equipamiento de sala: ",
+        "descripci__n": "Espacio de Recreación y cuidados Verano en Ciencias. Dirigido a personas de entre 3 y 12 años. Desde el 30 de Enero al 28 de Febrero de 2020 funcionó un espacio recreativo para hijos de estudiantes, docentes y funcionarios. Funcionó en las instalaciones de ISEF. Espera realizarse nuevamente el próximo verano.",
+        "Direcci__n": "Iguá 4225\n",
+        "Superficie__m2_": "",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1172877,
+          -34.8820816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FCEA Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Gonzalo Ramírez 1926 <br>Superficie (m2): 24<br>Equipamiento de sala: 2 butacas con previsión de espacio para <br>2 butacas adicionales.",
+        "descripci__n": "",
+        "Direcci__n": "Gonzalo Ramírez 1926 ",
+        "Superficie__m2_": "24.0",
+        "Equipamiento_de_sala": "2 butacas con previsión de espacio para \n2 butacas adicionales."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1731886,
+          -34.912268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FCEA Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: El Espacio de Recreación estará abierto del 20/12 al 30/12 y todo febrero de 2022. Dirigido a personas de entre 3 y 12 años (que puedan ir al baño de forma autónoma).<br>Dirección: Gonzalo Ramírez 1926 <br>Superficie (m2): <br>Equipamiento de sala: ",
+        "descripci__n": "El Espacio de Recreación estará abierto del 20/12 al 30/12 y todo febrero de 2022. Dirigido a personas de entre 3 y 12 años (que puedan ir al baño de forma autónoma).",
+        "Direcci__n": "Gonzalo Ramírez 1926 ",
+        "Superficie__m2_": "",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1734301,
+          -34.9122781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FCS Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: Salón D1 – Espacio de cuidados de niños.<br>Dirección: Constituyente 1502/1522<br><br>Superficie (m2): 43<br>Equipamiento de sala: ",
+        "descripci__n": "Salón D1 – Espacio de cuidados de niños.",
+        "Direcci__n": "Constituyente 1502/1522\n",
+        "Superficie__m2_": "43.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1831605,
+          -34.9059567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FCS Anexo Asociación Pro Fundación para las CCSS",
+        "Type": "lactancia",
+        "description": "descripción: Figura en Planta Física como Sala de maternidad.<br>Dirección: Martínez Trueba 1306  <br><br>Superficie (m2): 12<br>Equipamiento de sala: ",
+        "descripci__n": "Figura en Planta Física como Sala de maternidad.",
+        "Direcci__n": "Martínez Trueba 1306  \n",
+        "Superficie__m2_": "12.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1831761,
+          -34.9062284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FDER Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: La Sala de Lactancia está abierta de 07:00 a 21:30.<br>Dirección: 18 de Julio 1824<br><br>Superficie (m2): 18<br>Equipamiento de sala: Aire Acondicionado, mesa, 2 sillas, cambiador, bacha, dispensador de jabón, perchero, frigobar, calefón, armarios.",
+        "descripci__n": "La Sala de Lactancia está abierta de 07:00 a 21:30.",
+        "Direcci__n": "18 de Julio 1824\n",
+        "Superficie__m2_": "18.0",
+        "Equipamiento_de_sala": "Aire Acondicionado, mesa, 2 sillas, cambiador, bacha, dispensador de jabón, perchero, frigobar, calefón, armarios."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1766423,
+          -34.9024384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FDER Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: Del 22 de Enero al 28 de Febrero de 2020 funcionó un espacio recrativo para hijos de docentes y funcionarios.<br>Dirección: 18 de Julio 1824<br>Superficie (m2): <br>Equipamiento de sala: ",
+        "descripci__n": "Del 22 de Enero al 28 de Febrero de 2020 funcionó un espacio recrativo para hijos de docentes y funcionarios.",
+        "Direcci__n": "18 de Julio 1824",
+        "Superficie__m2_": "",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1733583,
+          -34.9012169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FHCE Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: Está previsto que la sala esté en funcionamiento en 2021, ya que tiene prioridad en la obra.<br>Dirección: Uruguay 1695<br><br>Superficie (m2): 5<br>Equipamiento de sala: Se prevee espacio para una butaca, mesada con pileta y refrigerador.",
+        "descripci__n": "Está previsto que la sala esté en funcionamiento en 2021, ya que tiene prioridad en la obra.",
+        "Direcci__n": "Uruguay 1695\n",
+        "Superficie__m2_": "5.0",
+        "Equipamiento_de_sala": "Se prevee espacio para una butaca, mesada con pileta y refrigerador."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1813137,
+          -34.9007245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FHCE Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: Entre el 3 y 28 de Febrero de 2020 funcionó un espacio recreativo para funcionarios en el horario de 10:00 a 17:00.<br>Dirección: Uruguay 1695<br>Superficie (m2): <br>Equipamiento de sala: ",
+        "descripci__n": "Entre el 3 y 28 de Febrero de 2020 funcionó un espacio recreativo para funcionarios en el horario de 10:00 a 17:00.",
+        "Direcci__n": "Uruguay 1695",
+        "Superficie__m2_": "",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1814025,
+          -34.9007685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FIC Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: Período de uso: permanente, no ha tenido uso desde el comienzo de la pandemia.<br>Dirección: San Salvador s/n – Gonzalo Ramírez 1935<br><br>Superficie (m2): 7<br>Equipamiento de sala: Mueble con bacha y grifería, sillón, freezer con mueble. ",
+        "descripci__n": "Período de uso: permanente, no ha tenido uso desde el comienzo de la pandemia.",
+        "Direcci__n": "San Salvador s/n – Gonzalo Ramírez 1935\n",
+        "Superficie__m2_": "7.0",
+        "Equipamiento_de_sala": "Mueble con bacha y grifería, sillón, freezer con mueble. "
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1728738,
+          -34.911463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FIC Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: Salón 111, no tiene equipamiento específico, el período de uso en general es en julio y diciembre. Se contrata a la cooperativo Homoludens para actividades.<br>Dirección: San Salvador s/n – Gonzalo Ramírez 1935<br>Superficie (m2): 65<br>Equipamiento de sala: ",
+        "descripci__n": "Salón 111, no tiene equipamiento específico, el período de uso en general es en julio y diciembre. Se contrata a la cooperativo Homoludens para actividades.",
+        "Direcci__n": "San Salvador s/n – Gonzalo Ramírez 1935",
+        "Superficie__m2_": "65.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1728838,
+          -34.9115379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FING Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Herrera y Reissig 565 <br><br>Superficie (m2): 16<br>Equipamiento de sala: ",
+        "descripci__n": "",
+        "Direcci__n": "Herrera y Reissig 565 \n",
+        "Superficie__m2_": "16.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1665725,
+          -34.9181706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FING Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: Entre el 3 y el 28 de Febrero de 2020 en el horario de 9:30 A 17:00 hs, funcionó un espacio recreativo para hijos de funcionarios y docentes.<br>Dirección: Herrera y Reissig 565 <br>Superficie (m2): <br>Equipamiento de sala: ",
+        "descripci__n": "Entre el 3 y el 28 de Febrero de 2020 en el horario de 9:30 A 17:00 hs, funcionó un espacio recreativo para hijos de funcionarios y docentes.",
+        "Direcci__n": "Herrera y Reissig 565 ",
+        "Superficie__m2_": "",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1665718,
+          -34.9182272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FMED Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Gral. Flores 2125<br><br>Superficie (m2): 12<br>Equipamiento de sala: Cuenta con un sillón, una mesada con pileta y un pequeño refrigeraor. Está siempre disponible para su uso.",
+        "descripci__n": "",
+        "Direcci__n": "Gral. Flores 2125\n",
+        "Superficie__m2_": "12.0",
+        "Equipamiento_de_sala": "Cuenta con un sillón, una mesada con pileta y un pequeño refrigeraor. Está siempre disponible para su uso."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1863965,
+          -34.8881363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FMED en Instituto de Higiene",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Alfredo Navarro 3051<br><br>Superficie (m2): 11<br>Equipamiento de sala: ",
+        "descripci__n": "",
+        "Direcci__n": "Alfredo Navarro 3051\n",
+        "Superficie__m2_": "11.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1503188,
+          -34.8929243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FODON Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Las Heras 1925<br><br>Superficie (m2): 11<br>Equipamiento de sala: ",
+        "descripci__n": "",
+        "Direcci__n": "Las Heras 1925\n",
+        "Superficie__m2_": "11.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1496587,
+          -34.8919091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FPSICO Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: Uso aproximado ocho veces al año.<br>Dirección: T. Narvaja 1674, Paysandú 1810 y Uruguay 1821 y 1825<br><br>Superficie (m2): 22<br>Equipamiento de sala: Equipamiento: heladera con freezer, mesada con pileta, microondas, bañito/cambiador para bebé, dos gabienets separados por mampara con sillones reclinables y almohadones para amamantar.<br>",
+        "descripci__n": "Uso aproximado ocho veces al año.",
+        "Direcci__n": "T. Narvaja 1674, Paysandú 1810 y Uruguay 1821 y 1825\n",
+        "Superficie__m2_": "22.0",
+        "Equipamiento_de_sala": "Equipamiento: heladera con freezer, mesada con pileta, microondas, bañito/cambiador para bebé, dos gabienets separados por mampara con sillones reclinables y almohadones para amamantar.\n"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1788955,
+          -34.8995195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "PSICO Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: No es permanente, se implementa en la vacaciones escolares. En general se ubica en algún salón que no está siendo utilizando, por ejemplo salón 3 (54,4 m²) o salón 4 (44 m²)y se complementa con actividades en el patio exterior. Se alquila dispensador de agua y se contrata animadores.<br>Dirección: T. Narvaja 1674, Paysandú 1810 y Uruguay 1821 y 1825<br>Superficie (m2): <br>Equipamiento de sala: ",
+        "descripci__n": "No es permanente, se implementa en la vacaciones escolares. En general se ubica en algún salón que no está siendo utilizando, por ejemplo salón 3 (54,4 m²) o salón 4 (44 m²)y se complementa con actividades en el patio exterior. Se alquila dispensador de agua y se contrata animadores.",
+        "Direcci__n": "T. Narvaja 1674, Paysandú 1810 y Uruguay 1821 y 1825",
+        "Superficie__m2_": "",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1788737,
+          -34.8996044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FQ Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: No existe agenda pero se estaba viendo la posibilidad de crearla.<br>Dirección: Gral. Flores 2124<br><br>Superficie (m2): 5<br>Equipamiento de sala: Silla anatómica, un frío bar, un mueble para colocar el equipo para extraer leche, un estante, cortina y una pileta. Un alargue y un caloventilador.",
+        "descripci__n": "No existe agenda pero se estaba viendo la posibilidad de crearla.",
+        "Direcci__n": "Gral. Flores 2124\n",
+        "Superficie__m2_": "5.0",
+        "Equipamiento_de_sala": "Silla anatómica, un frío bar, un mueble para colocar el equipo para extraer leche, un estante, cortina y una pileta. Un alargue y un caloventilador."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1854104,
+          -34.8885145
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FQ Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: Previo emergencia sanitaria se utilizaba el salón 02, de planta baja del edificio central, como espacio recreativo durante los recesos. <br>Dirección: Gral. Flores 2124<br>Superficie (m2): <br>Equipamiento de sala: ",
+        "descripci__n": "Previo emergencia sanitaria se utilizaba el salón 02, de planta baja del edificio central, como espacio recreativo durante los recesos. ",
+        "Direcci__n": "Gral. Flores 2124",
+        "Superficie__m2_": "",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1853125,
+          -34.8885761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FVET Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: Ubicación: Edificio Hospital Veterinario. <br>La llave se encuentra en cabinas de vigilancia, por lo que se puede utilizar prácticamente sin restricciones horarias.<br><br>Dirección: Alberto Lasplaces 1550 <br><br>Superficie (m2): 9<br>Equipamiento de sala: Equipamiento: dos butacas en tela aquaclean, una mesita redonda, frigobar, microondas, aire acondicionado, calentador de mamaderas, cambiador de bebes, dispensadores de jabón y toallas de papel, tacho de basura, perchero, una pizarra y un cuadro.<br><br>",
+        "descripci__n": "Ubicación: Edificio Hospital Veterinario. \nLa llave se encuentra en cabinas de vigilancia, por lo que se puede utilizar prácticamente sin restricciones horarias.\n",
+        "Direcci__n": "Alberto Lasplaces 1550 \n",
+        "Superficie__m2_": "9.0",
+        "Equipamiento_de_sala": "Equipamiento: dos butacas en tela aquaclean, una mesita redonda, frigobar, microondas, aire acondicionado, calentador de mamaderas, cambiador de bebes, dispensadores de jabón y toallas de papel, tacho de basura, perchero, una pizarra y un cuadro.\n\n"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1397159,
+          -34.8971001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FVET Sede Central",
+        "Type": "cuidados",
+        "description": "descripción: No existe un espacio destinado a este fin exclusivamente, pero durante vacaciones de invierno, primavera o durante una/s semana/s de diciembre funciona la sala recreativa en el salón BMC( aula laboratorio)., ubicado en el Edificio Hospital <br><br>Equipamiento: 40 sillas de dos tamaños (2-5 años y 6-11 años) y 6 mesas de colores y materiales varios para la realizacion de actividades.<br>Dirección: Alberto Lasplaces 1550<br>Superficie (m2): <br>Equipamiento de sala: ",
+        "descripci__n": "No existe un espacio destinado a este fin exclusivamente, pero durante vacaciones de invierno, primavera o durante una/s semana/s de diciembre funciona la sala recreativa en el salón BMC( aula laboratorio)., ubicado en el Edificio Hospital \n\nEquipamiento: 40 sillas de dos tamaños (2-5 años y 6-11 años) y 6 mesas de colores y materiales varios para la realizacion de actividades.",
+        "Direcci__n": "Alberto Lasplaces 1550",
+        "Superficie__m2_": "",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1397033,
+          -34.8972621
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FVET Nueva Sede",
+        "Type": "lactancia",
+        "description": "descripción: 1 sala de lactancia de 6,2m2 - Edificio Adm. y Gobierno<br>1 sala de lactancia de 4,6m2 - Edificio Aulario<br>1 sala de lactancia de 6,2m2 - Edificio Servicios de Apoyo y Complementarios<br>1 sala de lactancia de 5,8m2 - Edificio Carne y Leche<br>1 sala de lactancia de 6,7m2 - Edificio Pequeños Animales<br>1 sala de lactancia de 9.8m2 - Edificio Garages<br>Todas contarán con butaca en tela lavable, frigobar, microondas y aire acondicionado.<br>Dirección: Ruta 8 y 102<br><br>Superficie (m2): 23<br>Equipamiento de sala: ",
+        "descripci__n": "1 sala de lactancia de 6,2m2 - Edificio Adm. y Gobierno\n1 sala de lactancia de 4,6m2 - Edificio Aulario\n1 sala de lactancia de 6,2m2 - Edificio Servicios de Apoyo y Complementarios\n1 sala de lactancia de 5,8m2 - Edificio Carne y Leche\n1 sala de lactancia de 6,7m2 - Edificio Pequeños Animales\n1 sala de lactancia de 9.8m2 - Edificio Garages\nTodas contarán con butaca en tela lavable, frigobar, microondas y aire acondicionado.",
+        "Direcci__n": "Ruta 8 y 102\n",
+        "Superficie__m2_": "23.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.0669819,
+          -34.7921289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "FVET Nueva Sede",
+        "Type": "cuidados",
+        "description": "descripción: Sala recreativa de Facultad de Veterinaria. Dirigido a personas de 3 a 12 años. Coordinado con cooperativa Homoludens. Una vez mudado el PIM 2021 - 2022, se tomará la casona para cuidados.<br>El equipamiento existente será trasladado, y se proyecta adquirir electrodomésticos, cambiador de bebes, un gazebo, una biblioteca, una cajonera, un botiquín, pisos de goma eva y artículos de oficina para las funciones administrativas.<br>Existe una cancha de fútbol 11 y una de basquetbol.<br>Dirección: Ruta 8 y 102<br>Superficie (m2): 183<br>Equipamiento de sala: ",
+        "descripci__n": "Sala recreativa de Facultad de Veterinaria. Dirigido a personas de 3 a 12 años. Coordinado con cooperativa Homoludens. Una vez mudado el PIM 2021 - 2022, se tomará la casona para cuidados.\nEl equipamiento existente será trasladado, y se proyecta adquirir electrodomésticos, cambiador de bebes, un gazebo, una biblioteca, una cajonera, un botiquín, pisos de goma eva y artículos de oficina para las funciones administrativas.\nExiste una cancha de fútbol 11 y una de basquetbol.",
+        "Direcci__n": "Ruta 8 y 102",
+        "Superficie__m2_": "183.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.0672831,
+          -34.7922266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Nueva Plataforma de Enseñanza e Investigación",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Av. Dr. Américo Ricaldoni<br><br>Superficie (m2): 29<br>Equipamiento de sala: ",
+        "descripci__n": "",
+        "Direcci__n": "Av. Dr. Américo Ricaldoni\n",
+        "Superficie__m2_": "29.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1520874,
+          -34.8928733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "OCE Sede Central (Ex Banco de Cobranzas)",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: 18 de Julio 1968, Brandsen 1969<br>Superficie (m2): 16<br>Equipamiento de sala: Está equipada y para utilizarla se solicita la llave en vigilancia.",
+        "descripci__n": "",
+        "Direcci__n": "18 de Julio 1968, Brandsen 1969",
+        "Superficie__m2_": "16.0",
+        "Equipamiento_de_sala": "Está equipada y para utilizarla se solicita la llave en vigilancia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1732962,
+          -34.9012195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "OCE SeCIU Anexo 2",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Colonia 2074<br>Superficie (m2): 11<br>Equipamiento de sala: ",
+        "descripci__n": "",
+        "Direcci__n": "Colonia 2074",
+        "Superficie__m2_": "11.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.1710862,
+          -34.8988907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "CENUR ESTE- CURE Maldonado Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: Adaptación de un local existente, por lo cual no cuenta con pileta ni abastecimiento de agua. En este caso la sala está siempre en funcionamiento.<br>Dirección: Tacuarembó entre Av. Artigas y Av. Saravia<br>Superficie (m2): 15<br>Equipamiento de sala: - 2 sillas<br>- 1 mesa ratona<br>- 1 frigobar<br>- 1 armario<br>- 1 perchero<br>- almohadones<br>- 1 contenedor de basura",
+        "descripci__n": "Adaptación de un local existente, por lo cual no cuenta con pileta ni abastecimiento de agua. En este caso la sala está siempre en funcionamiento.",
+        "Direcci__n": "Tacuarembó entre Av. Artigas y Av. Saravia",
+        "Superficie__m2_": "15.0",
+        "Equipamiento_de_sala": "- 2 sillas\n- 1 mesa ratona\n- 1 frigobar\n- 1 armario\n- 1 perchero\n- almohadones\n- 1 contenedor de basura"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.9423051,
+          -34.9145989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "CENUR ESTE - CURE Rocha Sede Central ",
+        "Type": "lactancia",
+        "description": "descripción: En cuanto al horario de uso no tiene. La sala está siempre cerrada con llave y si es necesario utilizarla se solicita en vigilancia que se abra.<br>Dirección: Coronel Leonardo Olivera (Ruta 9) y 15<br>Superficie (m2): 17<br>Equipamiento de sala: - 2 sillas<br>- 1 mesa ratona <br>- 1 frigobar<br>- 1 cambiador<br>- 2 mesas<br>- 2 contenedores de basura.",
+        "descripci__n": "En cuanto al horario de uso no tiene. La sala está siempre cerrada con llave y si es necesario utilizarla se solicita en vigilancia que se abra.",
+        "Direcci__n": "Coronel Leonardo Olivera (Ruta 9) y 15",
+        "Superficie__m2_": "17.0",
+        "Equipamiento_de_sala": "- 2 sillas\n- 1 mesa ratona \n- 1 frigobar\n- 1 cambiador\n- 2 mesas\n- 2 contenedores de basura."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.320842,
+          -34.4894076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "CENUR NORESTE - CUCEL Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: Está a cargo de la dirección del centro. <br>Dirección: Dr. Luis Alberto de Herrera esq. Muniz  <br>Superficie (m2): 7<br>Equipamiento de sala: Cuenta con una pileta pero sin otros equipamientos por el momento. ",
+        "descripci__n": "Está a cargo de la dirección del centro. ",
+        "Direcci__n": "Dr. Luis Alberto de Herrera esq. Muniz  ",
+        "Superficie__m2_": "7.0",
+        "Equipamiento_de_sala": "Cuenta con una pileta pero sin otros equipamientos por el momento. "
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.169861,
+          -32.3692932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "CENUR NORESTE - CUR Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: <br>Dirección: Ituzaingó 667-665<br>Superficie (m2): 5<br>Equipamiento de sala: No tiene equipamiento y está sin uso.",
+        "descripci__n": "",
+        "Direcci__n": "Ituzaingó 667-665",
+        "Superficie__m2_": "5.0",
+        "Equipamiento_de_sala": "No tiene equipamiento y está sin uso."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.5402554,
+          -30.9023539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "CENUR NORESTE - CUT Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: No esta habilitada aún, se espera que se consolide durante 2021.<br>Dirección: Brigadier General Fructuoso Rivera (Ruta 5) Km. 386<br>Superficie (m2): 13<br>Equipamiento de sala: Sillón, heladera y placares.",
+        "descripci__n": "No esta habilitada aún, se espera que se consolide durante 2021.",
+        "Direcci__n": "Brigadier General Fructuoso Rivera (Ruta 5) Km. 386",
+        "Superficie__m2_": "13.0",
+        "Equipamiento_de_sala": "Sillón, heladera y placares."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.9769659,
+          -31.7367943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "CENUR LITORAL NORTE - RN Sede Central",
+        "Type": "lactancia",
+        "description": "descripción: Se financió parcialmente con fondos PCET MALUR.<br>Cuenta con equipamiento:<br>- 2 sillones de un cuerpo, reclinables <br>- 2 espejos amurados <br>- 1 mesa/ escritorio<br>- 1 frigobar <br>- 1 cambiador de bebé <br>- 1 mampara divisoria (privacidad usuarias)<br>Dado que las obras finalizaron una vez comenzada la pandemia covid19, se entiende que tal vez no tenga mucho uso aún. <br>Dirección: Rivera 1350<br>Superficie (m2): 8<br>Equipamiento de sala: ",
+        "descripci__n": "Se financió parcialmente con fondos PCET MALUR.\nCuenta con equipamiento:\n- 2 sillones de un cuerpo, reclinables \n- 2 espejos amurados \n- 1 mesa/ escritorio\n- 1 frigobar \n- 1 cambiador de bebé \n- 1 mampara divisoria (privacidad usuarias)\nDado que las obras finalizaron una vez comenzada la pandemia covid19, se entiende que tal vez no tenga mucho uso aún. ",
+        "Direcci__n": "Rivera 1350",
+        "Superficie__m2_": "8.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.9579374,
+          -31.3911513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Hospital de Clínicas Dr. Manuel Quintela",
+        "Type": "lactancia",
+        "description": "descripción: Piso 16 – Ala este.<br>Dirección: Av. Italia s/n<br>Superficie (m2): 30<br>Equipamiento de sala: ",
+        "descripci__n": "Piso 16 – Ala este.",
+        "Direcci__n": "Av. Italia s/n",
+        "Superficie__m2_": "30.0",
+        "Equipamiento_de_sala": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.151742,
+          -34.8913683
+        ]
+      }
+    }
+  ]
+}
