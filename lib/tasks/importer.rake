@@ -78,6 +78,38 @@ namespace :import do
     Rake::Task["import:intangibles"].invoke("#{import_name}-intangibles", "Intangibles-UDELAR2.csv")
   end
   ###########################
+  task :services, [:name] => :environment do |_, args|
+    if args[:name].present?
+      import_name = args[:name]
+    else
+      import_name = 'services-initial'
+    end
+    puts "\nSTARTalling\n"
+    #Rake::Task["import:services"].invoke("#{import_name}-servicios", "servicios.csv")
+    puts "\n\nCalling data-types\n"
+    #Rake::Task["import:serv_data_types"].invoke("#{import_name}-serv_data_types", "stypes.csv")
+    puts "\n\nCalling DOCENTES\n"
+    Rake::Task["import:service_data"].invoke("#{import_name}-docentes", "servicios-docentes-2024.csv", "docente")
+    Rake::Task["import:service_data"].reenable
+    puts "\n\nCalling FUNCIONARIES\n"
+    Rake::Task["import:service_data"].invoke("#{import_name}-funcionaries", "servicios-funcionaries-2024.csv", "funcionarie")
+    Rake::Task["import:service_data"].reenable
+    puts "\n\nCalling POSTGRADOS\n"
+    Rake::Task["import:service_data"].invoke("#{import_name}-servicios-ingreso-posgrados", "servicios-ingreso_posgrados-2022.csv", 4)
+    Rake::Task["import:service_data"].reenable
+    puts "\n\nCalling INGRESOS\n"
+    Rake::Task["import:service_data"].invoke("#{import_name}-servicios-ingreso-estudiantes", "servicios-ingreso_estudiantes-2022.csv", 1)
+    Rake::Task["import:service_data"].reenable
+    puts "\n\nCalling EGRESOS\n"
+    Rake::Task["import:service_data"].invoke("test-serv_data", "servicios-egresos-2021.csv", 3)
+    Rake::Task["import:service_data"].reenable
+    puts "\n\nCalling ACTIVOS\n"
+    Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_actives-2023.csv", 2)
+    puts "\n\nCalling LUGARES\n"
+    #Rake::Task["import:places"].invoke("#{import_name}-places", "Places-UDELAR2.csv")
+    puts "\n\nCalling INTANGIBLES\n"
+    #Rake::Task["import:intangibles"].invoke("#{import_name}-intangibles", "Intangibles-UDELAR2.csv")
+  end
   task :places, [:name, :file] => :environment do |_, args|
     file = args[:file].present? ? args[:file] : 'Places-UDELAR.csv'
     if args[:name].present?
@@ -277,6 +309,8 @@ namespace :import do
       import_name = args[:name]
       stype = args[:type]
       stypes = ServDataType.where({model_type: stype}).order(:weight)
+      #year = file.split('-')[2]
+      year = 2024
     else
       puts "NO ENCONTRADO\n"
       next
@@ -307,7 +341,7 @@ namespace :import do
                 serv_data_type: datum,
                 woman: stype_comp[j][0].to_i,
                 man: stype_comp[j][1].to_i,
-                year: 2021
+                year: year
                 })
               j += 1
             end
@@ -318,7 +352,7 @@ namespace :import do
             serv_data_type_id: stype,
             man: row[1].tr('.',''),
             woman: row[2].tr('.',''),
-            year: 2021
+            year: year
             })
         end
       rescue ArgumentError => err
@@ -362,6 +396,7 @@ namespace :import do
     require 'csv'
     @import = Importer.new(import_name)
     i = 0
+    puts "Importing file db/data/#{file}"
     CSV.foreach("db/data/#{file}") do |row|
       begin
         puts row.inspect

@@ -100,79 +100,133 @@
     <%= image_tag 'ILDA.svg', class: 'supporters' %>
     <%= image_tag 'logo_mira_mama.svg', class: 'supporters' %>
   </div>
-  <div class="group slider-container">
+  <div class="carousel slider-container">
     <h2>Conocé otros proyectos de DATA:</h2>
     <div id="data-projects" class="slides"></div>
     <div id="slider-controls"></div>
   </div>
   <script>
-    function toggleFooter(){
-      console.log("TOGGLE FOOTER");
-      $('#footer').toggleClass('expanded');
-    }
-    function goToSlide(clicked) {
-      var pos = clicked.target.xdata;
-      current_slides = $('.slide').length;
-      for (var i = pos; i < current_slides; i++) {
-        $('.slides').append( $('#slide-'+i) );
+    var slide_started = false;
+      function getJSON(url, callback) {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', url, true);
+          xhr.responseType = 'json';
+          xhr.onload = function() {
+            var status = xhr.status;
+            if (status === 200) {
+              callback(null, xhr.response);
+            } else {
+              callback(status, xhr.response);
+            }
+          };
+          xhr.send();
+      };
+      
+      function fadeIn(el) { 
+        
+        //setInterval(show(el), 200);
+      } 
+      var intervalID = 0;    
+      function show(body) {  
+          opacity = Number(window.getComputedStyle(body).getPropertyValue("opacity")); 
+          if (opacity < 1) { 
+              opacity = opacity + 0.1; 
+              body.style.opacity = opacity 
+          } else { 
+              clearInterval(intervalID);
+          } 
+      } 
+      function goToSlide(clicked) {
+        var pos = clicked.target.xdata;
+        current_slides = document.querySelector(".slide").length;
+        for (var i = pos; i < current_slides; i++) {
+          document.querySelector(".slides").append( document.getElementById("slide-"+i) );
+        }
+        for (var i = 0; i < pos; i++) {
+          document.querySelector(".slides").append( document.getElementById("slide-"+i) );
+        }
+        document.querySelector("#slider-controls a").classList.remove("active");
+        clicked.target.className = "active";
       }
-      for (var i = 0; i < pos; i++) {
-        $('.slides').append( $('#slide-'+i) );
-      }
-      $('#slider-controls a').removeClass('active');
-      clicked.target.className = 'active';
-    }
-    $.getJSON("data-projects.json", function(data){
-        var container = document.getElementById('data-projects');
-        var controls = document.getElementById('slider-controls');
+      getJSON("https://admin.data.org.uy/api/project-footer?project_id=7", function(err, data){
+        var container = document.getElementById("data-projects");
+        var controls = document.getElementById("slider-controls");
         i=0;
         data.forEach(function(project){
-          var a = document.createElement('a');
-          a.target = '_blank';
-          a.id = 'slide-'+i;
+          var a = document.createElement("a");
+          a.target = "_blank";
+          a.id = "slide-"+i;
           a.href = project.link;
           a.alt = project.name;
-          a.className = 'slide';
+          a.className = "slide";
           var element = document.createElement("img");
-          element.setAttribute("src", "/images/"+project.icon);
+          element.setAttribute("src", project.icon);
           a.appendChild(element);
           container.appendChild(a);
-          var b = document.createElement('a');
+          var b = document.createElement("a");
           b.xdata = i;
-          b.id = 'control-slide-'+i;
+          b.id = "control-slide-"+i;
           b.onclick=goToSlide;
           controls.appendChild(b);
           if ( i == 0 ) {
-            b.className = 'active';
+            b.className = "active";
           }
           i++;
         });
-    });
-    var animationSpeed = 500;
-    var pause = 3000;
-    setInterval(function() {
-      $('.slides > a:first').not('.hovered')
-        .fadeOut(animationSpeed, (e) => {
-          $('.slides > a:last').show();
-        })
-        .next()
-        .fadeIn(animationSpeed)
-        .end()
-        .appendTo('.slides');
-      //bottom controls
-      var slide = $('.slides > a:first');
-      $('#slider-controls a').removeClass('active');
-      $('#control-'+slide[0].id).addClass('active');
-    }, pause);
-    //Pause on hover
-    $('.slider-container').hover(
-      function(){
-        $('.slides a').addClass('hovered');
-      },
-      function(){
-        $('.slides a').removeClass('hovered');
+        change_slide(true);
+      });
+      //Pause on hover
+      document.querySelector(".slider-container").addEventListener('mouseover', function(){
+        //slide_started = true;
+        document.querySelector(".slides").classList.add("hovered");
+      });
+      document.querySelector(".slider-container").addEventListener('mouseout', function(){
+        //slide_started = false;
+        document.querySelector(".slides").classList.remove("hovered");
+      });
+      function change_slide() {
+        if (!slide_started) {
+          let not_hovered = document.querySelectorAll(".slides:not(.hovered) > a")[0];
+          if (not_hovered != null ) {
+            slide_started = true;
+            fadeOut(not_hovered);
+          }
+          else {
+            slide_started = false;
+            sleep(500).then(() => {
+              change_slide();
+            });
+          }
+        }
       }
-  );
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+      function fadeOut(el) {
+        var fadeTarget = el;
+        var fadeEffect = setInterval(function () {
+            if (!fadeTarget.style.opacity) {
+                fadeTarget.style.opacity = 1;
+            }
+            if (fadeTarget.style.opacity > 0) {
+                fadeTarget.style.opacity -= 0.04;
+            } else {
+              slide_started = false;
+              document.querySelector(".slides").append(el);
+              el.style.opacity = 1;
+              change_slide();
+              clearInterval(fadeEffect);
+                  //bottom controls
+              var slide = document.querySelector(".slides > a");
+              let pagers = document.querySelectorAll("#slider-controls a");
+              for (i = 0; i < pagers.length; i++){
+                pagers[i].classList.remove("active");
+              }
+              document.querySelector("#control-"+slide.id).classList.add("active");
+            }
+
+        }, 60);
+      }
   </script>
   <div class="group">
     <%= image_tag 'cc.svg', class: 'social-icon' %>

@@ -69,10 +69,11 @@ class MainController < ApplicationController
   end
   #Total number of students per service
   def get_totals
+    @year = 2024
     @total_woman = {}
     @models = {}
-    totals = ServiceDatum.select('serv_data_type, woman, man')
-    total_woman = ServiceDatum.select('serv_data_type, woman')
+    totals = ServiceDatum.select('serv_data_type, woman, man').where(year: @year)
+    total_woman = ServiceDatum.select('serv_data_type, woman').where(year: @year)
     if params[:sid].present? && params[:sid].to_i > 0
       totals = totals.where(service_id: params[:sid])
       total_woman = total_woman.where(service_id: params[:sid])

@@ -156,7 +156,7 @@ function createMap(){
   icon_options.iconUrl = '/images/pin_cuidados.png';
   var iconCuidados = L.icon(icon_options);
   $.getJSON("Sedes_con_salas_de_lactancia_y_o_espacios_de_cuidados.geojson", function (salas) {
-    this.map = new L.Map("map", {minZoom:4}).setView([-11.336196, -63.605775], 4);
+    this.map = new L.Map("map", {minZoom:4, scrollWheelZoom: false}).setView([-32.336196, -54.605775], 6);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
     }).addTo(this.map);
@@ -177,6 +177,6 @@ function createMap(){
     salas.features.forEach((feature) => {
       mapBounds.push(feature.geometry.coordinates.slice(0,2).reverse())
     })
-    this.map.flyToBounds(mapBounds);
+    //this.map.flyToBounds(mapBounds);
   } );
 }
