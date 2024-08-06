@@ -1,104 +1,114 @@
 <div id="footer" class="blue inner">
-  <button onclick="toggleFooter()" class='footer-toggle-btn'>
-    Ampliar info. <i class="arrow arrow-right black"></i>
-  </button>
-  <button onclick="toggleFooter()" class='footer-toggle-btn footer-toggle'>
-    Ocultar info. <i class="arrow down black"></i>
-  </button>
-  <div class="group column">
-    <h2>Sobre el proyecto </h2>
-    <p>
-        A Tu Nombre Udelar es un proyecto desarrollado por Data Uruguay, Prorrectorado de Gestión de la Udelar en coordinación con la Comisión Abierta de Equidad y Género y la Dirección General de Arquitectura. Busca visibilizar la brecha de género en el reconocimiento dentro de la Universidad, apuntando a cambiar esta realidad.
-      <br>
-      <a href="/sobre-el-proyecto">Más información ></a>
-    </p>
-    <a href="http://soporte.data.org.uy/es/customer/create-ticket/" class="btn btn-transparent">
-      ¿Problemas, dudas? Escribí a soporte
-      <%= image_tag 'iconos-soporte.svg', class: 'icon github' %>
-    </a>
-    <a href="http://soporte.data.org.uy/es/" class="btn btn-transparent footer-toggle">
-      Base de conocimiento DATA Uruguay
-      <%= image_tag 'iconos-base-de-conocimiento.svg', class: 'icon github' %>
-    </a>
-    <div class="group footer-toggle">
-      <h2>Datos abiertos y software libre </h2>
+  <div class="row">
+    <div class="group column">
+      <div class="toggle-data" onclick="this.parentNode.classList.toggle('active');">
+        <h2>Sobre el proyecto </h2>
+        <%= image_tag("arrow-down.png", alt:"Flecha expandir-contraer") %>
+      </div>  
       <p>
-        Los datos utilizados en esta aplicación se encuentran disponibles para su reutilización como datos abiertos y el código del software es libre bajo licencia GPLv3.
+          A Tu Nombre Udelar es un proyecto desarrollado por Data Uruguay, Prorrectorado de Gestión de la Udelar en coordinación con la Comisión Abierta de Equidad y Género y la Dirección General de Arquitectura. Busca visibilizar la brecha de género en el reconocimiento dentro de la Universidad, apuntando a cambiar esta realidad.
+        <br>
+        <a href="/sobre-el-proyecto">Más información ></a>
       </p>
-      <a href="https://catalogodatos.gub.uy/dataset/a-tu-nombre-udelar" class="btn btn-transparent">
-        Datos abiertos en Catálogo Nacional
-        <%= image_tag 'iconos-datos.svg', class: 'icon github' %>
+      <a href="http://soporte.data.org.uy/es/customer/create-ticket/" class="btn btn-transparent">
+        ¿Problemas, dudas? Escribí a soporte
+        <%= image_tag 'iconos-soporte.svg', class: 'icon github' %>
       </a>
-      <a href="http://github.com/datauy/nomenclatorUDELAR/" class="btn btn-transparent">
-        Código de la aplicación en GitHub
-        <%= image_tag 'github-fill.svg', class: 'icon github' %>
-      </a>
-    </div>
-  </div>
-  <div class="group column center">
-    <h2>¿Quiénes somos?</h2>
-    <div>
-      <div class="logos">
-        <%= image_tag 'logo-data.svg', class: 'data-logo' %>
-      </div>
-      <div id='data-description' class="footer-toggle">
-        DATA Uruguay es una ONG que crea herramientas de tecnología cívica para promover el conocimiento y ejercicio de derechos y hace activismo a través de Datos Abiertos y Gobierno Abierto.
-        <div class="social-links">
-          <a href="http://data.org.uy">
-            <%= image_tag 'external-link.svg', class: 'social-icon' %>
+      <div class="toggle-content">
+        <a href="http://soporte.data.org.uy/es/" class="btn btn-transparent">
+          Base de conocimiento DATA Uruguay
+          <%= image_tag 'iconos-base-de-conocimiento.svg', class: 'icon github' %>
+        </a>
+        <div class="group">
+          <h2>Datos abiertos y software libre </h2>
+          <p>
+            Los datos utilizados en esta aplicación se encuentran disponibles para su reutilización como datos abiertos y el código del software es libre bajo licencia GPLv3.
+          </p>
+          <a href="https://catalogodatos.gub.uy/dataset/a-tu-nombre-udelar" class="btn btn-transparent">
+            Datos abiertos en Catálogo Nacional
+            <%= image_tag 'iconos-datos.svg', class: 'icon github' %>
           </a>
-          <a href="https://twitter.com/DATAuy/">
-            <%= image_tag 'twitter-fill.svg', class: 'social-icon' %>
-          </a>
-          <a href="https://facebook.com/DATAUruguay/">
-            <%= image_tag 'facebook-fill.svg', class: 'social-icon' %>
-          </a>
-          <a href="https://www.linkedin.com/company/datauy/">
-            <%= image_tag 'linkedin.svg', class: 'social-icon' %>
-          </a>
-          <a href="https://instagram.com/DATAuy/">
-            <%= image_tag 'instagram.svg', class: 'social-icon' %>
-          </a>
-          <a href="https://github.com/DATAuy/">
-            <%= image_tag 'github-fill.svg', class: 'social-icon' %>
+          <a href="http://github.com/datauy/nomenclatorUDELAR/" class="btn btn-transparent">
+            Código de la aplicación en GitHub
+            <%= image_tag 'github-fill.svg', class: 'icon github' %>
           </a>
         </div>
       </div>
     </div>
-    <div>
-      <div class="logos">
-        <%= image_tag 'logo-prg.svg', class: 'prg-logo' %>
+    <div class="group column center">
+      <div class="toggle-data" onclick="this.parentNode.classList.toggle('active');">
+        <h2>¿Quiénes somos?</h2>
+        <%= image_tag("arrow-down.png", alt:"Flecha expandir-contraer") %>
       </div>
-      <div id='partner-description' class="footer-toggle">
-        El Prorrectorado de Gestión ejecuta las políticas, estrategias, proyectos y normas aprobadas por el Consejo Directivo Central, en el marco de las directivas que dicte el Rector y bajo su supervisión.
-        <div class="social-links">
-          <a href="https://gestion.udelar.edu.uy">
-            <%= image_tag 'external-link.svg', class: 'social-icon' %>
-          </a>
-          <a href="https://twitter.com/gestionudelar">
-            <%= image_tag 'twitter-fill.svg', class: 'social-icon' %>
-          </a>
+      <div>
+        <div class="logos">
+          <%= image_tag 'logo-data.svg', class: 'data-logo' %>
+        </div>
+        <div class="toggle-content">
+          <div id='data-description'>
+            DATA Uruguay es una ONG que crea herramientas de tecnología cívica para promover el conocimiento y ejercicio de derechos y hace activismo a través de Datos Abiertos y Gobierno Abierto.
+            <div class="social-links">
+              <a href="http://data.org.uy">
+                <%= image_tag 'external-link.svg', class: 'social-icon' %>
+              </a>
+              <a href="https://twitter.com/DATAuy/">
+                <%= image_tag 'twitter-fill.svg', class: 'social-icon' %>
+              </a>
+              <a href="https://facebook.com/DATAUruguay/">
+                <%= image_tag 'facebook-fill.svg', class: 'social-icon' %>
+              </a>
+              <a href="https://www.linkedin.com/company/datauy/">
+                <%= image_tag 'linkedin.svg', class: 'social-icon' %>
+              </a>
+              <a href="https://instagram.com/DATAuy/">
+                <%= image_tag 'instagram.svg', class: 'social-icon' %>
+              </a>
+              <a href="https://github.com/DATAuy/">
+                <%= image_tag 'github-fill.svg', class: 'social-icon' %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="logos">
+          <%= image_tag 'logo-prg.svg', class: 'prg-logo' %>
+        </div>
+        <div class="toggle-content">
+          <div id='partner-description'>
+            El Prorrectorado de Gestión ejecuta las políticas, estrategias, proyectos y normas aprobadas por el Consejo Directivo Central, en el marco de las directivas que dicte el Rector y bajo su supervisión.
+            <div class="social-links">
+              <a href="https://gestion.udelar.edu.uy">
+                <%= image_tag 'external-link.svg', class: 'social-icon' %>
+              </a>
+              <a href="https://twitter.com/gestionudelar">
+                <%= image_tag 'twitter-fill.svg', class: 'social-icon' %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="logos">
+          <%= image_tag 'logo_caeg.svg', class: 'caeg-logo' %>
+        </div>
+        <div class="toggle-content">
+          <div id='partner-description'>
+            En el año 2012 se crea la Comisión Abierta de Equidad de Género (CAEG) como un espacio de reflexión y de definición de estrategias de abordaje de la perspectiva de equidad de género en las políticas universitarias.
+            <div class="social-links">
+              <a href="https://gestion.udelar.edu.uy/institucional/comision-abierta-de-equidad-y-genero-caeg">
+                <%= image_tag 'external-link.svg', class: 'social-icon' %>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div>
-      <div class="logos">
-        <%= image_tag 'logo_caeg.svg', class: 'caeg-logo' %>
-      </div>
-      <div id='partner-description' class="footer-toggle">
-        En el año 2012 se crea la Comisión Abierta de Equidad de Género (CAEG) como un espacio de reflexión y de definición de estrategias de abordaje de la perspectiva de equidad de género en las políticas universitarias.
-        <div class="social-links">
-          <a href="https://gestion.udelar.edu.uy/institucional/comision-abierta-de-equidad-y-genero-caeg">
-            <%= image_tag 'external-link.svg', class: 'social-icon' %>
-          </a>
-        </div>
-      </div>
+    <div class="group column">
+      <h2>Con el apoyo de:</h2>
+      <%= image_tag 'ILDA.svg', class: 'supporters' %>
+      <%= image_tag 'logo_mira_mama.svg', class: 'supporters' %>
     </div>
-  </div>
-  <div class="group column">
-    <h2>Con el apoyo de:</h2>
-    <%= image_tag 'ILDA.svg', class: 'supporters' %>
-    <%= image_tag 'logo_mira_mama.svg', class: 'supporters' %>
   </div>
   <div class="carousel slider-container">
     <h2>Conocé otros proyectos de DATA:</h2>
