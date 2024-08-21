@@ -43,7 +43,13 @@
         margin-left: -12.5%;
       }
     }
-
+    #percentage-estudiante li,
+    #percentage-funcionarie li,
+    #percentage-docente li {
+      .graph-container .graph {
+        height: 32vw;
+      }
+    }
   }
   #footer {
     padding: 30px 10%;
@@ -62,6 +68,9 @@
     #percentage-funcionarie li,
     #percentage-docente li {
       width: 49%;
+      .graph-container .graph {
+        height: 20vw;
+      }
     }
     .derecho {
       .container-derecho {

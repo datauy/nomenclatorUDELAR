@@ -85,9 +85,6 @@ namespace :import do
       import_name = 'services-initial'
     end
     puts "\nSTARTalling\n"
-    #Rake::Task["import:services"].invoke("#{import_name}-servicios", "servicios.csv")
-    puts "\n\nCalling data-types\n"
-    #Rake::Task["import:serv_data_types"].invoke("#{import_name}-serv_data_types", "stypes.csv")
     puts "\n\nCalling DOCENTES\n"
     Rake::Task["import:service_data"].invoke("#{import_name}-docentes", "servicios-docentes-2024.csv", "docente")
     Rake::Task["import:service_data"].reenable
@@ -105,10 +102,6 @@ namespace :import do
     Rake::Task["import:service_data"].reenable
     puts "\n\nCalling ACTIVOS\n"
     Rake::Task["import:service_data"].invoke("test-serv_data2", "servicios-estudiantes_actives-2023.csv", 2)
-    puts "\n\nCalling LUGARES\n"
-    #Rake::Task["import:places"].invoke("#{import_name}-places", "Places-UDELAR2.csv")
-    puts "\n\nCalling INTANGIBLES\n"
-    #Rake::Task["import:intangibles"].invoke("#{import_name}-intangibles", "Intangibles-UDELAR2.csv")
   end
   task :places, [:name, :file] => :environment do |_, args|
     file = args[:file].present? ? args[:file] : 'Places-UDELAR.csv'
